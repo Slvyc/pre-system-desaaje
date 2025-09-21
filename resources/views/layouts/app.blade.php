@@ -20,8 +20,7 @@
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Desa Aje Pagar Air</span>
-                    <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt=""
-                        class="h-8 w-auto" />
+                    <img src="images/logo-acehbesar.png" alt="" class="h-13 w-auto" />
                 </a>
             </div>
             <div class="flex lg:hidden">
@@ -144,7 +143,7 @@
         </div>
 
         {{-- copyright --}}
-        
+
         <div class="border-t border-green-800 mt-8">
             <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-sm">
                 <p>© 2025 Pemerintah Desa Aje. All rights reserved.</p>
@@ -154,6 +153,7 @@
     </footer>
 
     {{-- END FOOTER --}}
-    
+
 </body>
+
 </html>
