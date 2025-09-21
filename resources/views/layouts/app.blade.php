@@ -20,7 +20,8 @@
             <div class="flex items-center lg:flex-1 gap-4">
                 {{-- logo --}}
                 <a href="#" class="-m-1.5 p-1.5 flex items-center">
-                    <img src="images/logo-acehbesar.png" alt="logo-acehbesar" loading="lazy" class="h-12 w-auto" />
+                    <img src="{{ asset('images/logo-acehbesar.png') }}" alt="logo-acehbesar" loading="lazy"
+                        class="h-12 w-auto" />
                 </a>
 
                 {{-- nama desa --}}
@@ -44,7 +45,7 @@
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
-                <a href="{{ route('beritaDesa') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
+                <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Belanja</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">PPID</a>
             </div>
@@ -104,7 +105,7 @@
                     <li><a href="#"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Geodata</a>
                     </li>
-                    <li><a href="{{ route('beritaDesa') }}"
+                    <li><a href="{{ route('berita') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Berita</a>
                     </li>
                     <li><a href="#"
@@ -146,7 +147,7 @@
     <footer class="bg-custom text-white">
         <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
-                <img src="images/logo-desa.png" alt="Logo Desa" loading="lazy" class="w-20 mb-4">
+                <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Desa" loading="lazy" class="w-20 mb-4">
                 <h3 class="font-bold text-lg text-white mb-2">Pemerintah Desa Aje</h3>
                 <p class="text-sm leading-relaxed">
                     Jl. jalan jalan <br>

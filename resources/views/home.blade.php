@@ -208,7 +208,7 @@
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     SOTK
                 </h2>
-                <a href="{{ route('SOTK') }}"
+                <a href="{{ route('sotk') }}"
                     class="mt-4 lg:mt-0 bg-custom self-start text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>
@@ -414,7 +414,7 @@
                     </p>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <a href="{{ route('beritaDesa') }}"
+                    <a href="{{ route('berita') }}"
                         class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
                         Lihat Selengkapnya
                     </a>
