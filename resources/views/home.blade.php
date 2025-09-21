@@ -61,7 +61,7 @@
     {{-- SHORTCUT --}}
 
     <section class="mt-165 relative bg-custom py-20 rounded-t-4xl">
-        <div class="max-w-7xl mx-auto px-6 justify-center items-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 justify-center items-center">
             {{-- Gric Card nya --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 -mt-23 -translate-y-16">
 
@@ -142,7 +142,7 @@
     {{-- SAMBUTAN KADES --}}
 
     <section class="pb-20 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 grid md:grid-cols-3 gap-12 items-center">
 
             {{-- image kdes --}}
             <div class="flex items-center justify-center">
@@ -179,7 +179,7 @@
     {{-- PETA DESA --}}
 
     <section class="pb-16 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="max-w-7xl mx-auto px-4 md:px-0 space-y-8">
             <div class="text-start">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-custom">PETA DESA</h2>
                 <p class="mt-2 text-gray-700 text-base sm:text-lg">
@@ -201,7 +201,7 @@
     {{-- CARD SOTK --}}
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 mb-20">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     SOTK
@@ -295,7 +295,7 @@
     {{-- ADMINISTRASI --}}
 
     <section class="py-20 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="text-start mb-12">
                 <h2 class="text-4xl font-extrabold text-custom mb-3">
                     ADMINISTRASI PENDUDUK
@@ -352,7 +352,7 @@
     {{-- APB DESA --}}
 
     <section class="py-10 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-extrabold text-custom mb-4">
                     APB DESA 2025
@@ -401,7 +401,7 @@
     {{-- BERITA --}}
 
     <section class="py-20 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
                 <div class="text-start">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
@@ -730,7 +730,7 @@
     {{-- POTENSI DESA --}}
 
     <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="grid lg:grid-cols-2 gap-6 items-center">
                 <div>
                     <h2 class="text-4xl font-extrabold text-custom mb-4">
@@ -800,9 +800,8 @@
     {{-- BELI DARI DESA --}}
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="flex flex-col lg:flex-row items-start lg:items-center justify-between mx-auto">
-                <!-- Kiri: Judul + Deskripsi -->
                 <div>
                     <h2 class="text-4xl font-extrabold text-custom mb-2">
                         BELI DARI DESA
@@ -863,7 +862,7 @@
     {{-- GALERI --}}
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="flex items-center justify-between mb-12">
                 <h2 class="text-4xl font-extrabold text-custom">
                     GALERI DESA
