@@ -37,7 +37,7 @@
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
-                <a href="#" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
+                <a href="{{ route('beritaDesa') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Belanja</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">PPID</a>
             </div>

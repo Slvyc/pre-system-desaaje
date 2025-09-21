@@ -3,8 +3,8 @@
 @section('content')
 
     <section class="py-20 bg-custom-2 pt-30">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-start py-12">
+        <div class="max-w-7xl mx-auto px-6 md:px-0">
+            <div class="text-start py-8">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     BERITA TERBARU DESA
                 </h2>
@@ -18,7 +18,7 @@
 
                 {{-- card 1 --}}
                 @foreach (range(1, 10) as $i)
-                <a href="#" class="no-underline">
+                <a href="{{ route('detailBerita') }}" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                         <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"

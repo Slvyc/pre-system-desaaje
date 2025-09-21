@@ -14,6 +14,10 @@ Route::get('/Berita Desa', function () {
     return view('beritaDesa');
 })->name('beritaDesa');
 
+Route::get('/Berita', function () {
+    return view('detailBerita');
+})->name('detailBerita');
+
 Route::get('/SOTK', function () {
     return view('SOTK');
 })->name('SOTK');
