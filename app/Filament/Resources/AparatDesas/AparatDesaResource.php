@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\Galeris;
+namespace App\Filament\Resources\AparatDesas;
 
-use App\Filament\Resources\Galeris\Pages\ManageGaleris;
-use App\Models\Galeri;
+use App\Filament\Resources\AparatDesas\Pages\ManageAparatDesas;
+use App\Models\AparatDesa;
 use BackedEnum;
+use Faker\Core\File;
+use Filament\Infolists\Components\ImageEntry;
 use UnitEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -12,7 +14,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\TextInput;
-use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -22,39 +23,38 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\ImageColumn;
 
-class GaleriResource extends Resource
+class AparatDesaResource extends Resource
 {
-    protected static ?string $model = Galeri::class;
+    protected static ?string $model = AparatDesa::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-photo';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
+
     protected static string | UnitEnum | null $navigationGroup = 'Konten';
-    protected static ?string $recordTitleAttribute = 'nama_gambar';
-    protected static ?string $navigationLabel = 'Galeri';
-    protected static ?string $label = 'Galeri'; // Mengubah nama header
-    protected static ?string $slug = 'galeri';
+
+    protected static ?string $recordTitleAttribute = 'nama_aparat';
 
     public static function getPluralLabel(): string
     {
-        return 'Galeri Foto';
+        return 'Aparat Pemerintah Desa';
     }
 
     public static function getLabel(): string
     {
-        return 'Galeri';
+        return 'Aparat';
     }
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('nama_gambar')
+                TextInput::make('nama_aparat')
                     ->required(),
-                FileUpload::make('file_path')
-                    ->label('Gambar')
-                    ->required()
-                    ->directory('galeri')
+                TextInput::make('jabatan_aparat')
+                    ->required(),
+                FileUpload::make('foto_aparat')
+                    ->label('Foto Aparat')
+                    ->directory('foto_aparat')
                     ->disk('public')
-                    ->image()
                     ->columnSpan('full')
                     ->imagePreviewHeight('250')
                     ->imageEditor(),
@@ -65,10 +65,12 @@ class GaleriResource extends Resource
     {
         return $schema
             ->components([
-                TextEntry::make('nama_gambar'),
-                ImageEntry::make('file_path')
+                TextEntry::make('nama_aparat'),
+                TextEntry::make('jabatan_aparat'),
+                ImageEntry::make('foto_aparat')
                     ->disk('public')
-                    ->label('Gambar'),
+                    ->label('Foto Aparat')
+                    ->placeholder('-'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
@@ -81,14 +83,16 @@ class GaleriResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('nama_gambar')
+            ->recordTitleAttribute('nama_aparat')
             ->columns([
-                TextColumn::make('nama_gambar')
+                TextColumn::make('nama_aparat')
                     ->searchable(),
-                ImageColumn::make('file_path')
+                TextColumn::make('jabatan_aparat')
+                    ->searchable(),
+                ImageColumn::make('foto_aparat')
                     ->height(200)
                     ->disk('public')
-                    ->label('Gambar'),
+                    ->label('Foto Aparat'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -116,7 +120,7 @@ class GaleriResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageGaleris::route('/'),
+            'index' => ManageAparatDesas::route('/'),
         ];
     }
 }

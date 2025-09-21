@@ -33,7 +33,7 @@
             </div>
             {{-- Navbar Links Group --}}
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="home" class="text-md font-semibold leading-6 text-gray-900">Home</a>
+                <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-gray-900">Home</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
