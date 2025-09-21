@@ -23,7 +23,8 @@
                 <img src="https://picsum.photos/id/1015/1600/900" alt="Slide 2" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white">Layanan Desa Digital</h1>
+                    <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 leading-snug">
+                        layanan Desa</h1>
                 </div>
             </div>
 
@@ -32,7 +33,8 @@
                 <img src="https://picsum.photos/id/1019/1600/900" alt="Slide 3" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white">Transparansi & Inovasi</h1>
+                    <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 leading-snug">
+                        layanan Desa</h1>
                 </div>
             </div>
         </div>
@@ -736,7 +738,7 @@
                     <h2 class="text-4xl font-extrabold text-custom mb-4">
                         POTENSI DESA
                     </h2>
-                    <a href="#potensi-lengkap"
+                    <a href="{{ route('potensiDesa') }}"
                         class="inline-block bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
                         Lihat Selengkapnya
                     </a>

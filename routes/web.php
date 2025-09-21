@@ -21,3 +21,12 @@ Route::get('/Berita', function () {
 Route::get('/SOTK', function () {
     return view('SOTK');
 })->name('SOTK');
+
+Route::get('/Potensi Desa', function () {
+    return view('potensiDesa');
+})->name('potensiDesa');
+
+Route::get('/Potensi', function () {
+    return view('detailPotensiDesa');
+})->name('detailPotensiDesa');
+
