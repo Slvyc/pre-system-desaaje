@@ -9,3 +9,6 @@ Route::get('/', function () {
 Route::get('/berita-backend', function () {
     return view('berita-backend');
 });
+Route::get('/SOTK', function () {
+    return view('SOTK');
+})->name('SOTK');
