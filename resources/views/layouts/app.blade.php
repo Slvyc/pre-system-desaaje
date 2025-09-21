@@ -34,7 +34,7 @@
             </div>
             {{-- Navbar Links Group --}}
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="home" class="text-md font-semibold leading-6 text-gray-900">Home</a>
+                <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-gray-900">Home</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
@@ -144,7 +144,7 @@
         </div>
 
         {{-- copyright --}}
-        
+
         <div class="border-t border-green-800 mt-8">
             <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-sm">
                 <p>© 2025 Pemerintah Desa Aje. All rights reserved.</p>
@@ -154,6 +154,7 @@
     </footer>
 
     {{-- END FOOTER --}}
-    
+
 </body>
+
 </html>

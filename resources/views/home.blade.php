@@ -7,7 +7,8 @@
         <div id="carousel" class="relative h-full">
             {{-- slide 1 --}}
             <div class="absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1018/1600/900" alt="Slide 1" class="w-full h-full object-cover">
+                <img src="https://picsum.photos/id/1018/1600/900" alt="Slide 1" loading="lazy"
+                    class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                     <h1 class="text-3xl md:text-6xl font-bold text-white mb-4 leading-snug">
                         Selamat Datang<br>
@@ -19,7 +20,8 @@
 
             {{-- slide 2 --}}
             <div class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1015/1600/900" alt="Slide 2" class="w-full h-full object-cover">
+                <img src="https://picsum.photos/id/1015/1600/900" alt="Slide 2" loading="lazy"
+                    class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h1 class="text-5xl md:text-7xl font-bold text-white">Layanan Desa Digital</h1>
                 </div>
@@ -27,7 +29,8 @@
 
             {{-- slide 3 --}}
             <div class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1019/1600/900" alt="Slide 3" class="w-full h-full object-cover">
+                <img src="https://picsum.photos/id/1019/1600/900" alt="Slide 3" loading="lazy"
+                    class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h1 class="text-5xl md:text-7xl font-bold text-white">Transparansi & Inovasi</h1>
                 </div>
@@ -57,7 +60,7 @@
 
     {{-- SHORTCUT --}}
 
-    <section class="mt-165 relative bg-custom py-20 rounded-t-[100px]">
+    <section class="mt-165 relative bg-custom py-20 rounded-t-4xl">
         <div class="max-w-7xl mx-auto px-6 justify-center items-center">
             {{-- Gric Card nya --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 -mt-23 -translate-y-16">
@@ -143,7 +146,7 @@
 
             {{-- image kdes --}}
             <div class="flex items-center justify-center">
-                <img src="images/unknown-person.jpeg" alt="Kepala Desa"
+                <img src="images/unknown-person.jpeg" alt="Kepala Desa" loading="lazy"
                     class="w-72 h-96 object-cover rounded-b-[120px] shadow-[0_10px_40px_rgba(0,0,0,0.4)] transition-shadow duration-500 mb-4">
             </div>
 
@@ -196,14 +199,15 @@
     {{-- END PETA DESA --}}
 
     {{-- CARD SOTK --}}
+
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-6 mb-20">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     SOTK
                 </h2>
-                <a href="#produk-desa"
-                    class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                <a href="{{ route('SOTK') }}"
+                    class="mt-4 lg:mt-0 bg-custom self-start text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>
             </div>
@@ -212,56 +216,76 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
                 {{-- Card Template --}}
-                <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow h-80 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg" alt="Administration"
-                            class="w-full h-64 md:h-full object-cover">
-                    </div>
-                    <div
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10">
-                        <h3 class="text-base sm:text-lg font-bold text-white">Nama Aparat Desa</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">Kepala Administrasi</p>
-                    </div>
-                </div>
+                <article class="relative mb-12">
+                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
+                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    </figure>
+
+                    <figcaption
+                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
+                        <h3 class="text-sm sm:text-lg font-bold text-white">
+                            Bapak...
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Kepala Administrasi
+                        </p>
+                    </figcaption>
+                </article>
 
                 {{-- Card 2 --}}
-                <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow h-80 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg" alt="Administration"
-                            class="w-full h-64 md:h-full object-cover">
-                    </div>
-                    <div
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10">
-                        <h3 class="text-base sm:text-lg font-bold text-white">Nama Aparat Desa</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">Kepala Administrasi</p>
-                    </div>
-                </div>
+                <article class="relative mb-12">
+                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
+                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    </figure>
+
+                    <figcaption
+                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
+                        <h3 class="text-sm sm:text-lg font-bold text-white">
+                            Bapak...
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Kepala Administrasi
+                        </p>
+                    </figcaption>
+                </article>
 
                 {{-- Card 3 --}}
-                <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow h-80 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg" alt="Administration"
-                            class="w-full h-64 md:h-full object-cover">
-                    </div>
-                    <div
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10">
-                        <h3 class="text-base sm:text-lg font-bold text-white">Nama Aparat Desa</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">Kepala Administrasi</p>
-                    </div>
-                </div>
+                <article class="relative mb-12">
+                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
+                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    </figure>
+
+                    <figcaption
+                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
+                        <h3 class="text-sm sm:text-lg font-bold text-white">
+                            Bapak...
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Kepala Administrasi
+                        </p>
+                    </figcaption>
+                </article>
 
                 {{-- Card 4 --}}
-                <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow h-80 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg" alt="Administration"
-                            class="w-full h-64 md:h-full object-cover">
-                    </div>
-                    <div
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10">
-                        <h3 class="text-base sm:text-lg font-bold text-white">Nama Aparat Desa</h3>
-                        <p class="text-xs sm:text-sm text-gray-400">Kepala Administrasi</p>
-                    </div>
-                </div>
+                <article class="relative mb-12">
+                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
+                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    </figure>
+
+                    <figcaption
+                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
+                        <h3 class="text-sm sm:text-lg font-bold text-white">
+                            Bapak...
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-300">
+                            Kepala Administrasi
+                        </p>
+                    </figcaption>
+                </article>
             </div>
         </div>
     </section>
@@ -338,7 +362,7 @@
                     belanja, serta pembiayaan yang dialokasikan untuk pembangunan desa dan pemberdayaan masyarakat.
                 </p>
                 <a href="#"
-                    class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lgtransition-colors duration-300">
+                    class="mt-4 lg:mt-0 bg-custom rounded-xl text-white font-semibold py-2 px-6 transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>
             </div>
@@ -403,7 +427,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -453,7 +478,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -502,7 +528,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -551,7 +578,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -600,7 +628,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -649,7 +678,8 @@
                 <a href="#" class="no-underline">
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" class="w-full h-56 object-cover">
+                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
+                            class="w-full h-56 object-cover">
                         <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
                             12 Sep 2025
                         </div>
@@ -727,7 +757,7 @@
 
                     {{-- image 1 --}}
                     <article class="relative rounded-xl overflow-hidden shadow-md group">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa"
+                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                             class="w-full h-56 object-cover group-hover:scale-105 transition">
                         <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">Pertanian</h3>
@@ -736,7 +766,7 @@
 
                     {{-- image 2 --}}
                     <article class="relative rounded-xl overflow-hidden shadow-md group">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa"
+                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                             class="w-full h-56 object-cover group-hover:scale-105 transition">
                         <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">Pariwisata</h3>
@@ -745,7 +775,7 @@
 
                     {{-- image 3 --}}
                     <article class="relative rounded-xl overflow-hidden shadow-md group col-span-2">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa"
+                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                             class="w-full h-64 object-cover group-hover:scale-105 transition">
                         <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">UMKM Lokal</h3>
@@ -755,7 +785,7 @@
 
                 {{-- image gede --}}
                 <div class="relative rounded-xl overflow-hidden shadow-lg group">
-                    <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa"
+                    <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                         class="w-full h-80 object-cover group-hover:scale-105 transition duration-500">
                     <div class="absolute inset-0 bg-custom/70 flex flex-col p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">Desa</h3>
