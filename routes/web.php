@@ -9,6 +9,11 @@ Route::get('/', function () {
 Route::get('/berita-backend', function () {
     return view('berita-backend');
 });
+
+Route::get('/Berita Desa', function () {
+    return view('beritaDesa');
+})->name('beritaDesa');
+
 Route::get('/SOTK', function () {
     return view('SOTK');
 })->name('SOTK');

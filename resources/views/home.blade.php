@@ -412,7 +412,7 @@
                     </p>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <a href="#produk-desa"
+                    <a href="{{ route('beritaDesa') }}"
                         class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
                         Lihat Selengkapnya
                     </a>
