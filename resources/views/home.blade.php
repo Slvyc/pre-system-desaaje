@@ -148,7 +148,7 @@
 
             {{-- image kdes --}}
             <div class="flex items-center justify-center">
-                <img src="images/unknown-person.jpeg" alt="Kepala Desa" loading="lazy"
+                <img src="images/kepaladesa Aje.jpeg" alt="Kepala Desa" loading="lazy"
                     class="w-72 h-96 object-cover rounded-b-[120px] shadow-[0_10px_40px_rgba(0,0,0,0.4)] transition-shadow duration-500 mb-4">
             </div>
 
@@ -202,7 +202,7 @@
 
     {{-- CARD SOTK --}}
 
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-custom-2">
         <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
@@ -219,7 +219,7 @@
                 @foreach ($aparats as $aparat)
                     {{-- Card Template --}}
                     <article class="relative mb-12">
-                        <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                        <figure class="rounded-t-3xl overflow-hidden shadow h-54 md:h-96">
                             <img src="{{ asset('storage/' . $aparat->foto_aparat) }}"
                                 alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
                         </figure>
@@ -243,7 +243,7 @@
 
     {{-- ADMINISTRASI --}}
 
-    <section class="py-20 bg-custom-2">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="text-start mb-12">
                 <h2 class="text-4xl font-extrabold text-custom mb-3">
