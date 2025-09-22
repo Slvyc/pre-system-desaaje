@@ -147,7 +147,7 @@
     <footer class="bg-custom text-white">
         <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
             <div>
-                <img src="images/logo-desa.png" alt="Logo Desa" loading="lazy" class="w-20 mb-4">
+                <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Desa" loading="lazy" class="w-20 mb-4">
                 <h3 class="font-bold text-lg text-white mb-2">Pemerintah Desa Aje</h3>
                 <p class="text-sm leading-relaxed">
                     Jl. jalan jalan <br>

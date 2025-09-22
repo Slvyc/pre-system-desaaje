@@ -14,14 +14,14 @@
             </div>
 
             {{-- produk grid --}}
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 {{-- produk --}}
                 @foreach (range(1, 5) as $i)
                 <a href="{{ route('detailProduk') }}" class="no-underline">
-                    <article>
+                    <article class="mb-5">
                         <img src="images/tegel.jpeg" alt="Tegel" loading="lazy"
-                            class="w-full h-80 object-cover bg-custom-2 rounded-4xl">
+                            class="w-full h-80 object-cover bg-custom-2 rounded-2xl">
                         <div class="py-6">
                             <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
 

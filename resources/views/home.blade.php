@@ -823,14 +823,14 @@
             </header>
 
             {{-- produk grid --}}
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 {{-- produk --}}
                 @foreach (range(1, 3) as $i)
                 <a href="{{ route('detailProduk') }}" class="no-underline">
                     <article>
                         <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
-                            class="w-full h-100 object-cover bg-custom-2 rounded-4xl">
+                            class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
                         <div class="py-6">
                             <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
 
@@ -893,7 +893,7 @@
                 <h2 class="text-4xl font-extrabold text-custom">
                     GALERI DESA
                 </h2>
-                <a href="#produk-desa"
+                <a href="{{ route('galeri') }}"
                     class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>

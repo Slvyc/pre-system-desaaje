@@ -38,3 +38,7 @@ Route::get('/Produk Desa', function () {
 Route::get('/Produk', function () {
     return view('detailProduk');
 })->name('detailProduk');
+
+Route::get('/Galeri', function () {
+    return view('galeri');
+})->name('galeri');
