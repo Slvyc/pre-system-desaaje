@@ -216,78 +216,25 @@
 
             {{-- grid --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                @foreach ($aparats as $aparat)
+                    {{-- Card Template --}}
+                    <article class="relative mb-12">
+                        <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
+                            <img src="{{ asset('storage/' . $aparat->foto_aparat) }}"
+                                alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                        </figure>
 
-                {{-- Card Template --}}
-                <article class="relative mb-12">
-                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
-                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
-                    </figure>
-
-                    <figcaption
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                        <h3 class="text-sm sm:text-lg font-bold text-white">
-                            Bapak...
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-300">
-                            Kepala Administrasi
-                        </p>
-                    </figcaption>
-                </article>
-
-                {{-- Card 2 --}}
-                <article class="relative mb-12">
-                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
-                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
-                    </figure>
-
-                    <figcaption
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                        <h3 class="text-sm sm:text-lg font-bold text-white">
-                            Bapak...
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-300">
-                            Kepala Administrasi
-                        </p>
-                    </figcaption>
-                </article>
-
-                {{-- Card 3 --}}
-                <article class="relative mb-12">
-                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
-                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
-                    </figure>
-
-                    <figcaption
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                        <h3 class="text-sm sm:text-lg font-bold text-white">
-                            Bapak...
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-300">
-                            Kepala Administrasi
-                        </p>
-                    </figcaption>
-                </article>
-
-                {{-- Card 4 --}}
-                <article class="relative mb-12">
-                    <figure class="rounded-3xl overflow-hidden shadow h-54 md:h-96">
-                        <img src="images/Man empty avatar_ Vector photo placeholder for….jpeg"
-                            alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
-                    </figure>
-
-                    <figcaption
-                        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                        <h3 class="text-sm sm:text-lg font-bold text-white">
-                            Bapak...
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-300">
-                            Kepala Administrasi
-                        </p>
-                    </figcaption>
-                </article>
+                        <figcaption
+                            class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
+                            <h3 class="text-sm sm:text-lg font-bold text-white">
+                                {{ $aparat->nama_aparat }}
+                            </h3>
+                            <p class="text-xs sm:text-sm text-gray-300">
+                                {{ $aparat->jabatan_aparat }}
+                            </p>
+                        </figcaption>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
@@ -426,305 +373,54 @@
 
                 {{-- card 1 --}}
 
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
+                @foreach ($beritas as $berita)
+                    <a href="{{ route('berita.show', $berita->slug_berita) }}" class="no-underline">
+                        <article
+                            class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                            <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}"
+                                loading="lazy" class="w-full h-56 object-cover">
+                            <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
+                                {{ \Carbon\Carbon::parse($berita->tanggal_berita)->locale('id')->translatedFormat('l, d F Y') }}
+                            </div>
 
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
+                            {{-- konten --}}
+                            <div class="p-6">
+                                <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
+                                    {{ $berita->judul_berita }}
+                                </h3>
+                                <p class="text-gray-700 text-sm mb-4 line-clamp-2">
+                                    {{ $berita->bagian_berita }}
+                                </p>
 
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
+                                <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
 
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
+                                    {{-- administrastor --}}
+                                    <div class="flex items-center space-x-1" aria-label="Penulis Berita">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-4 h-4 text-black/50">
+                                            <path fill-rule="evenodd"
+                                                d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span>Administrator</span>
+                                    </div>
 
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
-
-                {{-- card 2 --}}
-
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
-
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
-
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
-
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
-
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
-
-                {{-- card 3 --}}
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
-
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
-
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
-
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
-
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
-
-                {{-- card 4 --}}
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
-
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
-
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
-
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
-
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
-
-                {{-- card 5 --}}
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
-
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
-
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
-
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
-
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
-
-                {{-- card 6 --}}
-                <a href="#" class="no-underline">
-                    <article
-                        class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                        <img src="images/unknown-person.jpeg" alt="Berita 1" loading="lazy"
-                            class="w-full h-56 object-cover">
-                        <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                            12 Sep 2025
-                        </div>
-
-                        {{-- konten --}}
-                        <div class="p-6">
-                            <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur numquam
-                                unde iure beatae, quo aliquid amet! Ipsam repellat iusto architecto aliquid minus eaque,
-                                nesciunt perferendis porro ab eveniet ex.
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                Ringkasan berita singkat supaya pengunjung dapat mengetahui inti informasi dengan cepat.
-                            </p>
-
-                            <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
-
-                                {{-- administrastor --}}
-                                <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path fill-rule="evenodd"
-                                            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Administrator</span>
-                                </div>
-
-                                {{-- view --}}
-                                <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                        class="w-4 h-4 text-black/50">
-                                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                        <path fill-rule="evenodd"
-                                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                    <span>245</span>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
-                </a>
+                                    {{-- view --}}
+                                    <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                            class="w-4 h-4 text-black/50">
+                                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                            <path fill-rule="evenodd"
+                                                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <span>{{ $berita->views }}</span>
+                                    </div>
+                                </footer>
+                            </div>
+                        </article>
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>
@@ -827,57 +523,57 @@
 
                 {{-- produk --}}
                 @foreach (range(1, 3) as $i)
-                <a href="{{ route('detailProduk') }}" class="no-underline">
-                    <article>
-                        <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
-                            class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
-                        <div class="py-6">
-                            <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
+                    <a href="{{ route('detailProduk') }}" class="no-underline">
+                        <article>
+                            <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
+                                class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
+                            <div class="py-6">
+                                <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
 
-                            {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
-                            <div class="flex items-center mb-2" id="rating-1">
-                                <button class="star text-gray-300" data-value="1"><svg xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button class="star text-gray-300" data-value="2"><svg xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button class="star text-gray-300" data-value="3"><svg xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button class="star text-gray-300" data-value="4"><svg xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <button class="star text-gray-300" data-value="5"><svg xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                        <path fill-rule="evenodd"
-                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                                <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
+                                {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
+                                <div class="flex items-center mb-2" id="rating-1">
+                                    <button class="star text-gray-300" data-value="1"><svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button class="star text-gray-300" data-value="2"><svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button class="star text-gray-300" data-value="3"><svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button class="star text-gray-300" data-value="4"><svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <button class="star text-gray-300" data-value="5"><svg xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                            <path fill-rule="evenodd"
+                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
+                                </div>
+
+                                <p class="text-lg font-semibold text-black">Rp 90.000 / m²</p>
                             </div>
-
-                            <p class="text-lg font-semibold text-black">Rp 90.000 / m²</p>
-                        </div>
-                    </article>
-                </a>
+                        </article>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -901,39 +597,17 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                {{-- card 1 --}}
-                <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <picture>
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Upacara adat Desa X"
-                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                            loading="lazy">
-                    </picture>
-                    <figcaption class="sr-only line-clamp-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-                        sequi fugit et, aspernatur iste quas quisquam eveniet? Aliquid animi eveniet aspernatur natus
-                        asperiores, maiores aliquam minima ratione cumque quos. Repellendus!</figcaption>
-                </figure>
-
-                {{-- card 2 --}}
-                <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <picture>
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Sawah hijau Desa X"
-                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                            loading="lazy">
-                    </picture>
-                    <figcaption class="sr-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quod neque
-                        quam odio totam non quae ea provident accusantium architecto, repellat harum libero illo illum eos
-                        voluptatem dolores, vel a.</figcaption>
-                </figure>
-
-                {{-- card 3 --}}
-                <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <picture>
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Kerajinan anyaman bambu Desa X"
-                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                            loading="lazy">
-                    </picture>
-                    <figcaption class="sr-only">Desa </figcaption>
-                </figure>
+                @foreach ($galeris as $galeri)
+                    {{-- card 1 --}}
+                    <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                        <picture>
+                            <img src="{{ asset('storage/' . $galeri->file_path) }}" alt="{{ $galeri->nama_gambar }}"
+                                class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                loading="lazy">
+                        </picture>
+                        <figcaption class="sr-only line-clamp-2">{{ $galeri->nama_gambar }}</figcaption>
+                    </figure>
+                @endforeach
             </div>
         </div>
     </section>
