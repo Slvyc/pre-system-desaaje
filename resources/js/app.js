@@ -72,11 +72,11 @@ const loveIcon = document.getElementById('love-icon');
 loveBtn.addEventListener('click', () => {
   if(loveIcon.classList.contains('fill-current')){
     // jika sudah aktif, reset
-    loveIcon.classList.remove('fill-current', 'text-red-500');
+    loveIcon.classList.remove('fill-current', 'text-red-700');
     loveIcon.classList.add('text-gray-400');
   } else {
     // aktifkan
-    loveIcon.classList.add('fill-current', 'text-red-500');
+    loveIcon.classList.add('fill-current', 'text-red-700');
     loveIcon.classList.remove('text-gray-400');
   }
 });

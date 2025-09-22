@@ -20,7 +20,7 @@
                 @foreach (range(1, 5) as $i)
                 <a href="{{ route('detailProduk') }}" class="no-underline">
                     <article>
-                        <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
+                        <img src="images/tegel.jpeg" alt="Tegel" loading="lazy"
                             class="w-full h-80 object-cover bg-custom-2 rounded-4xl">
                         <div class="py-6">
                             <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>

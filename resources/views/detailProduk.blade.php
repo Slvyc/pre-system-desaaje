@@ -5,7 +5,7 @@
     <section class="max-w-7xl mx-auto p-6 pt-32 mb-10">
         
         {{-- breadcrumb --}}
-        <nav aria-label="Breadcrumb" class="text-sm mb-4 text-gray-600">
+        <nav aria-label="Breadcrumb" class="text-sm md:text-base mb-4 text-gray-600">
             <ol class="list-reset flex">
                 <li>
                     <a href="{{ route('produkDesa') }}" class="hover:text-custom font-medium">Produk</a>
@@ -22,7 +22,7 @@
             {{-- product --}}
             <article class="space-y-4">
                 <div class="bg-gray-100 rounded-xl p-4">
-                    <img src="tahu" alt="tahu"
+                    <img src="images/tahu.jpeg" alt="tahu"
                         class="w-full h-100 rounded-xl object-cover" loading="lazy">
                 </div>
             </article>
@@ -91,14 +91,14 @@
                 <div class="flex space-x-2">
 
                     {{-- hubungi penjual --}}
-                    <button class="flex-1 bg-custom text-white p-3 rounded-xl hover:bg-gray-800 transition"
+                    <button class="flex-1 bg-custom text-white p-3 rounded-lg hover:bg-custom/95 transition"
                         aria-label="Hubungi penjual produk Tahu via WhatsApp atau telepon">
                         Hubungi Penjual
                     </button>
 
                     {{-- love --}}
                     <button id="love-btn"
-                        class="bg-gray-200 text-red-700 p-3 rounded-xl hover:bg-gray-300 transition flex items-center justify-center"
+                        class="bg-gray-200 text-red-700 p-3 rounded-lg hover:bg-gray-300 transition flex items-center justify-center"
                         aria-label="Add to wishlist">
                         <svg id="love-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
