@@ -18,6 +18,7 @@
 
                 {{-- produk --}}
                 @foreach (range(1, 5) as $i)
+                <a href="{{ route('detailProduk') }}" class="no-underline">
                     <article>
                         <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
                             class="w-full h-80 object-cover bg-custom-2 rounded-4xl">
@@ -67,6 +68,7 @@
                             <p class="text-lg font-semibold text-black">Rp 90.000 / m²</p>
                         </div>
                     </article>
+                </a>
                 @endforeach
             </div>
         </div>
