@@ -26,7 +26,7 @@
             {{-- artikel utama --}}
 
             <article class="lg:col-span-3 bg-white rounded-0 md:rounded-3xl p-6">
-                <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="Judul Berita" loading="lazy"
+                <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}" loading="lazy"
                     class="w-full h-64 md:h-120 object-cover rounded-xl mb-6">
 
                 {{-- <h1 class="text-2xl md:text-4xl font-bold leading-snug text-gray-900 mb-4">

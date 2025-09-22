@@ -434,7 +434,7 @@
                     <h2 class="text-4xl font-extrabold text-custom mb-4">
                         POTENSI DESA
                     </h2>
-                    <a href="{{ route('potensiDesa') }}"
+                    <a href="{{ route('potensi') }}"
                         class="inline-block bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
                         Lihat Selengkapnya
                     </a>

@@ -21,27 +21,26 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {{-- card 1 --}}
-                @foreach (range(1, 5) as $i)
+                @foreach ($potensis as $potensi)
                     <article
                         class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                         <div class="relative">
-                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Berita 1" loading="lazy"
-                                class="w-full h-full object-cover">
+                            <img src="{{ asset('storage/' . $potensi->gambar_potensi) }}" alt="{{ $potensi->slug }}"
+                                loading="lazy" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-custom/70 flex items-end p-4">
                                 <h3 class="text-white text-lg font-extrabold line-clamp-2">
-                                    Potensi Perkebunan
+                                    {{ $potensi->nama_potensi }}
                                 </h3>
                             </div>
                         </div>
 
                         <div class="p-6">
                             <p class="text-gray-700 text-sm mb-4 line-clamp-2 leading-snug">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita enim atque itaque obcaecati
-                                aspernatur sapiente iste distinctio fugiat laudantium ea, amet neque perspiciatis inventore
-                                quasi tempora nobis quas placeat earum.
+                                {{ $potensi->bagian_potensi }}
                             </p>
                             <div class="mt-6">
-                                <a href="{{ route('detailPotensiDesa') }}" class="inline-flex text-sm font-semibold text-custom transition">
+                                <a href="{{ route('potensi.show', $potensi->slug) }}"
+                                    class="inline-flex text-sm font-semibold text-custom transition">
                                     Lihat selengkapnya
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                         stroke="currentColor" class="w-4 h-4 ml-1">
@@ -52,6 +51,9 @@
                         </div>
                     </article>
                 @endforeach
+                <div class="mt-6 text-center">
+                    {{ $potensis->links() }}
+                </div>
             </div>
         </div>
     </section>

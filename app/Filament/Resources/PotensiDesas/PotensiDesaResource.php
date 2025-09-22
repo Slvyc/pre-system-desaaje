@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\Beritas;
+namespace App\Filament\Resources\PotensiDesas;
 
-use App\Filament\Resources\Beritas\Pages\ManageBeritas;
-use App\Models\Berita;
+use App\Filament\Resources\PotensiDesas\Pages\ManagePotensiDesas;
+use App\Models\PotensiDesa;
 use BackedEnum;
 use UnitEnum;
-use Dom\Text;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Infolists\Components\TextEntry;
@@ -25,65 +23,53 @@ use Filament\Tables\Table;
 use Filament\Forms\Components\RichEditor;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 
-class BeritaResource extends Resource
+class PotensiDesaResource extends Resource
 {
-    protected static ?string $model = Berita::class;
+    protected static ?string $model = PotensiDesa::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-newspaper';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-presentation-chart-line';
 
     protected static string | UnitEnum | null $navigationGroup = 'Konten';
 
-    protected static ?string $recordTitleAttribute = 'judul_berita';
+    protected static ?string $recordTitleAttribute = 'nama_potensi';
 
     public static function getPluralLabel(): string
     {
-        return 'Berita Desa Aje';
+        return 'Potensi Desa Aje';
     }
 
     public static function getLabel(): string
     {
-        return 'Berita';
+        return 'Potensi';
     }
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('judul_berita')
+                TextInput::make('nama_potensi')
                     ->label('Judul Berita')
                     ->required(),
-                TextInput::make('slug_berita')
-                    ->label('Slug (contoh: judul-berita)')
+                TextInput::make('slug')
+                    ->label('Slug (contoh: nama-potensi)')
                     ->required(),
-                FileUpload::make('gambar_berita')
+                FileUpload::make('gambar_potensi')
                     ->label('Gambar')
-                    ->directory('berita')
+                    ->directory('potensi')
                     ->disk('public')
                     ->columnSpan('full')
                     ->imagePreviewHeight('250')
                     ->imageEditor()
                     ->required(),
-                TextArea::make('bagian_berita')
+                TextArea::make('bagian_potensi')
+                    ->label('Bagian')
                     ->columnSpanFull()
                     ->autosize()
-                    ->label('Bagian')
                     ->required()
                     ->columnSpanFull(),
-                FileUpload::make('gambar_berita_2')
-                    ->label('Gambar 2')
-                    ->directory('berita')
-                    ->disk('public')
-                    ->columnSpan('full')
-                    ->imagePreviewHeight('250')
-                    ->imageEditor(),
-                TextArea::make('bagian_berita_2')
-                    ->columnSpanFull()
-                    ->autosize()
-                    ->nullable()
-                    ->label('Bagian 2')
-                    ->columnSpanFull(),
-                DatePicker::make('tanggal_berita')
+                DatePicker::make('tanggal_potensi')
                     ->label('Tanggal')
                     ->columnSpanFull()
                     ->required(),
@@ -94,35 +80,24 @@ class BeritaResource extends Resource
     {
         return $schema
             ->components([
-                TextEntry::make('judul_berita')
-                    ->label('Judul'),
-                TextEntry::make('slug_berita')
-                    ->label('Slug'),
-                ImageEntry::make('gambar_berita')
+                TextEntry::make('nama_potensi'),
+                TextEntry::make('slug'),
+                ImageEntry::make('gambar_potensi')
+                    ->columnSpanFull()
                     ->disk('public')
                     ->label('Gambar'),
-                TextEntry::make('bagian_berita')
-                    ->label('Bagian')
-                    ->columnSpanFull(),
-                ImageEntry::make('gambar_berita_2')
-                    ->disk('public')
-                    ->label('Gambar 2')
-                    ->placeholder('-'),
-                TextEntry::make('bagian_berita_2')
-                    ->label('Bagian 2')
+                TextEntry::make('bagian_potensi')
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('tanggal_berita')
+                TextEntry::make('tanggal_potensi')
                     ->label('Tanggal')
                     ->date(),
                 TextEntry::make('views')
                     ->numeric(),
                 TextEntry::make('created_at')
-                    ->label('Diupload Tanggal')
                     ->dateTime()
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->label('Terakhir Diperbarui')
                     ->dateTime()
                     ->placeholder('-'),
             ]);
@@ -131,40 +106,35 @@ class BeritaResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('judul_berita')
+            ->recordTitleAttribute('nama_potensi')
             ->columns([
-                TextColumn::make('judul_berita')
-                    ->label('Judul')
+                TextColumn::make('nama_potensi')
                     ->searchable(),
-                TextColumn::make('slug_berita')
-                    ->label('Slug')
+                TextColumn::make('slug')
                     ->searchable(),
-                ImageColumn::make('gambar_berita')
+                ImageColumn::make('gambar_potensi')
                     ->height(200)
                     ->disk('public')
                     ->label('Gambar'),
-                TextColumn::make('bagian_berita')
+                TextColumn::make('bagian_potensi')
                     ->wrap()
                     ->limit(50)
                     ->label('Bagian')
                     ->searchable(),
-                ImageColumn::make('gambar_berita_2')
-                    ->height(200)
-                    ->disk('public')
-                    ->label('Gambar 2')
-                    ->searchable(),
-                TextColumn::make('bagian_berita_2')
-                    ->wrap()
-                    ->limit(50)
-                    ->label('Bagian 2')
-                    ->searchable(),
-                TextColumn::make('tanggal_berita')
-                    ->label('Tanggal')
+                TextColumn::make('tanggal_potensi')
                     ->date()
                     ->sortable(),
                 TextColumn::make('views')
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
@@ -184,7 +154,7 @@ class BeritaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageBeritas::route('/'),
+            'index' => ManagePotensiDesas::route('/'),
         ];
     }
 }
