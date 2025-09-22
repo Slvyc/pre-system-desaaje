@@ -41,6 +41,48 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.addEventListener("click", closeMenu);
 });
 
+// JS UNTUK RATING
+document.querySelectorAll('[id^="rating-"]').forEach(rating => {
+            const stars = rating.querySelectorAll('.star');
+            const ratingValue = rating.querySelector('.rating-value');
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    let value = star.getAttribute('data-value');
+                    ratingValue.textContent = value;
+
+                    stars.forEach(s => {
+                        s.classList.remove('text-yellow-400');
+                        s.classList.add('text-gray-300');
+                    });
+
+                    for (let i = 0; i < value; i++) {
+                        stars[i].classList.add('text-yellow-400');
+                        stars[i].classList.remove('text-gray-300');
+                    }
+                });
+            });
+        });
+
+
+// love buton
+const loveBtn = document.getElementById('love-btn');
+const loveIcon = document.getElementById('love-icon');
+
+loveBtn.addEventListener('click', () => {
+  if(loveIcon.classList.contains('fill-current')){
+    // jika sudah aktif, reset
+    loveIcon.classList.remove('fill-current', 'text-red-500');
+    loveIcon.classList.add('text-gray-400');
+  } else {
+    // aktifkan
+    loveIcon.classList.add('fill-current', 'text-red-500');
+    loveIcon.classList.remove('text-gray-400');
+  }
+});
+
+     
+
 
 
 

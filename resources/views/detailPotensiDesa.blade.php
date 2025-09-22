@@ -113,7 +113,7 @@
             </article>
 
             {{-- sidebar --}}
-            <aside aria-labelledby="latest-news" class="bg-white rounded-3xl shadow p-6 h-fit sticky top-30 self-start">
+            <aside aria-labelledby="latest-news" class="bg-white rounded-xl shadow p-6 h-fit sticky top-30 self-start">
                 <h2 id="latest-news" class="text-xl font-bold text-gray-900 mb-6 border-b pb-3">
                     Potensi Lainnya
                 </h2>

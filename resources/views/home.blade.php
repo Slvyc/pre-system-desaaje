@@ -758,22 +758,26 @@
                 <div class="grid grid-cols-2 gap-4">
 
                     {{-- image 1 --}}
-                    <article class="relative rounded-xl overflow-hidden shadow-md group">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
-                            class="w-full h-56 object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
-                            <h3 class="text-white font-bold text-lg">Pertanian</h3>
-                        </div>
-                    </article>
+                    <a href="{{ route('detailPotensiDesa') }}">
+                        <article class="relative rounded-xl overflow-hidden shadow-md group">
+                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
+                                class="w-full h-56 object-cover group-hover:scale-105 transition">
+                            <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                                <h3 class="text-white font-bold text-lg">Pertanian</h3>
+                            </div>
+                        </article>
+                    </a>
 
                     {{-- image 2 --}}
-                    <article class="relative rounded-xl overflow-hidden shadow-md group">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
-                            class="w-full h-56 object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
-                            <h3 class="text-white font-bold text-lg">Pariwisata</h3>
-                        </div>
-                    </article>
+                    <a href="{{ route('detailPotensiDesa') }}">
+                        <article class="relative rounded-xl overflow-hidden shadow-md group">
+                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
+                                class="w-full h-56 object-cover group-hover:scale-105 transition">
+                            <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                                <h3 class="text-white font-bold text-lg">Pariwisata</h3>
+                            </div>
+                        </article>
+                    </a>
 
                     {{-- image 3 --}}
                     <article class="relative rounded-xl overflow-hidden shadow-md group col-span-2">
@@ -812,49 +816,69 @@
                         Dukung perekonomian lokal dengan membeli produk unggulan hasil karya masyarakat desa.
                     </p>
                 </div>
-                <a href="#produk-desa"
+                <a href="{{ route('produkDesa') }}"
                     class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>
             </header>
 
+            {{-- produk grid --}}
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <article class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden transition">
-                    <img src="images/tegel-desa.jpg" alt="Tegel atau ubin buatan desa" loading="lazy"
-                        class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-custom mb-2">Tegel / Ubin Desa</h3>
-                        <p class="text-gray-600 text-sm mb-2">
-                            Tegel atau ubin buatan warga desa dengan motif klasik dan kualitas tahan lama.
-                        </p>
-                        <p class="text-xl font-bold text-custom">Rp 90.000 / m²</p>
-                    </div>
-                </article>
+                {{-- produk --}}
+                @foreach (range(1, 3) as $i)
+                <a href="{{ route('detailProduk') }}" class="no-underline">
+                    <article>
+                        <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
+                            class="w-full h-100 object-cover bg-custom-2 rounded-4xl">
+                        <div class="py-6">
+                            <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
 
-                <article class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden transition">
-                    <img src="images/Proses Produksi Tahu - YouTube.jpeg" alt="Tahu tegel segar produksi desa"
-                        loading="lazy" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-custom mb-2">Tahu</h3>
-                        <p class="text-gray-600 text-sm mb-2">
-                            Tahu segar buatan warga desa dengan cita rasa khas dan bergizi.
-                        </p>
-                        <p class="text-xl font-bold text-custom">Rp 8.000 / papan</p>
-                    </div>
-                </article>
+                            {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
+                            <div class="flex items-center mb-2" id="rating-1">
+                                <button class="star text-gray-300" data-value="1"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="star text-gray-300" data-value="2"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="star text-gray-300" data-value="3"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="star text-gray-300" data-value="4"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <button class="star text-gray-300" data-value="5"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
+                            </div>
 
-                <article class="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden transition">
-                    <img src="images/pupuk-organik.jpg" alt="Pupuk organik ramah lingkungan dari desa" loading="lazy"
-                        class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-custom mb-2">Pupuk Organik Desa</h3>
-                        <p class="text-gray-600 text-sm mb-2">
-                            Pupuk organik ramah lingkungan untuk meningkatkan kesuburan tanah dan hasil panen.
-                        </p>
-                        <p class="text-xl font-bold text-custom">Rp 25.000 / 5kg</p>
-                    </div>
-                </article>
+                            <p class="text-lg font-semibold text-black">Rp 90.000 / m²</p>
+                        </div>
+                    </article>
+                </a>
+                @endforeach
             </div>
         </div>
     </section>
@@ -881,30 +905,34 @@
                 <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <picture>
                         <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Upacara adat Desa X"
-                            class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
+                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                             loading="lazy">
                     </picture>
-                    <figcaption class="sr-only">Upacara adat di Desa X</figcaption>
+                    <figcaption class="sr-only line-clamp-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+                        sequi fugit et, aspernatur iste quas quisquam eveniet? Aliquid animi eveniet aspernatur natus
+                        asperiores, maiores aliquam minima ratione cumque quos. Repellendus!</figcaption>
                 </figure>
 
                 {{-- card 2 --}}
                 <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <picture>
                         <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Sawah hijau Desa X"
-                            class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
+                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                             loading="lazy">
                     </picture>
-                    <figcaption class="sr-only">Sawah hijau Desa X</figcaption>
+                    <figcaption class="sr-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quod neque
+                        quam odio totam non quae ea provident accusantium architecto, repellat harum libero illo illum eos
+                        voluptatem dolores, vel a.</figcaption>
                 </figure>
 
                 {{-- card 3 --}}
                 <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <picture>
                         <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="Kerajinan anyaman bambu Desa X"
-                            class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
+                            class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                             loading="lazy">
                     </picture>
-                    <figcaption class="sr-only">Kerajinan anyaman bambu Desa X</figcaption>
+                    <figcaption class="sr-only">Desa </figcaption>
                 </figure>
             </div>
         </div>

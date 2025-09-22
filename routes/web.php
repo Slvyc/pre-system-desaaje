@@ -30,3 +30,11 @@ Route::get('/Potensi', function () {
     return view('detailPotensiDesa');
 })->name('detailPotensiDesa');
 
+Route::get('/Produk', function () {
+    return view('produkDesa');
+})->name('produkDesa');
+
+Route::get('/Produk Desa', function () {
+    return view('detailProduk');
+})->name('detailProduk');
+

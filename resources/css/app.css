@@ -14,3 +14,9 @@
         --color-custom: #054204;
         --color-custom-2:#e8e0d6;
 }
+
+.star {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
