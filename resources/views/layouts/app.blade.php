@@ -46,7 +46,7 @@
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
                 <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
-                <a href="#" class="text-md font-semibold leading-6 text-gray-900">Belanja</a>
+                <a href="{{ route('produkDesa') }}" class="text-md font-semibold leading-6 text-gray-900">Belanja</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">PPID</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
