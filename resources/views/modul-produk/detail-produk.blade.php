@@ -3,12 +3,12 @@
 @section('content')
 
     <section class="max-w-7xl mx-auto p-6 pt-32 mb-10">
-        
+
         {{-- breadcrumb --}}
         <nav aria-label="Breadcrumb" class="text-sm md:text-base mb-4 text-gray-600">
             <ol class="list-reset flex">
                 <li>
-                    <a href="{{ route('produkDesa') }}" class="hover:text-custom font-medium">Produk</a>
+                    <a href="{{ route('produk') }}" class="hover:text-custom font-medium">Produk</a>
                     <span class="px-1 text-gray-400" aria-hidden="true">/</span>
                 </li>
                 <li aria-current="page" class="text-gray-800 font-semibold">
@@ -22,7 +22,7 @@
             {{-- product --}}
             <article class="space-y-4">
                 <div class="bg-gray-100 rounded-xl p-4">
-                    <img src="images/tahu.jpeg" alt="tahu"
+                    <img src="{{ asset('storage/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}"
                         class="w-full h-100 rounded-xl object-cover" loading="lazy">
                 </div>
             </article>
@@ -36,10 +36,9 @@
                     <span>Produk Desa Aje</span>
                 </div>
 
-                <h1 class="text-3xl font-bold text-gray-900">Tahu</h1>
-                <p class="mt-2 text-gray-700 text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolor
-                    dolorum tenetur maiores unde perspiciatis provident asperiores cumque illum quaerat ut voluptatibus
-                    esse, dignissimos aliquid numquam. Tempore exercitationem nobis soluta.
+                <h1 class="text-3xl font-bold text-gray-900">{{ $produk->nama_produk }}</h1>
+                <p class="mt-2 text-gray-700 text-base">
+                    {{ $produk->deskripsi }}
                 </p>
 
 
@@ -86,15 +85,20 @@
                 </div>
 
                 {{-- harga --}}
-                <p class="text-2xl font-bold text-gray-900">Rp. 199.000</p>
+                <p class="text-2xl font-bold text-gray-900">
+                    Rp {{ number_format($produk->harga, 0, ',', '.') }} / Pcs
+                </p>
 
                 <div class="flex space-x-2">
 
                     {{-- hubungi penjual --}}
-                    <button class="flex-1 bg-custom text-white p-3 rounded-lg hover:bg-custom/95 transition"
+                    <a href="https://wa.me/{{ $produk->no_hp_penjual }}?text=Halo, saya tertarik dengan produk {{ urlencode($produk->nama_produk) }}"
+                        target="_blank" <button
+                        class="flex-1 bg-custom text-white p-3 rounded-lg hover:bg-custom/95 transition"
                         aria-label="Hubungi penjual produk Tahu via WhatsApp atau telepon">
                         Hubungi Penjual
-                    </button>
+                        </button>
+                    </a>
 
                     {{-- love --}}
                     <button id="love-btn"

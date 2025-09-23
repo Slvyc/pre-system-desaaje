@@ -512,7 +512,7 @@
                         Dukung perekonomian lokal dengan membeli produk unggulan hasil karya masyarakat desa.
                     </p>
                 </div>
-                <a href="{{ route('produkDesa') }}"
+                <a href="{{ route('produk') }}"
                     class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
                     Lihat Selengkapnya
                 </a>
@@ -522,13 +522,13 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 {{-- produk --}}
-                @foreach (range(1, 3) as $i)
-                    <a href="{{ route('detailProduk') }}" class="no-underline">
+                @foreach ($produks as $produk)
+                    <a href="{{ route('produk.show', $produk->id) }}" class="no-underline">
                         <article>
-                            <img src="images/tegel-desa.jpg" alt="Tegel" loading="lazy"
-                                class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
+                            <img src="{{ asset('storage/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}"
+                                loading="lazy" class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
                             <div class="py-6">
-                                <h3 class="text-xl font-extrabold uppercase text-custom mb-2">Tegel</h3>
+                                <h3 class="text-xl font-extrabold uppercase text-custom mb-2">{{ $produk->nama_produk }}</h3>
 
                                 {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
                                 <div class="flex items-center mb-2" id="rating-1">
@@ -570,7 +570,9 @@
                                     <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
                                 </div>
 
-                                <p class="text-lg font-semibold text-black">Rp 90.000 / m²</p>
+                                <p class="text-lg font-semibold text-black">
+                                    Rp {{ number_format($produk->harga, 0, ',', '.') }} / {{ $produk->satuan }}
+                                </p>
                             </div>
                         </article>
                     </a>
