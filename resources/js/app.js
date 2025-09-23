@@ -43,26 +43,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // JS UNTUK RATING
 document.querySelectorAll('[id^="rating-"]').forEach(rating => {
-            const stars = rating.querySelectorAll('.star');
-            const ratingValue = rating.querySelector('.rating-value');
+    const stars = rating.querySelectorAll('.star');
+    const ratingValue = rating.querySelector('.rating-value');
 
-            stars.forEach(star => {
-                star.addEventListener('click', () => {
-                    let value = star.getAttribute('data-value');
-                    ratingValue.textContent = value;
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            let value = star.getAttribute('data-value');
+            ratingValue.textContent = value;
 
-                    stars.forEach(s => {
-                        s.classList.remove('text-yellow-400');
-                        s.classList.add('text-gray-300');
-                    });
-
-                    for (let i = 0; i < value; i++) {
-                        stars[i].classList.add('text-yellow-400');
-                        stars[i].classList.remove('text-gray-300');
-                    }
-                });
+            stars.forEach(s => {
+                s.classList.remove('text-yellow-400');
+                s.classList.add('text-gray-300');
             });
+
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add('text-yellow-400');
+                stars[i].classList.remove('text-gray-300');
+            }
         });
+    });
+});
 
 
 // love buton
