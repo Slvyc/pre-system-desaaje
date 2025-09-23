@@ -46,3 +46,7 @@ Route::get('/Produk Desa', function () {
 Route::get('/Produk', function () {
     return view('detailProduk');
 })->name('detailProduk');
+
+ Route::get('/Profile', function () {
+    return view('profile');
+})->name('profile');

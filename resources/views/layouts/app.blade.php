@@ -42,7 +42,7 @@
             {{-- Navbar Links Group --}}
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-gray-900">Home</a>
-                <a href="#" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
+                <a href="{{ route('profile') }}" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
                 <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
@@ -96,7 +96,7 @@
                     <li><a href="{{ route('home') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Home</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{{ route('profile') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Profil
                             Desa</a></li>
                     <li><a href="#"
