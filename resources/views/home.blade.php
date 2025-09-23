@@ -369,14 +369,14 @@
             </div>
 
             {{-- grid berita --}}
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
                 {{-- card 1 --}}
 
                 @foreach ($beritas as $berita)
                     <a href="{{ route('berita.show', $berita->slug_berita) }}" class="no-underline">
                         <article
-                            class="relative bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                            class="relative bg-white rounded-3xl shadow-lg overflow-hidden h-full flex flex-col hover:shadow-2xl transition-shadow duration-300">
                             <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}"
                                 loading="lazy" class="w-full h-56 object-cover">
                             <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
