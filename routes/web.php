@@ -4,6 +4,7 @@ use App\Http\Controllers\AparatDesaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PotensiDesaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 // Route Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Route Pengaduan
+Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan');
+Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
 
 // Route Berita
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');

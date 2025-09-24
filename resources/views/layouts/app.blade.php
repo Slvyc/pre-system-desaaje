@@ -50,7 +50,7 @@
                 <a href="#" class="text-md font-semibold leading-6 text-gray-900">PPID</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#"
+                <a href="{{ route('pengaduan') }}"
                     class="flex items-center gap-2 text-sm font-semibold py-2 px-3 rounded-4xl text-white bg-custom transition-colors">
                     <span>Buat Pengaduan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -185,6 +185,8 @@
     </footer>
 
     {{-- END FOOTER --}}
+
+    @stack('scripts')
 
 </body>
 
