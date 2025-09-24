@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\PotensiDesaController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Galeri;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,9 @@ Route::get('/potensi-desa/{potensi:slug}', [PotensiDesaController::class, 'show'
 Route::get('/produk-desa', [ProductController::class, 'index'])->name('produk');
 Route::get('/produk-desa/{id}', [ProductController::class, 'show'])->name('produk.show');
 
+//Route Profile Desa
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
 Route::get('/Berita', function () {
     return view('detailBerita');
 })->name('detailBerita');
@@ -47,7 +51,3 @@ Route::get('/Potensi', function () {
 Route::get('/Produk', function () {
     return view('detailProduk');
 })->name('detailProduk');
-
-Route::get('/Profile', function () {
-    return view('profile');
-})->name('profile');
