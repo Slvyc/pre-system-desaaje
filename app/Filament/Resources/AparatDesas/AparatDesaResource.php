@@ -29,7 +29,7 @@ class AparatDesaResource extends Resource
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Konten';
+    protected static string | UnitEnum | null $navigationGroup = 'Pemerintahan';
 
     protected static ?string $recordTitleAttribute = 'nama_aparat';
 

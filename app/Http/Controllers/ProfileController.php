@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BaganDesa;
 use App\Models\Sejarah;
 use App\Models\VisiMisi;
 
@@ -13,6 +14,7 @@ class ProfileController extends Controller
     {
         $visimisi = VisiMisi::first();
         $sejarah = Sejarah::first();
-        return view('profile', compact('visimisi', 'sejarah'));
+        $baganDesa = BaganDesa::first();
+        return view('profile', compact('visimisi', 'sejarah', 'baganDesa'));
     }
 }

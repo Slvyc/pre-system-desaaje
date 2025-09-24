@@ -47,7 +47,7 @@
                     BAGAN DESA
                 </h2>
 
-                {{-- GGRID --}}
+                {{-- GRID --}}
                 <div class="grid md:grid-cols-2 gap-4">
 
                     <div>
@@ -56,7 +56,7 @@
                             Struktur Organisasi Desa
                         </h3>
                         <figure class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg"
+                            <img src="{{ asset('storage/' . $baganDesa->struktur_organisasi_pemerintahan_desa) }}"
                                 alt="Bagan struktur organisasi Desa Aje" class="w-full h-80 object-cover" loading="lazy">
                         </figure>
                     </div>
@@ -67,7 +67,7 @@
                             Perangkat Desa Aje
                         </h3>
                         <figure class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
-                            <img src="/images/bagan-desa-2.jpg" alt="Bagan perangkat Desa Aje"
+                            <img src="{{ asset('storage/' . $baganDesa->struktur_organisasi_badan_permusyawaratan_desa) }}"
                                 class="w-full h-80 object-contain" loading="lazy">
                         </figure>
                     </div>
