@@ -82,20 +82,7 @@
                     </h2>
                 </header>
                 <article class="bg-white p-10 rounded-2xl shadow leading-relaxed text-gray-700">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste delectus nam alias, expedita ex et
-                        unde tempore recusandae fugit nisi omnis, dicta vero debitis nulla accusamus praesentium dolores
-                        mollitia cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aperiam facilis enim
-                        dolores, delectus rerum sit. Aut molestias cupiditate repellat iste. Laudantium obcaecati iste
-                        laborum id quibusdam sapiente qui quae?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste delectus nam alias, expedita ex et
-                        unde tempore recusandae fugit nisi omnis, dicta vero debitis nulla accusamus praesentium dolores
-                        mollitia cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aperiam facilis enim
-                        dolores, delectus rerum sit. Aut molestias cupiditate repellat iste. Laudantium obcaecati iste
-                        laborum id quibusdam sapiente qui quae?
-                    </p>
+                    {!! $sejarah->bagian_sejarah !!}
                 </article>
             </section>
 

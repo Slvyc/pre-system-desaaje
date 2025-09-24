@@ -1,22 +1,27 @@
 <?php
 
-namespace App\Filament\Resources\VisiMisis;
+namespace App\Filament\Resources\Sejarahs;
 
-use App\Filament\Resources\VisiMisis\Pages\ManageVisiMisis;
-use App\Models\VisiMisi;
+use App\Filament\Resources\Sejarahs\Pages\ManageSejarahs;
+use App\Models\Sejarah;
 use BackedEnum;
 use UnitEnum;
-use Filament\Forms\Components\Textarea;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class VisiMisiResource extends Resource
+class SejarahResource extends Resource
 {
-    protected static ?string $model = VisiMisi::class;
+    protected static ?string $model = Sejarah::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-pencil-square';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-backward';
 
     protected static string | UnitEnum | null $navigationGroup = 'Profil Desa';
 
@@ -24,35 +29,23 @@ class VisiMisiResource extends Resource
 
     public static function getRecordTitle(?\Illuminate\Database\Eloquent\Model $record = null): string
     {
-        return 'Visi & Misi Desa Aje';
+        return 'Sejarah Desa Aje';
     }
 
     public static function getPluralLabel(): string
     {
-        return 'Visi dan Misi';
+        return 'Sejarah ';
     }
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                RichEditor::make('visi')
-                    ->label('Visi')
-                    ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'bulletList',
-                        'orderedList',
-                        'link',
-                        'blockquote',
-                        'codeBlock',
-                    ])
-                    ->columnSpanFull(),
+                TextInput::make('judul_sejarah')
+                    ->label('Judul'),
 
-                RichEditor::make('misi')
-                    ->label('Misi')
+                RichEditor::make('bagian_sejarah')
+                    ->label('Bagian Sejarah')
                     ->toolbarButtons([
                         'bold',
                         'italic',
@@ -74,13 +67,13 @@ class VisiMisiResource extends Resource
 
     public static function canCreate(): bool
     {
-        return VisiMisi::count() === 0;
+        return Sejarah::count() === 0;
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ManageVisiMisis::route('/'),
+            'index' => ManageSejarahs::route('/'),
         ];
     }
 }
