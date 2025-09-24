@@ -56,3 +56,7 @@ Route::get('/Potensi', function () {
 Route::get('/Produk', function () {
     return view('detailProduk');
 })->name('detailProduk');
+
+Route::get('/Geografis', function () {
+    return view('geodata');
+})->name('geodata');
