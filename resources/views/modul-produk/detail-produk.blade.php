@@ -93,10 +93,10 @@
 
                     {{-- hubungi penjual --}}
                     <a href="https://wa.me/{{ $produk->no_hp_penjual }}?text=Halo, saya tertarik dengan produk {{ urlencode($produk->nama_produk) }}"
-                        target="_blank" <button
-                        class="flex-1 bg-custom text-white p-3 rounded-lg hover:bg-custom/95 transition"
-                        aria-label="Hubungi penjual produk Tahu via WhatsApp atau telepon">
-                        Hubungi Penjual
+                        target="_blank" class="flex-1"><button
+                            class="flex-1 bg-custom w-full text-white p-3 rounded-lg hover:bg-custom/95 transition"
+                            aria-label="Hubungi penjual produk Tahu via WhatsApp atau telepon">
+                            Hubungi Penjual
                         </button>
                     </a>
 

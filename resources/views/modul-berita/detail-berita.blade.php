@@ -4,8 +4,8 @@
 
     <section class="py-16 bg-inherit md:bg-custom-2 pt-30">
         <div class="max-w-7xl mx-auto px-6 py-8 text-start md:px-0">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-custom mb-3">
-                {{ $berita->judul_berita }}
+            <h2 class="text-3xl md:text-4xl uppercase font-extrabold text-custom mb-3">
+                Berita Desa Aje
             </h2>
 
             <nav aria-label="Breadcrumb">
@@ -29,9 +29,8 @@
                 <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}" loading="lazy"
                     class="w-full h-64 md:h-120 object-cover rounded-xl mb-6">
 
-                {{-- <h1 class="text-2xl md:text-4xl font-bold leading-snug text-gray-900 mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quis nobis qui omnis nam, sunt nostrum
-                </h1> --}}
+                <h1 class="text-2xl md:text-4xl font-bold leading-snug text-gray-900 mb-4">{{ $berita->judul_berita }}
+                </h1>
 
                 <div class="flex flex-col sm:flex-row sm:items-center text-gray-500 text-sm gap-3 sm:gap-4 mb-5">
                     <div class="flex flex-wrap items-center gap-3 sm:gap-4">
