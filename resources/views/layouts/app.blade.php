@@ -15,8 +15,9 @@
 
     {{-- NAVBAR START --}}
 
-    <header class="fixed inset-x-0 top-0 z-50">
-        <nav aria-label="Global" class="mx-auto flex items-center justify-between p-6 lg:px-8 bg-white">
+    <header class="fixed inset-x-0 top-0 z-50 transition-colors duration-300" id="mainHeader"
+        data-page="{{ request()->routeIs('home') ? 'home' : 'other' }}">
+        <nav aria-label="Global" class="mx-auto flex items-center justify-between p-4 lg:px-8">
             <div class="flex items-center lg:flex-1 gap-4">
                 {{-- logo --}}
                 <a href="#" class="-m-1.5 p-1.5 flex items-center">
@@ -26,13 +27,13 @@
 
                 {{-- nama desa --}}
                 <div class="flex flex-col leading-tight">
-                    <span class="text-lg font-bold text-gray-900">Desa Aje</span>
-                    <span class="text-sm text-gray-600">Kabupaten Aceh Besar</span>
+                    <span class="text-lg font-bold text-white">Desa Aje</span>
+                    <span class="text-sm text-white">Kabupaten Aceh Besar</span>
                 </div>
             </div>
 
             <div class="flex lg:hidden">
-                <button id="hamburgerBtn" type="button" class="lg:hidden p-2 text-gray-700">
+                <button id="hamburgerBtn" type="button" class="lg:hidden p-2 text-white">
                     <span class="sr-only">Open menu</span>
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -41,13 +42,13 @@
             </div>
             {{-- Navbar Links Group --}}
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-gray-900">Home</a>
-                <a href="{{ route('profile') }}" class="text-md font-semibold leading-6 text-gray-900">Profil Desa</a>
-                <a href="#" class="text-md font-semibold leading-6 text-gray-900">Infografis</a>
-                <a href="{{ route('geodata') }}" class="text-md font-semibold leading-6 text-gray-900">Geodata</a>
-                <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-gray-900">Berita</a>
-                <a href="{{ route('produk') }}" class="text-md font-semibold leading-6 text-gray-900">Belanja</a>
-                <a href="#" class="text-md font-semibold leading-6 text-gray-900">PPID</a>
+                <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-white">Home</a>
+                <a href="{{ route('profile') }}" class="text-md font-semibold leading-6 text-white">Profil Desa</a>
+                <a href="{{ route('infografis') }}" class="text-md font-semibold leading-6 text-white">Infografis</a>
+                <a href="{{ route('geodata') }}" class="text-md font-semibold leading-6 text-white">Geodata</a>
+                <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-white">Berita</a>
+                <a href="{{ route('produk') }}" class="text-md font-semibold leading-6 text-white">Belanja</a>
+                <a href="#" class="text-md font-semibold leading-6 text-white">PPID</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{{ route('pengaduan') }}"
@@ -191,3 +192,28 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const header = document.getElementById("mainHeader");
+        const page = header.dataset.page;
+
+        function updateNavbar() {
+            if (page === "home") {
+                if (window.scrollY > 50) {
+                    header.classList.add("bg-custom", "shadow-md");
+                    header.classList.remove("bg-transparent");
+                } else {
+                    header.classList.add("bg-transparent");
+                    header.classList.remove("bg-custom", "shadow-md");
+                }
+            } else {
+                // halaman lain langsung pakai bg
+                header.classList.add("bg-custom", "shadow-md");
+            }
+        }
+
+        updateNavbar(); // jalankan sekali saat load
+        window.addEventListener("scroll", updateNavbar);
+    });
+</script>

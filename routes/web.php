@@ -57,6 +57,10 @@ Route::get('/Produk', function () {
     return view('detailProduk');
 })->name('detailProduk');
 
-Route::get('/Geografis', function () {
+Route::get('/Geodata', function () {
     return view('geodata');
 })->name('geodata');
+
+Route::get('/infografis', function () {
+    return view('infografis');
+})->name('infografis');

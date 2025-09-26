@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="py-16 bg-inherit md:bg-custom-2 pt-30">
+    <section class="py-16 bg-inherit pt-30">
         <div class="max-w-7xl mx-auto px-6 py-8 text-start md:px-0">
             <h2 class="text-3xl md:text-4xl uppercase font-extrabold text-custom mb-3">
                 Berita Desa Aje
@@ -21,11 +21,11 @@
             </nav>
         </div>
 
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6 p-6 md:p-0">
 
             {{-- artikel utama --}}
 
-            <article class="lg:col-span-3 bg-white rounded-0 md:rounded-3xl p-6">
+            <article class="lg:col-span-3 rounded-0 md:rounded-3xl">
                 <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}" loading="lazy"
                     class="w-full h-64 md:h-120 object-cover rounded-xl mb-6">
 
@@ -75,7 +75,7 @@
 
                 {{-- isi --}}
 
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <p class="text-gray-700 leading-relaxed my-5 md:my-10">
                     {!! nl2br(e($berita->bagian_berita)) !!}
                 </p>
 
@@ -92,7 +92,7 @@
             </article>
 
             {{-- sidebar --}}
-            <aside aria-labelledby="latest-news" class="bg-white rounded-3xl shadow p-6 h-fit sticky top-30 self-start">
+            <aside aria-labelledby="latest-news" class="bg-white rounded-xl shadow border-2 border-custom p-6 h-fit sticky top-30 self-start">
                 <h2 id="latest-news" class="text-xl font-bold text-gray-900 mb-6 border-b pb-3">
                     Berita Terbaru
                 </h2>
