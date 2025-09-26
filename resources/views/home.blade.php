@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div class="mt-6 text-center text-custom-3 max-w-2xl mx-auto space-y-4">
+        <div class="mt-6 text-center text-white max-w-2xl mx-auto space-y-4">
             <h3 class="text-2xl md:text-4xl font-bold">JELAJAHI DESA</h3>
             <p class="text-sm md:text-lg">Melalui website ini Anda dapat menjelajahi segala hal yang terkait dengan Desa.
                 Aspek pemerintahan, penduduk, demografi, potensi Desa, dan juga berita tentang Desa.</p>
