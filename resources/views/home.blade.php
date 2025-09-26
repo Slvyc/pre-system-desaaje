@@ -62,10 +62,10 @@
 
     {{-- SHORTCUT --}}
 
-    <section class="mt-165 relative bg-custom py-20 rounded-t-4xl">
+    <section class="mt-165 relative bg-custom py-20">
         <div class="max-w-7xl mx-auto px-6 md:px-0 justify-center items-center">
             {{-- Gric Card nya --}}
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 -mt-23 -translate-y-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-23 -translate-y-16">
 
                 {{-- card 1 --}}
                 <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center text-center space-y-3">
@@ -131,7 +131,7 @@
             </div>
         </div>
 
-        <div class="mt-6 text-center text-white max-w-2xl mx-auto space-y-4">
+        <div class="mt-6 text-center text-custom-3 max-w-2xl mx-auto space-y-4">
             <h3 class="text-2xl md:text-4xl font-bold">JELAJAHI DESA</h3>
             <p class="text-sm md:text-lg">Melalui website ini Anda dapat menjelajahi segala hal yang terkait dengan Desa.
                 Aspek pemerintahan, penduduk, demografi, potensi Desa, dan juga berita tentang Desa.</p>
@@ -143,13 +143,13 @@
 
     {{-- SAMBUTAN KADES --}}
 
-    <section class="pb-20 bg-custom-2">
+    <section class="pb-10 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 grid md:grid-cols-3 gap-12 items-center">
 
             {{-- image kdes --}}
             <div class="flex items-center justify-center">
                 <img src="images/kepaladesa Aje.jpeg" alt="Kepala Desa" loading="lazy"
-                    class="w-72 h-96 object-cover rounded-b-[120px] shadow-[0_10px_40px_rgba(0,0,0,0.4)] transition-shadow duration-500 mb-4">
+                    class="w-84 h-115 object-cover rounded-b-[120px] shadow-[0_10px_40px_rgba(0,0,0,0.4)] transition-shadow duration-500 mb-4">
             </div>
 
             {{-- kata sambutan --}}
@@ -180,7 +180,7 @@
 
     {{-- PETA DESA --}}
 
-    <section class="pb-16 bg-custom-2">
+    <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-4 md:px-0 space-y-8">
             <div class="text-start">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-custom">PETA DESA</h2>
@@ -190,7 +190,7 @@
             </div>
 
             {{-- peta digitasi --}}
-            <div class="w-full h-80 bg-black sm:h-96 md:h-[500px] rounded-3xl overflow-hidden">
+            <div class="w-full h-80 bg-custom-2 sm:h-96 md:h-[500px] rounded-3xl overflow-hidden">
                 <iframe src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
@@ -202,38 +202,50 @@
 
     {{-- CARD SOTK --}}
 
-    <section class="py-16 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+    <section class="py-10 bg-custom-2">
+        <div class="max-w-7xl mx-auto px-6 md:px-0">
+            <div class="flex flex-row items-center justify-between mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     SOTK
                 </h2>
                 <a href="{{ route('sotk') }}"
-                    class="mt-4 lg:mt-0 bg-custom self-start text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                    class="inline-flex gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
+                    <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-4 text-black">
+                            <path fill-rule="evenodd"
+                                d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
                 </a>
             </div>
 
+
             {{-- grid --}}
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 @foreach ($aparats as $aparat)
                     {{-- Card Template --}}
-                    <article class="relative mb-12">
-                        <figure class="rounded-t-3xl overflow-hidden shadow h-54 md:h-96">
-                            <img src="{{ asset('storage/' . $aparat->foto_aparat) }}"
-                                alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    <article
+                        class="relative rounded-2xl md:rounded-4xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+
+                        <figure class="h-72 md:h-115 w-full">
+                            <img src="{{ asset('storage/' . $aparat->foto_aparat) }}" alt="{{ $aparat->nama_aparat }}"
+                                class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
                         </figure>
 
                         <figcaption
-                            class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                            <h3 class="text-sm sm:text-lg font-bold text-white">
+                            class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white rounded-full px-2 py-2 text-center shadow-md w-[98%] sm:w-[95%]">
+                            <h3 class="text-base md:text-lg font-bold text-gray-800">
                                 {{ $aparat->nama_aparat }}
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-300">
+                            <p class="text-sm text-gray-500">
                                 {{ $aparat->jabatan_aparat }}
                             </p>
                         </figcaption>
                     </article>
+
                 @endforeach
             </div>
         </div>
@@ -245,7 +257,7 @@
 
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0">
-            <div class="text-start mb-12">
+            <div class="text-center mb-12">
                 <h2 class="text-4xl font-extrabold text-custom mb-3">
                     ADMINISTRASI PENDUDUK
                 </h2>
@@ -300,7 +312,7 @@
 
     {{-- APB DESA --}}
 
-    <section class="py-10 bg-custom-2">
+    <section class="pb-15 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-extrabold text-custom mb-4">
@@ -311,22 +323,30 @@
                     belanja, serta pembiayaan yang dialokasikan untuk pembangunan desa dan pemberdayaan masyarakat.
                 </p>
                 <a href="#"
-                    class="mt-4 lg:mt-0 bg-custom rounded-xl text-white font-semibold py-2 px-6 transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
+                    <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-4 text-black">
+                            <path fill-rule="evenodd"
+                                d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                 {{-- card pemdapatn --}}
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                <div class="bg-custom-2 p-6 rounded-xl">
                     <h3 class="text-xl font-bold text-custom mb-2">Pendapatan Desa</h3>
                     <p class="text-3xl font-extrabold text-custom">Rp 2,1 M</p>
                     <p class="text-gray-600 mt-2 text-sm">Berasal dari Dana Desa, PADes, dan bantuan pemerintah.</p>
                 </div>
 
                 {{-- bellanja --}}
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                <div class="bg-custom-2 p-6 rounded-xl">
                     <h3 class="text-xl font-bold text-custom mb-2">Belanja Desa</h3>
                     <p class="text-3xl font-extrabold text-custom">Rp 1,8 M</p>
                     <p class="text-gray-600 mt-2 text-sm">Dialokasikan untuk pembangunan infrastruktur, kesehatan, dan
@@ -334,7 +354,7 @@
                 </div>
 
                 {{-- gatau tampilan aja --}}
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all sm:col-span-2">
+                <div class="bg-custom-2 p-6 rounded-xl sm:col-span-2">
                     <h3 class="text-xl font-bold text-custom mb-2">Pembiayaan</h3>
                     <p class="text-3xl font-extrabold text-custom">Rp 300 Jt</p>
                     <p class="text-gray-600 mt-2 text-sm">Digunakan untuk menutup defisit dan mendukung kegiatan prioritas.
@@ -349,7 +369,7 @@
 
     {{-- BERITA --}}
 
-    <section class="py-20 bg-custom-2">
+    <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
                 <div class="text-start">
@@ -362,61 +382,77 @@
                 </div>
                 <div class="mt-4 md:mt-0">
                     <a href="{{ route('berita') }}"
-                        class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                        class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                         Lihat Selengkapnya
+                        <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-black">
+                                <path fill-rule="evenodd"
+                                    d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
                     </a>
                 </div>
             </div>
 
             {{-- grid berita --}}
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
 
                 {{-- card 1 --}}
 
                 @foreach ($beritas as $berita)
                     <a href="{{ route('berita.show', $berita->slug_berita) }}" class="no-underline">
-                        <article
-                            class="relative bg-white rounded-3xl shadow-lg overflow-hidden h-full flex flex-col hover:shadow-2xl transition-shadow duration-300">
-                            <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}"
-                                loading="lazy" class="w-full h-56 object-cover">
-                            <div class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
-                                {{ \Carbon\Carbon::parse($berita->tanggal_berita)->locale('id')->translatedFormat('l, d F Y') }}
-                            </div>
+                        <article class="relative bg-white rounded-3xl overflow-hidden h-full flex flex-col group">
+                            <div class="relative h-84 w-full overflow-hidden">
+                                <img src="{{ asset('storage/' . $berita->gambar_berita) }}" alt="{{ $berita->slug_berita }}"
+                                    loading="lazy"
+                                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-t from-custom/100 via-custom/50 to-transparent">
+                                </div>
 
-                            {{-- konten --}}
-                            <div class="p-6">
-                                <h3 class="text-lg font-extrabold text-custom mb-2 line-clamp-2">
-                                    {{ $berita->judul_berita }}
-                                </h3>
-                                <p class="text-gray-700 text-sm mb-4 line-clamp-2">
-                                    {{ $berita->bagian_berita }}
-                                </p>
+                                {{-- Tanggal --}}
+                                <div
+                                    class="absolute top-4 left-4 bg-custom text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    {{ \Carbon\Carbon::parse($berita->tanggal_berita)->locale('id')->translatedFormat('l, d F Y') }}
+                                </div>
 
-                                <footer class="flex items-center justify-between mt-7 text-xs font-semibold text-black">
+                                {{-- Konten --}}
+                                <div class="absolute bottom-0 left-0 right-0 px-6 pb-6 text-white space-y-3">
+                                    <h3 class="text-lg font-extrabold mb-2 line-clamp-2">
+                                        {{ $berita->judul_berita }}
+                                    </h3>
+                                    <p class="text-sm text-white line-clamp-2">
+                                        {{ $berita->bagian_berita }}
+                                    </p>
 
-                                    {{-- administrastor --}}
-                                    <div class="flex items-center space-x-1" aria-label="Penulis Berita">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                            class="w-4 h-4 text-black/50">
-                                            <path fill-rule="evenodd"
-                                                d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        <span>Administrator</span>
-                                    </div>
+                                    {{-- Footer --}}
+                                    <footer class="flex items-center justify-between text-xs font-semibold text-white/90">
 
-                                    {{-- view --}}
-                                    <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                            class="w-4 h-4 text-black/50">
-                                            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        <span>{{ $berita->views }}</span>
-                                    </div>
-                                </footer>
+                                        {{-- Administrator --}}
+                                        <div class="flex items-center space-x-1" aria-label="Penulis Berita">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="w-4 h-4 text-white/70">
+                                                <path fill-rule="evenodd"
+                                                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span>Administrator</span>
+                                        </div>
+
+                                        {{-- Views --}}
+                                        <div class="flex items-center space-x-1" aria-label="Jumlah Dilihat">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="w-4 h-4 text-white/70">
+                                                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <span>{{ $berita->views }}</span>
+                                        </div>
+                                    </footer>
+                                </div>
                             </div>
                         </article>
                     </a>
@@ -427,7 +463,7 @@
 
     {{-- POTENSI DESA --}}
 
-    <section class="py-20 bg-white">
+    <section class="py-15 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="grid lg:grid-cols-2 gap-6 items-center">
                 <div>
@@ -435,8 +471,16 @@
                         POTENSI DESA
                     </h2>
                     <a href="{{ route('potensi') }}"
-                        class="inline-block bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
+                        class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                         Lihat Selengkapnya
+                        <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-4 text-black">
+                                <path fill-rule="evenodd"
+                                    d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
                     </a>
                 </div>
 
@@ -448,14 +492,14 @@
             </header>
 
             {{-- grid --}}
-            <div class="grid lg:grid-cols-2 gap-8">
+            <div class="grid lg:grid-cols-2 gap-4">
 
                 {{-- kiri --}}
                 <div class="grid grid-cols-2 gap-4">
 
                     {{-- image 1 --}}
                     <a href="{{ route('detailPotensiDesa') }}">
-                        <article class="relative rounded-xl overflow-hidden shadow-md group">
+                        <article class="relative rounded-3xl overflow-hidden shadow-md group">
                             <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                                 class="w-full h-56 object-cover group-hover:scale-105 transition">
                             <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
@@ -466,7 +510,7 @@
 
                     {{-- image 2 --}}
                     <a href="{{ route('detailPotensiDesa') }}">
-                        <article class="relative rounded-xl overflow-hidden shadow-md group">
+                        <article class="relative rounded-3xl overflow-hidden shadow-md group">
                             <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                                 class="w-full h-56 object-cover group-hover:scale-105 transition">
                             <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
@@ -476,7 +520,7 @@
                     </a>
 
                     {{-- image 3 --}}
-                    <article class="relative rounded-xl overflow-hidden shadow-md group col-span-2">
+                    <article class="relative rounded-3xl overflow-hidden shadow-md group col-span-2">
                         <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                             class="w-full h-64 object-cover group-hover:scale-105 transition">
                         <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
@@ -485,12 +529,12 @@
                     </article>
                 </div>
 
-                {{-- image gede --}}
-                <div class="relative rounded-xl overflow-hidden shadow-lg group">
+                {{-- image foto desa aja --}}
+                <div class="relative rounded-3xl overflow-hidden shadow-lg group">
                     <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
-                        class="w-full h-80 object-cover group-hover:scale-105 transition duration-500">
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <div class="absolute inset-0 bg-custom/70 flex flex-col p-6">
-                        <h3 class="text-2xl font-bold text-white mb-2">Desa</h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Desa Aje</h3>
                     </div>
                 </div>
             </div>
@@ -501,20 +545,23 @@
 
     {{-- BELI DARI DESA --}}
 
-    <section class="py-16 bg-white">
+    <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="flex flex-col lg:flex-row items-start lg:items-center justify-between mx-auto">
-                <div>
-                    <h2 class="text-4xl font-extrabold text-custom mb-2">
-                        BELI DARI DESA
-                    </h2>
-                    <p class="text-gray-600 max-w-xl">
-                        Dukung perekonomian lokal dengan membeli produk unggulan hasil karya masyarakat desa.
-                    </p>
-                </div>
+                <h2 class="text-4xl font-extrabold text-custom mb-2">
+                    BELI DARI DESA
+                </h2>
                 <a href="{{ route('produk') }}"
-                    class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
+                    <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-4 text-black">
+                            <path fill-rule="evenodd"
+                                d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
                 </a>
             </header>
 
@@ -523,82 +570,104 @@
 
                 {{-- produk --}}
                 @foreach ($produks as $produk)
-                    <a href="{{ route('produk.show', $produk->id) }}" class="no-underline">
-                        <article>
-                            <img src="{{ asset('storage/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}"
-                                loading="lazy" class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
-                            <div class="py-6">
-                                <h3 class="text-xl font-extrabold uppercase text-custom mb-2">{{ $produk->nama_produk }}</h3>
+                    <article>
+                        <img src="{{ asset('storage/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}"
+                            loading="lazy" class="w-full h-100 object-cover bg-custom-2 rounded-2xl">
 
-                                {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
-                                <div class="flex items-center mb-2" id="rating-1">
-                                    <button class="star text-gray-300" data-value="1"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                            <path fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <button class="star text-gray-300" data-value="2"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                            <path fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <button class="star text-gray-300" data-value="3"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                            <path fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <button class="star text-gray-300" data-value="4"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                            <path fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <button class="star text-gray-300" data-value="5"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                            <path fill-rule="evenodd"
-                                                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between">
+
+                                {{-- Konten Kiri --}}
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-extrabold uppercase text-custom mb-2">{{ $produk->nama_produk }}
+                                    </h3>
+
+                                    {{-- ratingnya KALO JS NYA KUTARO DI APP.JS // JS UNTUK RATING --}}
+                                    <div class="flex items-center mb-2" id="rating-1">
+                                        <button class="star text-gray-300" data-value="1"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button class="star text-gray-300" data-value="2"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button class="star text-gray-300" data-value="3"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button class="star text-gray-300" data-value="4"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button class="star text-gray-300" data-value="5"><svg
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                                class="size-6">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <span class="ml-2 text-sm text-gray-500 rating-value">0</span>
+                                    </div>
+                                    <p class="text-lg font-semibold text-black">
+                                        Rp {{ number_format($produk->harga, 0, ',', '.') }} / {{ $produk->satuan }}
+                                    </p>
                                 </div>
-
-                                <p class="text-lg font-semibold text-black">
-                                    Rp {{ number_format($produk->harga, 0, ',', '.') }} / {{ $produk->satuan }}
-                                </p>
-                            </div>
-                        </article>
-                    </a>
+                                {{-- Icon Selengkapnya (Kanan Tengah) --}}
+                                <div class="ml-4 flex items-center">
+                                    <a href="{{ route('produk.show', $produk->id) }}"
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-custom text-white hover:bg-custom/80 transition">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </a>
+                                </div>
+                    </article>
                 @endforeach
             </div>
         </div>
     </section>
-
     {{-- END BELI DARI DESA --}}
-
     {{-- GALERI --}}
-
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+    <section class="py-10 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
             <div class="flex items-center justify-between mb-12">
                 <h2 class="text-4xl font-extrabold text-custom">
                     GALERI DESA
                 </h2>
                 <a href="{{ route('galeri') }}"
-                    class="mt-4 lg:mt-0 bg-custom text-white font-semibold py-2 px-6 rounded-lg hover:bg-custom transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
+                    <span class="bg-white rounded-full p-1 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="size-4 text-black">
+                            <path fill-rule="evenodd"
+                                d="M8.25 3.75H19.5a.75.75 0 0 1 .75.75v11.25a.75.75 0 0 1-1.5 0V6.31L5.03 20.03a.75.75 0 0 1-1.06-1.06L17.69 5.25H8.25a.75.75 0 0 1 0-1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </span>
                 </a>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
                 @foreach ($galeris as $galeri)
                     {{-- card 1 --}}
                     <figure class="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition duration-300">

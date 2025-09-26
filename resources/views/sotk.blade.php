@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-16 bg-custom-2 pt-35">
-        <div class="max-w-7xl mx-auto px-6 text-start">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 text-start">
             <h2 class="text-4xl font-extrabold text-custom mb-2">SOTK</h2>
             <p class="text-lg text-gray-800 mb-8">
                 Struktur Organisasi dan Tata Kerja Desa Aje
@@ -19,27 +19,29 @@
         </div>
     </section>
 
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 mb-20">
+    <section class="py-16 bg-custom-2">
+        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
             <h2 class="text-3xl md:text-4xl font-extrabold text-custom py-12">PEJABAT PEMERINTAH DESA</h2>
 
             {{-- Grid Cards --}}
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pb-12">
 
                 {{-- Card Template --}}
                 @foreach ($aparats as $aparat)
-                    <article class="relative mb-12">
-                        <figure class="rounded-3xl overflow-hidden shadow h-80 md:h-96">
-                            <img src="{{ asset('storage/' . $aparat->foto_aparat) }}"
-                                alt="Budi Santoso - Kepala Administrasi Desa" loading="lazy" class="w-full h-full object-cover">
+                    <article
+                        class="relative rounded-4xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+
+                        <figure class="h-72 md:h-115 w-full">
+                            <img src="{{ asset('storage/' . $aparat->foto_aparat) }}" alt="{{ $aparat->nama_aparat }}"
+                                class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
                         </figure>
 
                         <figcaption
-                            class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-11/12 sm:w-10/12 bg-custom px-4 py-4 text-center z-10 shadow">
-                            <h3 class="text-base sm:text-lg font-bold text-white">
+                            class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white rounded-full px-2 py-2 text-center shadow-md w-[97%] sm:w-[95%]">
+                            <h3 class="text-base md:text-lg font-bold text-gray-800">
                                 {{ $aparat->nama_aparat }}
                             </h3>
-                            <p class="text-xs sm:text-sm text-gray-300">
+                            <p class="text-sm text-gray-500">
                                 {{ $aparat->jabatan_aparat }}
                             </p>
                         </figcaption>
