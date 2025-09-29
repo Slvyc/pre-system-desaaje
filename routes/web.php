@@ -4,6 +4,7 @@ use App\Http\Controllers\AparatDesaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\infografisController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PotensiDesaController;
 use App\Http\Controllers\ProductController;
@@ -41,26 +42,10 @@ Route::get('/produk-desa/{id}', [ProductController::class, 'show'])->name('produ
 //Route Profile Desa
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-Route::get('/Berita', function () {
-    return view('detailBerita');
-})->name('detailBerita');
+//Route Infografis
+Route::get('/infografis/penduduk', [infografisController::class, 'indexPenduduk'])->name('infografis.penduduk');
 
-Route::get('/Potensi Desa', function () {
-    return view('potensiDesa');
-})->name('potensiDesa');
-
-Route::get('/Potensi', function () {
-    return view('detailPotensiDesa');
-})->name('detailPotensiDesa');
-
-Route::get('/Produk', function () {
-    return view('detailProduk');
-})->name('detailProduk');
 
 Route::get('/Geodata', function () {
     return view('geodata');
 })->name('geodata');
-
-Route::get('/infografis', function () {
-    return view('infografis');
-})->name('infografis');

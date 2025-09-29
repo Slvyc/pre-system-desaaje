@@ -498,7 +498,7 @@
                 <div class="grid grid-cols-2 gap-4">
 
                     {{-- image 1 --}}
-                    <a href="{{ route('detailPotensiDesa') }}">
+                    <a href="">
                         <article class="relative rounded-3xl overflow-hidden shadow-md group">
                             <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                                 class="w-full h-56 object-cover group-hover:scale-105 transition">
@@ -509,7 +509,7 @@
                     </a>
 
                     {{-- image 2 --}}
-                    <a href="{{ route('detailPotensiDesa') }}">
+                    <a href="">
                         <article class="relative rounded-3xl overflow-hidden shadow-md group">
                             <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
                                 class="w-full h-56 object-cover group-hover:scale-105 transition">

@@ -44,7 +44,8 @@
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('home') }}" class="text-md font-semibold leading-6 text-white">Home</a>
                 <a href="{{ route('profile') }}" class="text-md font-semibold leading-6 text-white">Profil Desa</a>
-                <a href="{{ route('infografis') }}" class="text-md font-semibold leading-6 text-white">Infografis</a>
+                <a href="{{ route('infografis.penduduk') }}"
+                    class="text-md font-semibold leading-6 text-white">Infografis</a>
                 <a href="{{ route('geodata') }}" class="text-md font-semibold leading-6 text-white">Geodata</a>
                 <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-white">Berita</a>
                 <a href="{{ route('produk') }}" class="text-md font-semibold leading-6 text-white">Belanja</a>
