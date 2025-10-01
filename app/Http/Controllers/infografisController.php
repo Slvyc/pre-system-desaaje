@@ -5,18 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\StatistikDesa;
 use App\Models\StatistikDusun;
 use App\Models\StatistikKelompokUmur;
+use App\Models\StatistikPendidikan;
 use Illuminate\Http\Request;
 
 class infografisController extends Controller
 {
     public function indexPenduduk()
     {
-        $statistikDesa = StatistikDesa::all()->groupBy('grup');
-
         // Umum
-        $dataUmum = $statistikDesa->get('Umum', collect())->keyBy('kode_statistik');
-        // Pendidikan
-        $dataPendidikan = $statistikDesa->get('pendidikan', collect())->keyBy('kode_statistik');;
+        $umums = StatistikDesa::all();
 
         // Kelompok Umur
         $kelompokUmur = StatistikKelompokUmur::orderBy('id')->get();
@@ -28,14 +25,20 @@ class infografisController extends Controller
         $dusunChartLabels = $dusun->pluck('nama_dusun');
         $dusunChartData = $dusun->pluck('jumlah_penduduk');
 
+        // Pendidikan
+        $pendidikan = StatistikPendidikan::all();
+        $pendidikanChartLabels = $pendidikan->pluck('nama_statistik');
+        $pendidikanChartData = $pendidikan->pluck('nilai');
+
         return view('infografis.penduduk', [
-            'dataUmum' => $dataUmum,
-            'dataPendidikan' => $dataPendidikan,
+            'dataUmum' => $umums,
             'dataKelompokUmur' => $kelompokUmur,
             'umurChartLabels' => $umurChartLabels,
             'umurChartData' => $umurChartData,
             'dusunChartLabels' => $dusunChartLabels,
             'dusunChartData' => $dusunChartData,
+            'pendidikanChartLabels' => $pendidikanChartLabels,
+            'pendidikanChartData' => $pendidikanChartData,
         ]);
     }
 }

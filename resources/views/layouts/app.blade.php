@@ -49,7 +49,6 @@
                 <a href="{{ route('geodata') }}" class="text-md font-semibold leading-6 text-white">Geodata</a>
                 <a href="{{ route('berita') }}" class="text-md font-semibold leading-6 text-white">Berita</a>
                 <a href="{{ route('produk') }}" class="text-md font-semibold leading-6 text-white">Belanja</a>
-                <a href="#" class="text-md font-semibold leading-6 text-white">PPID</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{{ route('pengaduan') }}"

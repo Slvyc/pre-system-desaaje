@@ -21,8 +21,6 @@ class StatistikKelompokUmurResource extends Resource
 {
     protected static ?string $model = StatistikKelompokUmur::class;
 
-    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
-
     protected static string | UnitEnum | null $navigationGroup = 'Data Desa';
 
     protected static ?string $recordTitleAttribute = 'rentang_umur';

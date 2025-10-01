@@ -45,7 +45,6 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 //Route Infografis
 Route::get('/infografis/penduduk', [infografisController::class, 'indexPenduduk'])->name('infografis.penduduk');
 
-
 Route::get('/Geodata', function () {
     return view('geodata');
 })->name('geodata');

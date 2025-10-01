@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\StatistikDesas;
+namespace App\Filament\Resources\StatistikPendidikans;
 
-use App\Filament\Resources\StatistikDesas\Pages\ManageStatistikDesas;
-use App\Models\StatistikDesa;
+use App\Filament\Resources\StatistikPendidikans\Pages\ManageStatistikPendidikans;
+use App\Models\StatistikPendidikan;
 use BackedEnum;
 use UnitEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -18,9 +17,9 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class StatistikDesaResource extends Resource
+class StatistikPendidikanResource extends Resource
 {
-    protected static ?string $model = StatistikDesa::class;
+    protected static ?string $model = StatistikPendidikan::class;
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-user-group';
 
@@ -30,7 +29,7 @@ class StatistikDesaResource extends Resource
 
     public static function getPluralLabel(): string
     {
-        return 'Statistik Desa';
+        return 'Statistik Pendidikan';
     }
 
     public static function getLabel(): string
@@ -54,6 +53,7 @@ class StatistikDesaResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->recordTitleAttribute('nama_statistik')
             ->columns([
                 TextColumn::make('nama_statistik')
                     ->searchable(),
@@ -77,7 +77,7 @@ class StatistikDesaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageStatistikDesas::route('/'),
+            'index' => ManageStatistikPendidikans::route('/'),
         ];
     }
 }
