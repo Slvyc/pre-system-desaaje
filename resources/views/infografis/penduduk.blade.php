@@ -23,29 +23,33 @@
                 {{-- grid data penduduk--}}
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-white gap-4">
 
-                    {{-- card 1 --}}
-                    <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-xl font-bold">Jumlah Penduduk</h3>
-                        <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_penduduk']->nilai ?? 0 }}</p>
-                    </div>
+                    @foreach ($dataUmum as $umum)
+                        <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
+                            <h3 class="text-xl font-bold">{{ $umum->nama_statistik }}</h3>
+                            <p class="text-4xl font-extrabold">{{ $umum->nilai ?? 0 }}</p>
+                        </div>
+                    @endforeach
 
                     {{-- card 2 --}}
-                    <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
+                    {{-- <div
+                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
                         <h3 class="text-xl font-bold">Laki-Laki</h3>
                         <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_laki_laki']->nilai ?? 0}}</p>
-                    </div>
+                    </div> --}}
 
                     {{-- card 3 --}}
-                    <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
+                    {{-- <div
+                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
                         <h3 class="text-xl font-bold">Perempuan</h3>
                         <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_perempuan']->nilai ?? 0 }}</p>
-                    </div>
+                    </div> --}}
 
                     {{-- card 4 --}}
-                    <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
+                    {{-- <div
+                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
                         <h3 class="text-xl font-bold">Kepala Keluarga</h3>
                         <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_kk']->nilai ?? 0 }}</p>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
 
@@ -60,6 +64,12 @@
                 Berdasarkan Dusun
             </h2>
             <canvas id="dusunChart"></canvas>
+
+            {{-- Berdasarkan (Chart JS) --}}
+            <h2 class="text-4xl font-extrabold text-custom mb-3">
+                Berdasarkan Pendidikan
+            </h2>
+            <canvas id="pendidikanChart"></canvas>
         </div>
     </main>
 
@@ -155,6 +165,48 @@
         const dusunChart = new Chart(
             document.getElementById('dusunChart'),
             dusunConfig
+        );
+
+
+        // Pendidikan
+        // Ambel data dari controller
+        const pendidikanLabels = @json($pendidikanChartLabels);
+        const pendidikanDataValues = @json($pendidikanChartData);
+
+        // Konfigurasi Chart.js untuk grafik batang biasa
+        const pendidikanData = {
+            labels: pendidikanLabels,
+            datasets: [{
+                label: 'Jumlah Penduduk',
+                data: pendidikanDataValues,
+                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const pendidikanConfig = {
+            type: 'bar', // Tipe grafik batang standar
+            data: pendidikanData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false // Menyembunyikan label 'Jumlah Penduduk' di atas
+                    }
+                }
+            }
+        };
+
+        // Render grafik di canvas
+        const pendidikanChart = new Chart(
+            document.getElementById('pendidikanChart'),
+            pendidikanConfig
         );
     </script>
 @endsection
