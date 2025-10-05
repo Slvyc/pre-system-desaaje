@@ -52,7 +52,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{{ route('pengaduan') }}"
-                    class="flex items-center gap-2 text-sm font-semibold py-2 px-3 rounded-4xl text-white bg-custom transition-colors">
+                    class="flex items-center gap-2 text-sm font-semibold py-2 px-3 rounded-4xl text-white bg-custom-3 transition-colors">
                     <span>Buat Pengaduan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd"
@@ -143,6 +143,7 @@
 
     {{-- CONTENT END --}}
 
+
     {{-- FOOTER --}}
 
     <footer class="bg-custom text-white">
@@ -177,15 +178,51 @@
 
         {{-- copyright --}}
 
-        <div class="border-t border-green-800 mt-8">
-            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between text-sm">
-                <p>© 2025 Pemerintah Desa Aje. All rights reserved.</p>
-                <p>Powered by <span class="text-yellow-300 font-semibold">Unaya Tim PM Bima</span></p>
+        <div class="border-t border-custom-2 mt-8">
+            <div class="max-w-7xl mx-auto px-6 py-4 items-center justify-center text-sm">
+                <p>Powered by <span class="text-custom-2 font-semibold">BEM Berdampak Universitas Abulyatama
+                        2025</span></p>
             </div>
         </div>
     </footer>
 
     {{-- END FOOTER --}}
+
+    {{-- Statistik Kunjungan --}}
+    <div class="fixed bottom-3 right-3 z-50 group">
+        <div
+            class="flex items-center gap-3 px-6 py-3 bg-custom-3 shadow-xl rounded-2xl border border-gray-500 hover:shadow-2xl duration-300 cursor-pointer w-fit min-w-[250px]">
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-custom-3 shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M10.5 19.5h3m-6.75 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-15a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 4.5v15a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
+            </div>
+
+            <div class="flex flex-col">
+                <span class="text-md text-gray-300 mb-2">Kunjungan Hari Ini</span>
+                <span class="text-xl font-bold text-white">205</span>
+            </div>
+        </div>
+
+        <div
+            class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 transition-all duration-300 ease-out w-fit min-w-full">
+            <h3 class="font-bold text-custom-3 text-lg mb-7">Statistik Kunjungan</h3>
+            <div class="text-md text-black space-y-3">
+                <div class="flex justify-between"><span>Hari Ini</span><span>205</span></div>
+                <div class="flex justify-between"><span>Kemarin</span><span>287</span></div>
+                <div class="flex justify-between"><span>Minggu Ini</span><span>205</span></div>
+                <div class="flex justify-between"><span>Minggu Lalu</span><span>2.096</span></div>
+                <div class="flex justify-between"><span>Bulan Ini</span><span>1.450</span></div>
+                <div class="flex justify-between"><span>Bulan Lalu</span><span>10.123</span></div>
+                <hr class="my-2 border-white/50" />
+                <div class="flex justify-between font-semibold text-custom-3"><span>Total</span><span>176.115</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @stack('scripts')
 
