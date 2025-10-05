@@ -36,6 +36,11 @@ class BeritaResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'judul_berita';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): string
     {
         return 'Berita Desa Aje';

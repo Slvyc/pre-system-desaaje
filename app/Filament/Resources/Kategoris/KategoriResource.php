@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Kategoris;
 use App\Filament\Resources\Kategoris\Pages\ManageKategoris;
 use App\Models\Kategori;
 use BackedEnum;
+use UnitEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -20,15 +21,29 @@ class KategoriResource extends Resource
 {
     protected static ?string $model = Kategori::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-credit-card';
+
+    protected static string | UnitEnum | null $navigationGroup = 'Anggaran';
 
     protected static ?string $recordTitleAttribute = 'nama_kategori';
+
+    public static function getPluralLabel(): string
+    {
+        return 'Master Kategori Anggaran';
+    }
+
+    public static function getLabel(): string
+    {
+        return 'Kategori';
+    }
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
                 TextInput::make('nama_kategori')
+                    ->label('Nama Kategori')
+                    ->columnSpanFull()
                     ->required(),
             ]);
     }
@@ -39,6 +54,7 @@ class KategoriResource extends Resource
             ->recordTitleAttribute('nama_kategori')
             ->columns([
                 TextColumn::make('nama_kategori')
+                    ->label('Nama Kategori')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

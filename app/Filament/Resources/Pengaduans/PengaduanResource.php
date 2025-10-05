@@ -38,6 +38,11 @@ class PengaduanResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): string
     {
         return 'Pengaduan Masyarakat';

@@ -35,6 +35,11 @@ class PotensiDesaResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'nama_potensi';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): string
     {
         return 'Potensi Desa Aje';

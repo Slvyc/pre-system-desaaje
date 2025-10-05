@@ -33,6 +33,11 @@ class GaleriResource extends Resource
     protected static ?string $label = 'Galeri'; // Mengubah nama header
     protected static ?string $slug = 'galeri';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): string
     {
         return 'Galeri Foto';

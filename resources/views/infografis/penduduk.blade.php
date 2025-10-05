@@ -60,7 +60,7 @@
             <canvas id="kelompokUmurChart"></canvas>
 
             {{-- Berdasarkan Dusun (Chart JS -> Pie) --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl max-w-xl font-extrabold text-custom mb-3">
                 Berdasarkan Dusun
             </h2>
             <canvas id="dusunChart"></canvas>

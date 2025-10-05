@@ -37,6 +37,11 @@ class ProdukResource extends Resource
     protected static ?string $label = 'Produk'; // Mengubah nama header
     protected static ?string $slug = 'produk';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function getPluralLabel(): string
     {
         return 'Galeri Foto';
