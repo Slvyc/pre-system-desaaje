@@ -15,6 +15,6 @@ class Kategori extends Model
 
     public function uraians()
     {
-        return $this->hasMany(Uraian::class);
+        return $this->hasMany(Uraian::class, 'kategori_id');
     }
 }

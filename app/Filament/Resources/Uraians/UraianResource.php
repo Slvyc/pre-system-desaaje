@@ -27,6 +27,8 @@ class UraianResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Anggaran';
 
+    // protected static ?int $navigationSort = 2;
+
     protected static ?string $recordTitleAttribute = 'nama_uraian';
 
     public static function getPluralLabel(): string

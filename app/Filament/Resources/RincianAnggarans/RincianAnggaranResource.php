@@ -1,29 +1,26 @@
 <?php
 
-namespace App\Filament\Resources\AnggaranTerealisasis;
+namespace App\Filament\Resources\RincianAnggarans;
 
-use App\Filament\Resources\AnggaranTerealisasis\Pages\ManageAnggaranTerealisasis;
-use App\Models\AnggaranTerealisasi;
+use App\Filament\Resources\RincianAnggarans\Pages\ManageRincianAnggarans;
+use App\Models\RincianAnggaran;
 use BackedEnum;
 use UnitEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Relations\Relation;
 
-use function Laravel\Prompts\select;
-
-class AnggaranTerealisasiResource extends Resource
+class RincianAnggaranResource extends Resource
 {
-    protected static ?string $model = AnggaranTerealisasi::class;
+    protected static ?string $model = RincianAnggaran::class;
 
     protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-currency-dollar';
 
@@ -33,24 +30,27 @@ class AnggaranTerealisasiResource extends Resource
 
     public static function getPluralLabel(): string
     {
-        return 'Nilai Anggaran';
+        return 'Rincian Nilai Anggaran';
     }
 
     public static function getLabel(): string
     {
-        return 'Nilai Anggaran';
+        return 'Rincian Nilai Anggaran';
     }
 
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                Select::make('uraian_id')
-                    ->relationship('uraian', 'nama_uraian')
+                Select::make('anggaran_terealisasi_id')
+                    ->relationship('anggaran', 'uraian_id')
                     ->label('Nama Uraian')
                     ->required()
                     ->searchable()
                     ->preload(),
+                TextInput::make('nama_rincian')
+                    ->required()
+                    ->label('Nama Rincian Anggaran'),
                 TextInput::make('anggaran')
                     ->label('Nilai Anggaran')
                     ->prefix('Rp')
@@ -68,18 +68,18 @@ class AnggaranTerealisasiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('uraian.tahun')
+                TextColumn::make('anggaran.uraian.tahun')
                     ->sortable()
                     ->label('Tahun Anggaran')
                     ->searchable(),
 
-                TextColumn::make('uraian.kategori_id')
+                TextColumn::make('anggaran.uraian_id')
                     ->sortable()
                     ->label('Kategori ID')
                     ->searchable(),
 
-                TextColumn::make('uraian.nama_uraian')
-                    ->label('Nama Uraian')
+                TextColumn::make('nama_rincian')
+                    ->label('Nama Rincian Anggaran')
                     ->searchable(),
 
                 TextColumn::make('anggaran')
@@ -114,7 +114,7 @@ class AnggaranTerealisasiResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageAnggaranTerealisasis::route('/'),
+            'index' => ManageRincianAnggarans::route('/'),
         ];
     }
 }

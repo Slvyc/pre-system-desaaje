@@ -20,4 +20,10 @@ class AnggaranTerealisasi extends Model
     {
         return $this->belongsTo(Uraian::class, 'uraian_id');
     }
+
+    // yang jadi tujuan foreign key
+    public function rincianAnggarans()
+    {
+        return $this->hasMany(RincianAnggaran::class, 'anggaran_terealisasi_id');
+    }
 }
