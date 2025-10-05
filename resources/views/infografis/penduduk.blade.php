@@ -21,7 +21,7 @@
                 </div>
 
                 {{-- grid data penduduk--}}
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-white gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 text-white gap-4">
 
                     @foreach ($dataUmum as $umum)
                         <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
@@ -59,11 +59,14 @@
             </h2>
             <canvas id="kelompokUmurChart"></canvas>
 
-            {{-- Berdasarkan Dusun (Chart JS -> Pie) --}}
             <h2 class="text-4xl font-extrabold text-custom mb-3">
                 Berdasarkan Dusun
             </h2>
-            <canvas id="dusunChart"></canvas>
+
+            <div class="max-w-2xl mx-auto">
+                <canvas id="dusunChart" class="my-20 w-full h-80"></canvas>
+            </div>
+
 
             {{-- Berdasarkan (Chart JS) --}}
             <h2 class="text-4xl font-extrabold text-custom mb-3">
@@ -86,9 +89,12 @@
             datasets: [{
                 label: 'Jumlah Penduduk',
                 data: umurDataValues,
-                backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
+                backgroundColor: [
+                    '#bad6eb',
+                    '#081f5c',
+                    '#f7f2eb',
+                    '#7096d1'
+                ]
             }]
         };
 
@@ -129,20 +135,12 @@
                 label: 'Berdasarkan Dusun',
                 data: dusunDataValues,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.8)',
-                    'rgba(54, 162, 235, 0.8)',
-                    'rgba(255, 206, 86, 0.8)',
-                    'rgba(75, 192, 192, 0.8)',
-                    'rgba(153, 102, 255, 0.8)',
-                    'rgba(255, 159, 64, 0.8)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    '#f7f2eb', // putih
+                    '#081f5c', // biru pekat
+                    '#7096d1', // biru soft
+                    '#dc3545', //
+                    '#17a2b8', // 
+                    '#6c757d'  // 
                 ],
                 borderWidth: 1
             }]
@@ -153,9 +151,23 @@
             data: dusunData,
             options: {
                 responsive: true,
+                layout: {
+                    layout: {
+                        padding: {
+                            top: 20,
+                            bottom: 20,
+                            left: 30,
+                            right: 10
+                        }
+                    }
+
+                },
                 plugins: {
                     legend: {
-                        position: 'top',
+                        position: 'left',
+                        labels: {
+                            padding: 20
+                        }
                     }
                 }
             }
@@ -179,9 +191,9 @@
             datasets: [{
                 label: 'Jumlah Penduduk',
                 data: pendidikanDataValues,
-                backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
+                backgroundColor: [
+                    '#7096d1', // biru soft
+                ]
             }]
         };
 
