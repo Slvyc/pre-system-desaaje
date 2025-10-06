@@ -207,7 +207,7 @@
         </div>
 
         <div
-            class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 transition-all duration-300 ease-out w-fit min-w-full">
+            class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 transition-all duration-300 ease-out w-fit min-w-full">
             <h3 class="font-bold text-custom-3 text-lg mb-7">Statistik Kunjungan</h3>
             <div class="text-md text-black space-y-3">
                 <div class="flex justify-between"><span>Hari Ini</span><span>{{ $visitorStats['today'] }}</span></div>
@@ -219,9 +219,11 @@
                 </div>
                 <div class="flex justify-between"><span>Bulan Ini</span><span>{{ $visitorStats['this_month'] }}</span>
                 </div>
-                <div class="flex justify-between"><span>Bulan Lalu</span><span>{{ $visitorStats['last_month'] }}</span></div>
+                <div class="flex justify-between"><span>Bulan Lalu</span><span>{{ $visitorStats['last_month'] }}</span>
+                </div>
                 <hr class="my-2 border-white/50" />
-                <div class="flex justify-between font-semibold text-custom-3"><span>Total</span><span>{{ $visitorStats['total'] }}</span>
+                <div class="flex justify-between font-semibold text-custom-3">
+                    <span>Total</span><span>{{ $visitorStats['total'] }}</span>
                 </div>
             </div>
         </div>
