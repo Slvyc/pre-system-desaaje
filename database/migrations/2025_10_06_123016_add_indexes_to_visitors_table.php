@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('uraian', function (Blueprint $table) {
-            $table->dropForeign(['parent_id']); // Hapus foreign key constraint dulu
-            $table->dropColumn('parent_id');
+        Schema::table('visitor', function (Blueprint $table) {
+            $table->index('ip_address');
+            $table->index('created_at');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('uraian', function (Blueprint $table) {
+        Schema::table('visitor', function (Blueprint $table) {
             //
         });
     }
