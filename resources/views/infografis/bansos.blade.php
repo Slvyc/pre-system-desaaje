@@ -8,14 +8,13 @@
             {{-- tabbar --}}
             @include('infografis.tabbar-infografis.tabbar')
 
-            <!-- Section 1: Jumlah Penerima Bansos -->
             <section class="space-y-12">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3 text-center">
                     Jumlah Penerima Bansos
                 </h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <!-- Card 1 -->
+
                     <div
                         class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between col-span-2 md:col-span-2">
                         <div>
@@ -27,7 +26,6 @@
                             Desa</p>
                     </div>
 
-                    <!-- Card 2 -->
                     <div
                         class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between">
                         <div>
@@ -38,7 +36,6 @@
                         <p class="text-gray-700 text-base md:text-lg font-semibold">BST-Kemensos</p>
                     </div>
 
-                    <!-- Card 3 -->
                     <div
                         class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between">
                         <div>
@@ -49,7 +46,6 @@
                         <p class="text-gray-700 text-base md:text-lg font-semibold">PKH</p>
                     </div>
 
-                    <!-- Card 4 -->
                     <div
                         class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between">
                         <div>
@@ -60,7 +56,6 @@
                         <p class="text-gray-700 text-base md:text-lg font-semibold">BLT</p>
                     </div>
 
-                    <!-- Card 5 -->
                     <div
                         class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between">
                         <div>
@@ -71,10 +66,8 @@
                         <p class="text-gray-700 text-base md:text-lg font-semibold">PBI-APBD</p>
                     </div>
                 </div>
-
             </section>
 
-            <!-- Section 2: Cek Penerima -->
             <section class="space-y-12 my-30">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3 text-center">
                     Cek Penerima Bansos
