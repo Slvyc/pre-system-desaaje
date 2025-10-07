@@ -47,11 +47,12 @@
 
             {{-- Stunting --}}
             <li>
-                <a href="{{ url('/stunting') }}" class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
-                    {{ Request::is('stunting') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+                <a href="{{ url('/infografis/stunting') }}"
+                    class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('infografis.stunting') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
 
                     <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
-                        {{ Request::is('stunting')
+                        {{ Request::is('infografis.stunting')
     ? 'bg-custom/20 text-custom'
     : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -66,7 +67,8 @@
 
             {{-- Bansos --}}
             <li>
-                <a href="{{ url('/infografis/bansos') }}" class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                <a href="{{ url('/infografis/bansos') }}"
+                    class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
                     {{ Request::is('inforgrafis.bansos') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
 
                     <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
