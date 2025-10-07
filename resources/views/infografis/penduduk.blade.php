@@ -11,7 +11,7 @@
             {{-- Penduduk jumlah --}}
             <section class="py-10">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl font-extrabold text-custom mb-3">
+                    <h2 class="text-4xl font-extrabold text-custom-3 mb-3">
                         ADMINISTRASI PENDUDUK
                     </h2>
                     <p class="text-gray-700 text-lg">

@@ -1,61 +1,90 @@
 <div class="w-full mt-5">
     <div class="relative right-0">
-        <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-xl bg-white" data-tabs="tabs"
+        <ul class="relative flex flex-wrap justify-center gap-10 sm:gap-30 py-1 items-center list-none rounded-xl bg-white"
             role="list">
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 mr-1.5 text-slate-500">
-                        <path
-                            d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z">
-                        </path>
-                        <path
-                            d="M3.265 10.602l7.668 4.129a2.25 2.25 0 002.134 0l7.668-4.13 1.37.739a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.71 0l-9.75-5.25a.75.75 0 010-1.32l1.37-.738z">
-                        </path>
-                        <path
-                            d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z">
-                        </path>
-                    </svg>
-                    <span class="ml-1">Penduduk</span>
+
+            {{-- Penduduk --}}
+            <li>
+                <a href="{{ url('/infografis/penduduk') }}"
+                    class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('infografis/penduduk') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
+                        {{ Request::is('infografis/penduduk')
+    ? 'bg-custom/20 text-custom'
+    : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                        </svg>
+                    </div>
+                    <span>Penduduk</span>
                 </a>
             </li>
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 mr-1.5 text-slate-500">
-                        <path fill-rule="evenodd"
-                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="ml-1">APBDes</span>
+
+            {{-- APBDes --}}
+            <li>
+                <a href="{{ url('/apbdes') }}" class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('apbdes') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
+                        {{ Request::is('apbdes')
+    ? 'bg-custom/20 text-custom'
+    : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                            <path fill-rule="evenodd"
+                                d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span>APBDes</span>
                 </a>
             </li>
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 ml-1.5 text-slate-500">
-                        <path fill-rule="evenodd"
-                            d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="ml-1">Stunting</span>
+
+            {{-- Stunting --}}
+            <li>
+                <a href="{{ url('/stunting') }}" class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('stunting') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
+                        {{ Request::is('stunting')
+    ? 'bg-custom/20 text-custom'
+    : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M4.5 3.75a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V6.75a3 3 0 0 0-3-3h-15Zm4.125 3a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Zm-3.873 8.703a4.126 4.126 0 0 1 7.746 0 .75.75 0 0 1-.351.92 7.47 7.47 0 0 1-3.522.877 7.47 7.47 0 0 1-3.522-.877.75.75 0 0 1-.351-.92ZM15 8.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15ZM14.25 12a.75.75 0 0 1 .75-.75h3.75a.75.75 0 0 1 0 1.5H15a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3.75a.75.75 0 0 0 0-1.5H15Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <span>Stunting</span>
                 </a>
             </li>
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 ml-1.5 text-slate-500">
-                        <path fill-rule="evenodd"
-                            d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 00-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 00-2.282.819l-.922 1.597a1.875 1.875 0 00.432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 000 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 00-.432 2.385l.922 1.597a1.875 1.875 0 002.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 002.28-.819l.923-1.597a1.875 1.875 0 00-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 000-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 00-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 00-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 00-1.85-1.567h-1.843zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="ml-1">Bansos</span>
+
+            {{-- Bansos --}}
+            <li>
+                <a href="{{ url('/infografis/bansos') }}" class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('inforgrafis.bansos') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
+                        {{ Request::is('bansos')
+    ? 'bg-custom/20 text-custom'
+    : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M1.5 9.832v1.793c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875V9.832a3 3 0 0 0-.722-1.952l-3.285-3.832A3 3 0 0 0 16.215 3h-8.43a3 3 0 0 0-2.278 1.048L2.222 7.88A3 3 0 0 0 1.5 9.832ZM7.785 4.5a1.5 1.5 0 0 0-1.139.524L3.881 8.25h3.165a3 3 0 0 1 2.496 1.336l.164.246a1.5 1.5 0 0 0 1.248.668h2.092a1.5 1.5 0 0 0 1.248-.668l.164-.246a3 3 0 0 1 2.496-1.336h3.165l-2.765-3.226a1.5 1.5 0 0 0-1.139-.524h-8.43Z"
+                                clip-rule="evenodd" />
+                            <path
+                                d="M2.813 15c-.725 0-1.313.588-1.313 1.313V18a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-1.688c0-.724-.588-1.312-1.313-1.312h-4.233a3 3 0 0 0-2.496 1.336l-.164.246a1.5 1.5 0 0 1-1.248.668h-2.092a1.5 1.5 0 0 1-1.248-.668l-.164-.246A3 3 0 0 0 7.046 15H2.812Z" />
+                        </svg>
+                    </div>
+                    <span>Bansos</span>
                 </a>
             </li>
+
         </ul>
     </div>
 </div>

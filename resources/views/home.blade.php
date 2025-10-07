@@ -183,7 +183,7 @@
     <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-4 md:px-0 space-y-8">
             <div class="text-start">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-custom">PETA DESA</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-custom-3">PETA DESA</h2>
                 <p class="mt-2 text-gray-700 text-base sm:text-lg">
                     Berikut lokasi Desa Aje beserta sekitarnya untuk memudahkan masyarakat dan pengunjung.
                 </p>
@@ -205,11 +205,11 @@
     <section class="py-10 bg-custom-2">
         <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="flex flex-row items-center justify-between mb-10">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3">
                     SOTK
                 </h2>
                 <a href="{{ route('sotk') }}"
-                    class="inline-flex gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                    class="inline-flex gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
                     <span class="bg-white rounded-full p-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -258,7 +258,7 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-custom mb-3">
+                <h2 class="text-4xl font-extrabold text-custom-3 mb-3">
                     ADMINISTRASI PENDUDUK
                 </h2>
                 <p class="text-gray-700 text-lg">
@@ -315,7 +315,7 @@
     <section class="pb-15 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-4xl font-extrabold text-custom mb-4">
+                <h2 class="text-4xl font-extrabold text-custom-3 mb-4">
                     APB DESA 2025
                 </h2>
                 <p class="text-gray-700 mb-6 leading-relaxed">
@@ -323,7 +323,7 @@
                     belanja, serta pembiayaan yang dialokasikan untuk pembangunan desa dan pemberdayaan masyarakat.
                 </p>
                 <a href="#"
-                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
                     <span class="bg-white rounded-full p-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -340,23 +340,23 @@
 
                 {{-- card pemdapatn --}}
                 <div class="bg-custom-2 p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-custom mb-2">Pendapatan Desa</h3>
-                    <p class="text-3xl font-extrabold text-custom">Rp 2,1 M</p>
+                    <h3 class="text-xl font-bold text-custom-3 mb-2">Pendapatan Desa</h3>
+                    <p class="text-3xl font-extrabold text-custom-3">Rp 2,1 M</p>
                     <p class="text-gray-600 mt-2 text-sm">Berasal dari Dana Desa, PADes, dan bantuan pemerintah.</p>
                 </div>
 
                 {{-- bellanja --}}
                 <div class="bg-custom-2 p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-custom mb-2">Belanja Desa</h3>
-                    <p class="text-3xl font-extrabold text-custom">Rp 1,8 M</p>
+                    <h3 class="text-xl font-bold text-custom-3 mb-2">Belanja Desa</h3>
+                    <p class="text-3xl font-extrabold text-custom-3">Rp 1,8 M</p>
                     <p class="text-gray-600 mt-2 text-sm">Dialokasikan untuk pembangunan infrastruktur, kesehatan, dan
                         pendidikan.</p>
                 </div>
 
                 {{-- gatau tampilan aja --}}
                 <div class="bg-custom-2 p-6 rounded-xl sm:col-span-2">
-                    <h3 class="text-xl font-bold text-custom mb-2">Pembiayaan</h3>
-                    <p class="text-3xl font-extrabold text-custom">Rp 300 Jt</p>
+                    <h3 class="text-xl font-bold text-custom-3 mb-2">Pembiayaan</h3>
+                    <p class="text-3xl font-extrabold text-custom-3">Rp 300 Jt</p>
                     <p class="text-gray-600 mt-2 text-sm">Digunakan untuk menutup defisit dan mendukung kegiatan prioritas.
                     </p>
                 </div>
@@ -373,7 +373,7 @@
         <div class="max-w-7xl mx-auto px-6 md:px-0">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
                 <div class="text-start">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3">
                         BERITA TERBARU DESA
                     </h2>
                     <p class="text-gray-700 mt-2">
@@ -382,7 +382,7 @@
                 </div>
                 <div class="mt-4 md:mt-0">
                     <a href="{{ route('berita') }}"
-                        class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                        class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                         Lihat Selengkapnya
                         <span class="bg-white rounded-full p-1 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -467,11 +467,11 @@
         <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="grid lg:grid-cols-2 gap-6 items-center">
                 <div>
-                    <h2 class="text-4xl font-extrabold text-custom mb-4">
+                    <h2 class="text-4xl font-extrabold text-custom-3 mb-4">
                         POTENSI DESA
                     </h2>
                     <a href="{{ route('potensi') }}"
-                        class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                        class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                         Lihat Selengkapnya
                         <span class="bg-white rounded-full p-1 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -548,11 +548,11 @@
     <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
             <header class="flex flex-col lg:flex-row items-start lg:items-center justify-between mx-auto">
-                <h2 class="text-4xl font-extrabold text-custom mb-2">
+                <h2 class="text-4xl font-extrabold text-custom-3 mb-2">
                     BELI DARI DESA
                 </h2>
                 <a href="{{ route('produk') }}"
-                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
                     <span class="bg-white rounded-full p-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -651,11 +651,11 @@
     <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
             <div class="flex items-center justify-between mb-12">
-                <h2 class="text-4xl font-extrabold text-custom">
+                <h2 class="text-4xl font-extrabold text-custom-3">
                     GALERI DESA
                 </h2>
                 <a href="{{ route('galeri') }}"
-                    class="inline-flex items-center gap-2 bg-custom rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
+                    class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
                     <span class="bg-white rounded-full p-1 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"

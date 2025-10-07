@@ -52,7 +52,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{{ route('pengaduan') }}"
-                    class="flex items-center gap-2 text-sm font-semibold py-2 px-3 rounded-4xl text-white bg-custom-3 transition-colors">
+                    class="flex items-center gap-2 text-sm font-semibold py-2 px-3 rounded-4xl text-white bg-custom-3 border border-white/40 transition-colors">
                     <span>Buat Pengaduan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd"
@@ -191,7 +191,7 @@
     {{-- Statistik Kunjungan --}}
     <div class="fixed bottom-3 right-3 z-50 group">
         <div
-            class="flex items-center gap-3 px-6 py-3 bg-custom-3/80 backdrop-blur-lg shadow-xl rounded-2xl border border-gray-500 hover:shadow-2xl duration-300 cursor-pointer w-fit min-w-[250px]">
+            class="flex items-center gap-3 px-3 py-3 sm:px-6 sm:min-w-[250px] min-w-0 bg-custom-3 shadow-xl rounded-full sm:rounded-2xl border border-gray-500 hover:shadow-2xl sm:flex group-hover:!w-fit sm:!w-auto transition-all duration-300 cursor-pointer w-fit">
             <div class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-custom-3 shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
@@ -200,16 +200,14 @@
                 </svg>
             </div>
 
-            <div class="flex flex-col">
+            <div class="hidden sm:flex flex-col">
                 <span class="text-md text-gray-300 mb-2">Kunjungan Hari Ini</span>
                 <span class="text-xl font-bold text-white">{{ $visitorStats['today'] }}</span>
             </div>
         </div>
 
-        <div
-            class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg 
-               opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 
-               transition-all duration-300 ease-out w-fit min-w-full pointer-events-none group-hover:pointer-events-auto">
+        <div class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 
+        transition-all duration-300 ease-out pointer-events-none group-hover:pointer-events-auto w-auto min-w-max max-w-[90vw] sm:w-[260px] sm:min-w-[260px]">
             <h3 class="font-bold text-custom-3 text-lg mb-7">Statistik Kunjungan</h3>
             <div class="text-md text-black space-y-3">
                 <div class="flex justify-between"><span>Hari Ini</span><span>{{ $visitorStats['today'] }}</span></div>
