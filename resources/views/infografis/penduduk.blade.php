@@ -33,10 +33,10 @@
             </section>
 
             {{-- Kelompok Umur (Chart JS) --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl font-extrabold text-custom mb-7">
                 Berdasarkan Kelompok Umur
             </h2>
-            <canvas id="kelompokUmurChart"></canvas>
+            <canvas id="kelompokUmurChart" class="bg-white rounded-2xl p-10"></canvas>
 
             <h2 class="text-4xl font-extrabold text-custom mb-3">
                 Berdasarkan Dusun
@@ -48,10 +48,10 @@
 
 
             {{-- Berdasarkan (Chart JS) --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl font-extrabold text-custom mb-7">
                 Berdasarkan Pendidikan
             </h2>
-            <canvas id="pendidikanChart"></canvas>
+            <canvas id="pendidikanChart" class="bg-white rounded-2xl p-10"></canvas>
         </div>
     </main>
 
@@ -114,7 +114,7 @@
                 label: 'Berdasarkan Dusun',
                 data: dusunDataValues,
                 backgroundColor: [
-                    '#f7f2eb', // putih
+                    '#ffffff', // putih
                     '#081f5c', // biru pekat
                     '#7096d1', // biru soft
                     '#dc3545', //
@@ -172,7 +172,8 @@
                 data: pendidikanDataValues,
                 backgroundColor: [
                     '#7096d1', // biru soft
-                ]
+                ],
+                borderRadius: 15
             }]
         };
 

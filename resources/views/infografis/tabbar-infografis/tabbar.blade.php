@@ -22,37 +22,28 @@
                         </svg>
                     </div>
                     <span>Penduduk</span>
-        <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-xl bg-white" data-tabs="tabs" role="list">
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="true" href="{{ route('infografis.penduduk') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 mr-1.5 text-slate-500">
-                        <path
-                            d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z">
-                        </path>
-                        <path
-                            d="M3.265 10.602l7.668 4.129a2.25 2.25 0 002.134 0l7.668-4.13 1.37.739a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.71 0l-9.75-5.25a.75.75 0 010-1.32l1.37-.738z">
-                        </path>
-                        <path
-                            d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z">
-                        </path>
-                    </svg>
-                    <span class="ml-1">Penduduk</span>
                 </a>
             </li>
-            <li class="z-30 flex-auto text-center">
-                <a class="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="false" href="{{ route('infografis.apbdes') }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                        class="w-4 h-4 mr-1.5 text-slate-500">
-                        <path fill-rule="evenodd"
-                            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="ml-1">APBDes</span>
+
+            {{-- apbdes --}}
+           <li>
+                <a href="{{ url('/infografis/apbdes') }}"
+                    class="flex flex-col md:flex-row items-center justify-center w-full gap-1 md:gap-2 py-2 text-xs md:text-sm transition-all duration-300 rounded-md
+                    {{ Request::is('infografis.apbdes') ? 'text-custom font-semibold' : 'text-slate-500 hover:text-custom' }}">
+
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300
+                        {{ Request::is('infografis.apbdes')
+    ? 'bg-custom/20 text-custom'
+    : 'bg-transparent text-slate-500 hover:bg-custom/10 hover:text-custom' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+  <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+</svg>
+                    </div>
+                    <span>APBDes</span>
                 </a>
             </li>
+           
 
             {{-- Stunting --}}
             <li>
