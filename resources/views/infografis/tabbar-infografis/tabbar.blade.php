@@ -1,10 +1,9 @@
 <div class="w-full mt-5">
     <div class="relative right-0">
-        <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-xl bg-white" data-tabs="tabs"
-            role="list">
+        <ul class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-xl bg-white" data-tabs="tabs" role="list">
             <li class="z-30 flex-auto text-center">
                 <a class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="true">
+                    data-tab-target="" role="tab" aria-selected="true" href="{{ route('infografis.penduduk') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                         class="w-4 h-4 mr-1.5 text-slate-500">
                         <path
@@ -22,7 +21,7 @@
             </li>
             <li class="z-30 flex-auto text-center">
                 <a class="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-600 bg-inherit"
-                    data-tab-target="" role="tab" aria-selected="false">
+                    data-tab-target="" role="tab" aria-selected="false" href="{{ route('infografis.apbdes') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
                         class="w-4 h-4 mr-1.5 text-slate-500">
                         <path fill-rule="evenodd"

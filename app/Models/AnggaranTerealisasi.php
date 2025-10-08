@@ -13,7 +13,6 @@ class AnggaranTerealisasi extends Model
         'anggaran',
         'realisasi',
         'lebih_kurang',
-        'tahun'
     ];
 
     public function uraian()

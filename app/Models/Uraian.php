@@ -15,18 +15,18 @@ class Uraian extends Model
         'tahun'
     ];
 
-    public function anggaranUraian()
-    {
-        return $this->hasMany(AnggaranTerealisasi::class, 'uraian_id');
-    }
+    // public function anggaranUraian()
+    // {
+    //     return $this->hasMany(AnggaranTerealisasi::class, 'uraian_id');
+    // }
 
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 
-    public function anggarans()
+    public function anggaranTerealisasi()
     {
-        return $this->hasMany(AnggaranTerealisasi::class);
+        return $this->hasOne(AnggaranTerealisasi::class, 'uraian_id');
     }
 }

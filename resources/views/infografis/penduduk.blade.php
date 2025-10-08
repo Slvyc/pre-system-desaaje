@@ -29,27 +29,6 @@
                             <p class="text-4xl font-extrabold">{{ $umum->nilai ?? 0 }}</p>
                         </div>
                     @endforeach
-
-                    {{-- card 2 --}}
-                    {{-- <div
-                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-xl font-bold">Laki-Laki</h3>
-                        <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_laki_laki']->nilai ?? 0}}</p>
-                    </div> --}}
-
-                    {{-- card 3 --}}
-                    {{-- <div
-                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-xl font-bold">Perempuan</h3>
-                        <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_perempuan']->nilai ?? 0 }}</p>
-                    </div> --}}
-
-                    {{-- card 4 --}}
-                    {{-- <div
-                        class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-xl font-bold">Kepala Keluarga</h3>
-                        <p class="text-4xl font-extrabold">{{ $dataUmum['jumlah_kk']->nilai ?? 0 }}</p>
-                    </div> --}}
                 </div>
             </section>
 

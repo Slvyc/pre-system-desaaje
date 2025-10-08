@@ -17,6 +17,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use App\Models\AnggaranTerealisasi;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 
 class RincianAnggaranResource extends Resource
 {
@@ -43,11 +46,16 @@ class RincianAnggaranResource extends Resource
         return $schema
             ->components([
                 Select::make('anggaran_terealisasi_id')
-                    ->relationship('anggaran', 'uraian_id')
+                    ->options(function () {
+                        return AnggaranTerealisasi::with('uraian')
+                            ->get()
+                            ->pluck('uraian.nama_uraian', 'id');
+                    })
                     ->label('Nama Uraian')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->reactive(),
                 TextInput::make('nama_rincian')
                     ->required()
                     ->label('Nama Rincian Anggaran'),
@@ -55,7 +63,28 @@ class RincianAnggaranResource extends Resource
                     ->label('Nilai Anggaran')
                     ->prefix('Rp')
                     ->numeric()
-                    ->nullable(),
+                    ->nullable()
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                        $anggaranId = $get('anggaran_terealisasi_id');
+                        if (! $anggaranId) return null;
+
+                        $anggaran = AnggaranTerealisasi::find($anggaranId);
+                        $totalRincian = RincianAnggaran::where('anggaran_terealisasi_id', $anggaranId)->sum('anggaran');
+                        $sisa = ($anggaran?->anggaran ?? 0) - $totalRincian;
+
+                        return 'max:' . $sisa;
+                    })
+                    ->helperText(function (callable $get) {
+                        $anggaranId = $get('anggaran_terealisasi_id');
+                        if (! $anggaranId) return null;
+
+                        $anggaran = AnggaranTerealisasi::find($anggaranId);
+                        $totalRincian = RincianAnggaran::where('anggaran_terealisasi_id', $anggaranId)->sum('anggaran');
+                        $sisa = ($anggaran?->anggaran ?? 0) - $totalRincian;
+
+                        return 'Sisa anggaran tersedia: Rp ' . number_format($sisa, 0, ',', '.');
+                    }),
                 TextInput::make('realisasi')
                     ->label('Nilai Realisasi')
                     ->prefix('Rp')
@@ -73,9 +102,9 @@ class RincianAnggaranResource extends Resource
                     ->label('Tahun Anggaran')
                     ->searchable(),
 
-                TextColumn::make('anggaran.uraian_id')
+                TextColumn::make('anggaran.uraian.nama_uraian')
                     ->sortable()
-                    ->label('Kategori ID')
+                    ->label('Nama Uraian')
                     ->searchable(),
 
                 TextColumn::make('nama_rincian')

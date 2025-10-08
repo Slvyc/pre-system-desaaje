@@ -53,10 +53,9 @@ class UraianResource extends Resource
                     ->preload(),
                 TextInput::make('nama_uraian')
                     ->required()
-                    ->maxLength(255)
-                    ->unique(),
+                    ->maxLength(255),
                 TextInput::make('tahun')
-                    ->label('Tahun')
+                    ->label('Tahun Anggaran')
                     ->required()
                     ->numeric()
                     ->minValue(2000)
@@ -69,15 +68,20 @@ class UraianResource extends Resource
         return $table
             ->recordTitleAttribute('nama_uraian')
             ->columns([
+                TextColumn::make('tahun')
+                    ->sortable()
+                    ->label('Tahun Anggaran')
+                    ->searchable(),
                 TextColumn::make('kategori.nama_kategori')
                     ->label('Nama Kategori Anggaran')
                     ->sortable(),
                 TextColumn::make('nama_uraian')
                     ->label('Nama Uraian')
                     ->searchable(),
-                TextColumn::make('tahun')
+                TextColumn::make('created_at')
+                    ->label('Di Buat Pada')
+                    ->dateTime()
                     ->sortable()
-                    ->label('Tahun')
                     ->searchable(),
             ])
             ->filters([
