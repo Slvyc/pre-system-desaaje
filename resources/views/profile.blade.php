@@ -10,7 +10,7 @@
 
                     <header class="md:col-span-1">
                         <h2 id="visi-misi-heading"
-                            class="text-3xl md:text-4xl font-extrabold uppercase justify-center text-custom mb-6">
+                            class="text-3xl md:text-4xl font-extrabold uppercase justify-center text-custom-3 mb-6">
                             VISI DAN MISI DESA
                         </h2>
                         <p class="text-gray-600">
@@ -21,7 +21,7 @@
                     <div class="md:col-span-2 grid gap-6">
                         {{-- VISI --}}
                         <article class="bg-white p-6 md:p-10 rounded-2xl shadow text-center">
-                            <h3 class="text-3xl font-bold text-custom mb-6">Visi</h3>
+                            <h3 class="text-3xl font-bold text-custom-3 mb-6">Visi</h3>
                             <p class="text-black leading-relaxed">
                                 {{-- pake !! karna component rich editor filament --}}
                                 {!! $visimisi->visi !!}
@@ -30,7 +30,7 @@
 
                         {{-- MISI --}}
                         <article class="bg-white p-6 md:p-10 rounded-2xl shadow">
-                            <h3 class="text-3xl font-bold text-custom text-center mb-6">Misi</h3>
+                            <h3 class="text-3xl font-bold text-custom-3 text-center mb-6">Misi</h3>
                             <div
                                 class="[&>ul]:list-disc [&>ul]:list-inside [&>ul]:text-black [&>ul]:space-y-2 prose max-w-none">
                                 {!! $visimisi->misi !!}
@@ -43,7 +43,7 @@
             {{-- BAGAN --}}
             <section id="bagan-desa" aria-labelledby="bagan-desa-heading">
                 <h2 id="bagan-desa-heading"
-                    class="text-4xl sm:text-4xl text-center mb-12 uppercase font-extrabold text-custom">
+                    class="text-4xl sm:text-4xl text-center mb-12 uppercase font-extrabold text-custom-3">
                     BAGAN DESA
                 </h2>
 
@@ -52,7 +52,7 @@
 
                     <div>
                         <h3
-                            class="text-xl font-semibold text-center text-custom border-2 rounded-2xl p-4 border-custom mb-5">
+                            class="text-xl font-semibold text-center text-custom-3 border-2 rounded-2xl p-4 border-custom-3 mb-5">
                             Struktur Organisasi Desa
                         </h3>
                         <figure class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
@@ -63,7 +63,7 @@
 
                     <div>
                         <h3
-                            class="text-xl font-semibold text-center text-custom border-2 rounded-2xl p-4 border-custom mb-5">
+                            class="text-xl font-semibold text-center text-custom-3 border-2 rounded-2xl p-4 border-custom-3 mb-5">
                             Perangkat Desa Aje
                         </h3>
                         <figure class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
@@ -77,7 +77,7 @@
             {{-- SEJARAH --}}
             <section id="sejarah" aria-labelledby="sejarah-heading" class="space-y-6">
                 <header>
-                    <h2 id="sejarah-heading" class="text-4xl mb-12 uppercase font-extrabold text-custom">
+                    <h2 id="sejarah-heading" class="text-4xl mb-12 uppercase font-extrabold text-custom-3">
                         Sejarah Desa
                     </h2>
                 </header>
@@ -89,7 +89,7 @@
             {{-- LOKASI DESA --}}
             <section class="pb-16 bg-custom-2" aria-labelledby="peta-desa-heading">
                 <h2 id="peta-desa-heading"
-                    class="text-3xl sm:text-4xl text-start mb-12 uppercase font-extrabold text-custom">
+                    class="text-3xl sm:text-4xl text-start mb-12 uppercase font-extrabold text-custom-3">
                     LOKASI DESA
                 </h2>
 

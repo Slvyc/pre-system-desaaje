@@ -48,6 +48,15 @@ Route::get('/infografis/penduduk', [infografisController::class, 'indexPenduduk'
 Route::get('/infografis/apbdes', [infografisController::class, 'indexApbdes'])->name('infografis.apbdes');
 Route::get('/infografis/apbdes/{tahun}', [infografisController::class, 'showApbdes'])->name('infografis.apbdes.show');
 
+
+Route::get('/infografis/bansos', function () {
+    return view('infografis.bansos');
+})->name('infografis.bansos');
+
+Route::get('/infografis/stunting', function () {
+    return view('infografis.stunting');
+})->name('infografis.stunting');
+
 Route::get('/Geodata', function () {
     return view('geodata');
 })->name('geodata');
