@@ -8,6 +8,7 @@ use App\Models\StatistikDusun;
 use App\Models\StatistikKelompokUmur;
 use App\Models\StatistikPendidikan;
 use App\Models\Uraian;
+use App\Models\RincianAnggaran;
 use Illuminate\Http\Request;
 
 class infografisController extends Controller
@@ -96,9 +97,40 @@ class infografisController extends Controller
         $pendapatanJenisLabels = $chartPendapatanData->keys();
         $pendapatanJenisData = $chartPendapatanData->values();
 
-        // Pendapatan Desa Detail (Dropdown)
-        // $pendapatanDetail = $uraian->where('kategori.nama_kategori', 'Pendapatan')->sortBy('nama_uraian')
-        //     ->map(fn($items) => $items->sum(fn($u) => optional($u->anggaranTerealisasi)->anggaran ?? 0));
+        // Dropdown Pendapatan Desa 
+        $pendapatanDikelompokkan = $uraian
+            ->where('kategori.nama_kategori', 'Pendapatan')
+            ->filter(fn($u) => optional($u->anggaranTerealisasi)->anggaran > 0);
+
+        // Belanja Desa 
+        // === Chart 3: Detail Belanja Desa per Jenis (tahun terpilih) ===
+        $chartBelanjaData = $uraian
+            ->where('kategori.nama_kategori', 'Belanja')
+            ->groupBy('nama_uraian')
+            ->map(fn($items) => $items->sum(fn($u) => optional($u->anggaranTerealisasi)->anggaran ?? 0));
+
+        $belanjaJenisLabels = $chartBelanjaData->keys();
+        $belanjaJenisData = $chartBelanjaData->values();
+
+        // Dropdown Belanja Desa 
+        $belanjaDikelompokkan = $uraian
+            ->where('kategori.nama_kategori', 'Belanja')
+            ->filter(fn($u) => optional($u->anggaranTerealisasi)->anggaran > 0);
+
+        // Pembiayaan Desa 
+        // === Chart 4: Detail Pembiayaan Desa per Jenis (tahun terpilih) ===
+        $chartPembiayaanData = $uraian
+            ->where('kategori.nama_kategori', 'Pembiayaan')
+            ->groupBy('nama_uraian')
+            ->map(fn($items) => $items->sum(fn($u) => optional($u->anggaranTerealisasi)->anggaran ?? 0));
+
+        $pembiayaanJenisLabels = $chartPembiayaanData->keys();
+        $pembiayaanJenisData = $chartPembiayaanData->values();
+
+        // Dropdown Pembiayaan Desa 
+        $pembiayaanDikelompokkan = $uraian
+            ->where('kategori.nama_kategori', 'Pembiayaan')
+            ->filter(fn($u) => optional($u->anggaranTerealisasi)->anggaran > 0);
 
         return view('infografis.apbdes.show', [
             'uraian' => $uraian,
@@ -116,7 +148,18 @@ class infografisController extends Controller
             'pendapatanJenisLabels' => $pendapatanJenisLabels,
             'pendapatanJenisData' => $pendapatanJenisData,
             // dropdown pendapatan desa detail
-            // 'pendapatanDetail' => $pendapatanDetail,
+            'pendapatanDikelompokkan' => $pendapatanDikelompokkan,
+            // chart data belanja desa
+            'belanjaJenisLabels' => $belanjaJenisLabels,
+            'belanjaJenisData' => $belanjaJenisData,
+            // dropdown belanja desa detail
+            'belanjaDikelompokkan' => $belanjaDikelompokkan,
+            // chart data pembiayaan desa
+            'pembiayaanJenisLabels' => $pembiayaanJenisLabels,
+            'pembiayaanJenisData' => $pembiayaanJenisData,
+            // dropdown pembiayaan desa detail
+            'pembiayaanDikelompokkan' => $pembiayaanDikelompokkan,
+
         ]);
     }
 }

@@ -79,47 +79,229 @@
             <canvas id="pendapatanJenisChart"></canvas>
 
             {{-- Pendapatan Desa Detail Dropdown --}}
-            {{-- <section class="space-y-4">
-                @foreach ($pendapatanDetail as $detail)
-                <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
-                    <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
-                        <h3 class="text-lg font-semibold text-gray-800">{{ $detail->nama_uraian }}</h3>
-                        <div class="flex items-center space-x-4">
-                            <span class="text-lg font-bold text-green-600">
-                                Rp. {{ number_format($detail->, 0, ',', '.') }}</span>
-                            <svg class="w-6 h-6 text-gray-600 transition-transform duration-300 transform rotate-180"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="accordion-content border-t border-gray-200 p-4 bg-gray-50">
-                        <div class="mb-4">
-                            <div class="bg-gray-200 rounded-full h-2.5">
-                                <div class="bg-green-600 h-2.5 rounded-full" style="width: 100%"></div>
+            <section class="space-y-4">
+                @foreach ($pendapatanDikelompokkan as $grup)
+                    @php
+                        $totalAnggaranGrup = optional($grup->anggaranTerealisasi)->anggaran ?? 0;
+                        $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
+                        $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
+                    @endphp
+                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                        <div
+                            class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
+                            <div class="flex items-center space-x-4">
+                                <span class="text-lg font-bold text-green-600">
+                                    Rp{{ number_format($totalAnggaranGrup, 0, ',', '.') }}
+                                </span>
+                                <svg class="w-6 h-6 text-gray-600 transition-transform duration-300" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
                             </div>
-                            <p class="text-right text-sm font-semibold text-green-600 mt-1">100.00%</p>
                         </div>
 
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-700">Dana Desa</span>
-                                <span class="font-semibold text-gray-900">Rp1.110.727.000,00</span>
+                        @if($rincianList->count() > 0)
+                            <div class="accordion-content hidden border-t border-gray-200 bg-gray-50">
+                                {{-- Progress Bar --}}
+                                <div class="px-4 pt-4 pb-2">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-gray-700">{{ $grup->nama_uraian }}</span>
+                                        <span class="text-sm font-bold text-gray-900">{{ number_format($persentase, 2) }}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-700 h-2.5 rounded-full" style="width: {{ min($persentase, 100) }}%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Detail Rincian --}}
+                                <div class="px-4 pb-4">
+                                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-gray-100 border-b border-gray-200">
+                                                <tr>
+                                                    <th class="text-left py-2 px-3 font-semibold text-gray-700">Uraian</th>
+                                                    <th class="text-right py-2 px-3 font-semibold text-gray-700">Anggaran</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($rincianList as $detail)
+                                                    <tr class="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                                                        <td class="py-2 px-3 text-gray-700">{{ $detail->nama_rincian }}</td>
+                                                        <td class="py-2 px-3 text-right font-semibold text-gray-900">
+                                                            Rp{{ number_format($detail->anggaran ?? 0, 0, ',', '.') }}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-700">Bagi Hasil Pajak dan Retribusi Daerah</span>
-                                <span class="font-semibold text-gray-900">Rp33.427.749,00</span>
+                        @else
+                            <div class="accordion-content hidden border-t border-gray-200 p-4 bg-gray-50">
+                                <p class="text-gray-500 text-center">Tidak ada rincian anggaran</p>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-700">Alokasi Dana Desa</span>
-                                <span class="font-semibold text-gray-900">Rp397.032.000,00</span>
+                        @endif
+                    </div>
+                @endforeach
+            </section>
+
+            {{-- Belanja Desa Chart --}}
+            <h2 class="text-4xl font-extrabold text-custom mb-3">
+                Belanja Desa {{ $tahun }}
+            </h2>
+            <canvas id="belanjaJenisChart"></canvas>
+
+            {{-- Belanja Desa Detail Dropdown --}}
+            <section class="space-y-4">
+                @foreach ($belanjaDikelompokkan as $grup)
+                    @php
+                        $totalAnggaranGrup = optional($grup->anggaranTerealisasi)->anggaran ?? 0;
+                        $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
+                        $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
+                    @endphp
+                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                        <div
+                            class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
+                            <div class="flex items-center space-x-4">
+                                <span class="text-lg font-bold text-green-600">
+                                    Rp{{ number_format($totalAnggaranGrup, 0, ',', '.') }}
+                                </span>
+                                <svg class="w-6 h-6 text-gray-600 transition-transform duration-300" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
                             </div>
                         </div>
+
+                        @if($rincianList->count() > 0)
+                            <div class="accordion-content hidden border-t border-gray-200 bg-gray-50">
+                                {{-- Progress Bar --}}
+                                <div class="px-4 pt-4 pb-2">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-gray-700">{{ $grup->nama_uraian }}</span>
+                                        <span class="text-sm font-bold text-gray-900">{{ number_format($persentase, 2) }}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-700 h-2.5 rounded-full" style="width: {{ min($persentase, 100) }}%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Detail Rincian --}}
+                                <div class="px-4 pb-4">
+                                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-gray-100 border-b border-gray-200">
+                                                <tr>
+                                                    <th class="text-left py-2 px-3 font-semibold text-gray-700">Uraian</th>
+                                                    <th class="text-right py-2 px-3 font-semibold text-gray-700">Anggaran</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($rincianList as $detail)
+                                                    <tr class="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                                                        <td class="py-2 px-3 text-gray-700">{{ $detail->nama_rincian }}</td>
+                                                        <td class="py-2 px-3 text-right font-semibold text-gray-900">
+                                                            Rp{{ number_format($detail->anggaran ?? 0, 0, ',', '.') }}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="accordion-content hidden border-t border-gray-200 p-4 bg-gray-50">
+                                <p class="text-gray-500 text-center">Tidak ada rincian anggaran</p>
+                            </div>
+                        @endif
                     </div>
-                </div>
                 @endforeach
-            </section> --}}
+            </section>
+
+            {{-- Pembiayaan Desa Chart --}}
+            <h2 class="text-4xl font-extrabold text-custom mb-3">
+                Pembiayaan Desa {{ $tahun }}
+            </h2>
+            <canvas id="pembiayaanJenisChart"></canvas>
+
+            {{-- Pembiayaan Desa Detail Dropdown --}}
+            <section class="space-y-4">
+                @foreach ($pembiayaanDikelompokkan as $grup)
+                    @php
+                        $totalAnggaranGrup = optional($grup->anggaranTerealisasi)->anggaran ?? 0;
+                        $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
+                        $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
+                    @endphp
+                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                        <div
+                            class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
+                            <div class="flex items-center space-x-4">
+                                <span class="text-lg font-bold text-green-600">
+                                    Rp{{ number_format($totalAnggaranGrup, 0, ',', '.') }}
+                                </span>
+                                <svg class="w-6 h-6 text-gray-600 transition-transform duration-300" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        @if($rincianList->count() > 0)
+                            <div class="accordion-content hidden border-t border-gray-200 bg-gray-50">
+                                {{-- Progress Bar --}}
+                                <div class="px-4 pt-4 pb-2">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-gray-700">{{ $grup->nama_uraian }}</span>
+                                        <span class="text-sm font-bold text-gray-900">{{ number_format($persentase, 2) }}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-700 h-2.5 rounded-full" style="width: {{ min($persentase, 100) }}%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Detail Rincian --}}
+                                <div class="px-4 pb-4">
+                                    <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-gray-100 border-b border-gray-200">
+                                                <tr>
+                                                    <th class="text-left py-2 px-3 font-semibold text-gray-700">Uraian</th>
+                                                    <th class="text-right py-2 px-3 font-semibold text-gray-700">Anggaran</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($rincianList as $detail)
+                                                    <tr class="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+                                                        <td class="py-2 px-3 text-gray-700">{{ $detail->nama_rincian }}</td>
+                                                        <td class="py-2 px-3 text-right font-semibold text-gray-900">
+                                                            Rp{{ number_format($detail->anggaran ?? 0, 0, ',', '.') }}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="accordion-content hidden border-t border-gray-200 p-4 bg-gray-50">
+                                <p class="text-gray-500 text-center">Tidak ada rincian anggaran</p>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
+            </section>
 
         </div>
     </main>
@@ -185,7 +367,6 @@
 
 
         // Pendapatan Desa 
-        // Ambil data dari controller
         const pendapatanJenisLabels = @json($pendapatanJenisLabels);
         const pendapatanJenisData = @json($pendapatanJenisData);
 
@@ -233,6 +414,104 @@
 
         // Render grafik
         new Chart(document.getElementById('pendapatanJenisChart'), configPendapatan);
+
+        // Belanja Desa 
+        const belanjaJenisLabels = @json($belanjaJenisLabels);
+        const belanjaJenisData = @json($belanjaJenisData);
+
+        // Konfigurasi Chart.js
+        const dataBelanja = {
+            labels: belanjaJenisLabels,
+            datasets: [
+                {
+                    label: 'Jumlah (Rp)',
+                    data: belanjaJenisData,
+                    backgroundColor: '#081f5c',
+                },
+            ]
+        };
+
+        const configBelanja = {
+            type: 'bar',
+            data: dataBelanja,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return 'Rp ' + value.toLocaleString('id-ID');
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': Rp ' + context.formattedValue;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render grafik
+        new Chart(document.getElementById('belanjaJenisChart'), configBelanja);
+
+        // Pembiayaan Desa 
+        const pembiayaanJenisLabels = @json($pembiayaanJenisLabels);
+        const pembiayaanJenisData = @json($pembiayaanJenisData);
+
+        // Konfigurasi Chart.js
+        const dataPembiayaan = {
+            labels: pembiayaanJenisLabels,
+            datasets: [
+                {
+                    label: 'Jumlah (Rp)',
+                    data: pembiayaanJenisData,
+                    backgroundColor: '#081f5c',
+                },
+            ]
+        };
+
+        const configPembiayaan = {
+            type: 'bar',
+            data: dataPembiayaan,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function (value) {
+                                return 'Rp ' + value.toLocaleString('id-ID');
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': Rp ' + context.formattedValue;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render grafik
+        new Chart(document.getElementById('pembiayaanJenisChart'), configPembiayaan);
     </script>
 
     {{-- Script Dropdown/Accordion --}}

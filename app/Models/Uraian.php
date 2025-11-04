@@ -10,7 +10,7 @@ class Uraian extends Model
 
     protected $fillable = [
         'kategori_id',
-        'parent_id',
+        // 'parent_id',
         'nama_uraian',
         'tahun'
     ];
