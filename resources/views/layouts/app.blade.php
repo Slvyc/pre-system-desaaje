@@ -76,7 +76,7 @@
             class="fixed top-0 right-0 h-full w-4/5 max-w-sm z-[9999] hidden bg-white shadow-xl overflow-y-auto p-6 sm:ring-1 sm:ring-gray-900/10 lg:hidden transform translate-x-full transition-transform duration-300 ease-out">
             <div class="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div class="flex items-center space-x-3">
-                    <img src="images/logo-acehbesar.png" alt="Logo Kabupaten Aceh Besar" loading="lazy" width="40"
+                    <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Kabupaten Aceh Besar" loading="lazy" width="40"
                         height="40" class="h-10 w-auto" />
                     <div class="flex flex-col leading-tight">
                         <span id="menuTitle" class="text-base font-bold text-gray-900">Desa Aje</span>
@@ -100,20 +100,17 @@
                     <li><a href="{{ route('profile') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Profil
                             Desa</a></li>
-                    <li><a href="#"
+                    <li><a href="{{ route('infografis.penduduk') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Infografis</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{{ route('geodata') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Geodata</a>
                     </li>
                     <li><a href="{{ route('berita') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Berita</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{{ route('produk') }}"
                             class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">Belanja</a>
-                    </li>
-                    <li><a href="#"
-                            class="block rounded-lg px-4 py-3 text-base font-semibold text-gray-800 hover:bg-custom hover:text-white transition">PPID</a>
                     </li>
                 </ul>
             </nav>

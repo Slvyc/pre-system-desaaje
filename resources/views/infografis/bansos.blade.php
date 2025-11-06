@@ -24,16 +24,21 @@
                     untuk setiap $jenis bansos.
                     --}}
                     @foreach ($statistikBansos as $jenis)
-                        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-lg transition-all duration-300 flex flex-col justify-between
-                                                    {{-- 
-                                                        $loop->first adalah variabel helper dari Blade
-                                                        untuk memberikan style khusus pada item pertama (BLT Dana Desa)
-                                                        agar tampilannya 'col-span-2' sesuai desain Anda.
-                                                    --}}
-                                                    @if ($loop->first)
-                                                        col-span-2 md:col-span-2
-                                                    @endif
-                                                    ">
+                        <div class="relative group bg-white/30 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-lg border border-white/20 
+                                   transition-all duration-500 flex flex-col justify-between overflow-hidden
+                                   hover:border-transparent
+                                                                            {{-- 
+                                                                                $loop->first adalah variabel helper dari Blade
+                                                                                untuk memberikan style khusus pada item pertama (BLT Dana Desa)
+                                                                                agar tampilannya 'col-span-2' sesuai desain Anda.
+                                                                            --}}
+                                                                            @if ($loop->first)
+                                                                                col-span-2 md:col-span-2
+                                                                            @endif
+                                                                            ">
+                            <div
+                                class="absolute inset-0 rounded-2xl bg-gradient-to-bl from-custom-3/40 to-custom/10 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100 -z-10">
+                            </div>
                             <div>
                                 {{-- ANGKA DINAMIS --}}
                                 <p class="text-4xl md:text-5xl font-bold text-custom-3">{{ $jenis->penerima_bansos_count }}</p>
