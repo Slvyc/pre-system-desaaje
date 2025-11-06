@@ -11,19 +11,27 @@
             {{-- list tahun --}}
             <div class="flex justify-center mb-6">
                 <form id="tahunForm">
-                    <select id="tahunSelect" class="border border-gray-300 rounded-lg p-2 text-lg">
-                        @foreach ($tahunList as $t)
-                            <option value="{{ $t }}" {{ $t == $tahun ? 'selected' : '' }}>
-                                Tahun {{ $t }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <div class="relative">
+                        <select id="tahunSelect"
+                            class="appearance-none w-48 md:w-56 px-4 py-2.5 bg-white border-2 border-custom-3 rounded-xl text-custom text-md font-medium backdrop-blur-md shadow-md hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-custom-3 focus:border-transparent transition duration-200 cursor-pointer">
+                            @foreach ($tahunList as $t)
+                                <option value="{{ $t }}" {{ $t == $tahun ? 'selected' : '' }}>
+                                    Tahun {{ $t }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor"
+                            class="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-custom-3 pointer-events-none">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
                 </form>
             </div>
 
             <section class="py-10">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-extrabold text-custom mb-3">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl font-extrabold text-custom-3 mb-5">
                         ANGGARAN PENDAPATAN DAN BELANJA DESA (APBDes)
                     </h2>
                     <p class="text-gray-700 text-lg">
@@ -34,26 +42,26 @@
                 {{-- grid data penduduk--}}
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 text-white gap-4">
                     <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-3xl font-bold">Total Pendapatan :</h3>
-                        <p class="text-3xl font-extrabold">
+                        <h3 class="text-xl font-bold">Total Pendapatan :</h3>
+                        <p class="text-3xl font-bold">
                             Rp. {{ number_format($totalPendapatan, 0, ',', '.') }}
                         </p>
                     </div>
                     <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-3xl font-bold">Total Belanja :</h3>
-                        <p class="text-3xl font-extrabold">Rp. {{ number_format($totalBelanja, 0, ',', '.') }}
+                        <h3 class="text-xl font-bold">Total Belanja :</h3>
+                        <p class="text-3xl font-bold">Rp. {{ number_format($totalBelanja, 0, ',', '.') }}
                         </p>
                     </div>
                     <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
                         {{-- total pembiayaan nanti sendiri --}}
-                        <h3 class="text-3xl font-bold">Total Pembiayaan :</h3>
-                        <p class="text-3xl font-extrabold">Rp. {{ number_format($totalPembiayaan, 0, ',', '.') }}
+                        <h3 class="text-xl font-bold">Total Pembiayaan :</h3>
+                        <p class="text-3xl font-bold">Rp. {{ number_format($totalPembiayaan, 0, ',', '.') }}
                         </p>
                     </div>
                     <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                        <h3 class="text-3xl font-bold">Defisit/Surplus :</h3>
+                        <h3 class="text-xl font-bold">Defisit/Surplus :</h3>
                         @if ($surplus_defisit < 0)
-                            <p class="text-3xl font-extrabold text-red-500">Rp.
+                            <p class="text-3xl font-extrabold text-red-700">Rp.
                                 {{ number_format($surplus_defisit, 0, ',', '.') }}
                             </p>
                         @else
@@ -67,13 +75,13 @@
 
 
             {{-- Pendapatan dan Belanja (Chart JS) --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl font-extrabold text-custom my-20">
                 Pendapatan dan Belanja Desa dari Tahun ke Tahun
             </h2>
             <canvas id="pendapatanChart"></canvas>
 
             {{-- Pendapatan Desa Chart --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl font-extrabold text-custom my-20">
                 Pendapatan Desa {{ $tahun }}
             </h2>
             <canvas id="pendapatanJenisChart"></canvas>
@@ -86,7 +94,7 @@
                         $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
                         $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
                     @endphp
-                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div
                             class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
                             <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
@@ -150,7 +158,7 @@
             </section>
 
             {{-- Belanja Desa Chart --}}
-            <h2 class="text-4xl font-extrabold text-custom mb-3">
+            <h2 class="text-4xl font-extrabold text-custom my-20">
                 Belanja Desa {{ $tahun }}
             </h2>
             <canvas id="belanjaJenisChart"></canvas>
@@ -163,7 +171,7 @@
                         $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
                         $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
                     @endphp
-                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div
                             class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
                             <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
@@ -240,7 +248,7 @@
                         $rincianList = optional($grup->anggaranTerealisasi)->rincianAnggarans ?? collect([]);
                         $persentase = $totalPendapatan > 0 ? ($totalAnggaranGrup / $totalPendapatan) * 100 : 0;
                     @endphp
-                    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div
                             class="accordion-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors">
                             <h3 class="text-lg font-semibold text-gray-800">{{ $grup->nama_uraian }}</h3>
