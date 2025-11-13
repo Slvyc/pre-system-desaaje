@@ -7,7 +7,7 @@
         <div id="carousel" class="relative h-full">
             {{-- slide 1 --}}
             <div class="absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1018/1600/900" alt="Slide 1" loading="lazy"
+                <img src="{{ asset('images/fotosama.jpg') }}" alt="Slide 1" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                     <h1 class="text-3xl md:text-6xl font-bold text-white mb-4 leading-snug">
