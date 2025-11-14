@@ -10,7 +10,6 @@ class Uraian extends Model
 
     protected $fillable = [
         'kategori_id',
-        // 'parent_id',
         'nama_uraian',
         'tahun'
     ];
@@ -29,4 +28,20 @@ class Uraian extends Model
     {
         return $this->hasOne(AnggaranTerealisasi::class, 'uraian_id');
     }
+
+
+    // validasi unique nama_uraian per tahun sebelum menyimpan, biar tidak sama tiap tahun nya
+    // protected static function booted()
+    // {
+    //     static::saving(function ($model) {
+    //         $exists = Uraian::where('nama_uraian', $model->nama_uraian)
+    //             ->where('tahun', $model->tahun)
+    //             ->where('id', '!=', $model->id)
+    //             ->exists();
+
+    //         if ($exists) {
+    //             throw new \Exception("Nama uraian '{$model->nama_uraian}' sudah ada pada tahun {$model->tahun}.");
+    //         }
+    //     });
+    // }
 }

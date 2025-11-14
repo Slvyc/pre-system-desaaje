@@ -41,24 +41,30 @@
 
                 {{-- grid data penduduk--}}
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 text-white gap-4">
-                    <div class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
+                    <div
+                        class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
                         <h3 class="text-lg sm:text-xl md:text-xl font-semibold text-white">Total Pendapatan :</h3>
                         <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-right sm:text-left">
                             Rp. {{ number_format($totalPendapatan, 0, ',', '.') }}
                         </p>
                     </div>
-                    <div class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
+                    <div
+                        class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
                         <h3 class="text-lg sm:text-xl md:text-xl font-semibold text-white">Total Belanja :</h3>
-                        <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-right sm:text-left">Rp. {{ number_format($totalBelanja, 0, ',', '.') }}
+                        <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-right sm:text-left">Rp.
+                            {{ number_format($totalBelanja, 0, ',', '.') }}
                         </p>
                     </div>
-                    <div class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
+                    <div
+                        class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
                         {{-- total pembiayaan nanti sendiri --}}
                         <h3 class="text-lg sm:text-xl md:text-xl font-semibold text-white">Total Pembiayaan :</h3>
-                        <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-right sm:text-left">Rp. {{ number_format($totalPembiayaan, 0, ',', '.') }}
+                        <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-right sm:text-left">Rp.
+                            {{ number_format($totalPembiayaan, 0, ',', '.') }}
                         </p>
                     </div>
-                    <div class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
+                    <div
+                        class="bg-gradient-to-br from-custom/60 via-custom to-custom/70 p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-6 rounded-xl shadow-md transition-colors duration-300">
                         <h3 class="text-lg sm:text-xl md:text-xl font-semibold text-white">Defisit/Surplus :</h3>
                         @if ($surplus_defisit < 0)
                             <p class="text-2xl sm:text-3xl md:text-4xl font-bold text-right sm:text-left text-red-700">Rp.

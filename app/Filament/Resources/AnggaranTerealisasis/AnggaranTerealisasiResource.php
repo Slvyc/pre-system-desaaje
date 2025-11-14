@@ -4,6 +4,7 @@ namespace App\Filament\Resources\AnggaranTerealisasis;
 
 use App\Filament\Resources\AnggaranTerealisasis\Pages\ManageAnggaranTerealisasis;
 use App\Models\AnggaranTerealisasi;
+use App\Models\Uraian;
 use BackedEnum;
 use UnitEnum;
 use Filament\Actions\BulkActionGroup;
@@ -33,12 +34,12 @@ class AnggaranTerealisasiResource extends Resource
 
     public static function getPluralLabel(): string
     {
-        return 'Nilai Anggaran';
+        return 'Nilai Anggaran Terealisasi';
     }
 
     public static function getLabel(): string
     {
-        return 'Nilai Anggaran';
+        return 'Nilai Anggaran Terealisasi';
     }
 
     public static function form(Schema $schema): Schema
@@ -46,11 +47,50 @@ class AnggaranTerealisasiResource extends Resource
         return $schema
             ->components([
                 Select::make('uraian_id')
-                    ->relationship('uraian', 'nama_uraian')
                     ->label('Nama Uraian')
-                    ->required()
+                    ->rules([
+                        function (callable $get) {
+                            return function ($attribute, $value, $fail) use ($get) {
+                                $uraian = Uraian::find($value);
+                                if (! $uraian) return;
+
+                                $tahun = $uraian->tahun;
+
+                                $exists = AnggaranTerealisasi::where('uraian_id', $value)
+                                    ->where('id', '!=', $get('id'))
+                                    ->whereHas('uraian', function ($q) use ($tahun) {
+                                        $q->where('tahun', $tahun);
+                                    })
+                                    ->exists();
+
+                                if ($exists) {
+                                    $fail("Uraian ini sudah digunakan pada tahun {$tahun}.");
+                                }
+                            };
+                        }
+                    ])
+                    ->options(
+                        Uraian::all()->mapWithKeys(function ($u) {
+                            return [
+                                $u->id => "{$u->nama_uraian} ({$u->tahun})"
+                            ];
+                        })
+                    )
+                    ->getSearchResultsUsing(function (string $query) {
+                        return Uraian::where('nama_uraian', 'like', "%{$query}%")
+                            ->get()
+                            ->mapWithKeys(function ($u) {
+                                return [
+                                    $u->id => "{$u->nama_uraian} ({$u->tahun})"
+                                ];
+                            });
+                    })
+                    ->getOptionLabelUsing(function ($value) {
+                        $u = Uraian::find(id: $value);
+                        return $u ? "{$u->nama_uraian} ({$u->tahun})" : null;
+                    })
                     ->searchable()
-                    ->preload(),
+                    ->required(),
                 TextInput::make('anggaran')
                     ->label('Nilai Anggaran')
                     ->prefix('Rp')
@@ -71,11 +111,6 @@ class AnggaranTerealisasiResource extends Resource
                 TextColumn::make('uraian.tahun')
                     ->sortable()
                     ->label('Tahun Anggaran')
-                    ->searchable(),
-
-                TextColumn::make('uraian.kategori_id')
-                    ->sortable()
-                    ->label('Kategori ID')
                     ->searchable(),
 
                 TextColumn::make('uraian.nama_uraian')

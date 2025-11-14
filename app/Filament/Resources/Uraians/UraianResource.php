@@ -53,7 +53,16 @@ class UraianResource extends Resource
                     ->preload(),
                 TextInput::make('nama_uraian')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    // cek supaya unique di tahun tu, jadi gaboleh ada nama uraian sama di tahun yang sama  
+                    ->unique(
+                        table: 'uraian',
+                        column: 'nama_uraian',
+                        ignoreRecord: true,
+                        modifyRuleUsing: function (Unique $rule, callable $get) {
+                            return $rule->where('tahun', $get('tahun'));
+                        }
+                    ),
                 TextInput::make('tahun')
                     ->label('Tahun Anggaran')
                     ->required()
@@ -77,11 +86,6 @@ class UraianResource extends Resource
                     ->sortable(),
                 TextColumn::make('nama_uraian')
                     ->label('Nama Uraian')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->label('Di Buat Pada')
-                    ->dateTime()
-                    ->sortable()
                     ->searchable(),
             ])
             ->filters([

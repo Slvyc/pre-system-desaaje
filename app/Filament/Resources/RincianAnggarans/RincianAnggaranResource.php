@@ -46,24 +46,61 @@ class RincianAnggaranResource extends Resource
         return $schema
             ->components([
                 Select::make('anggaran_terealisasi_id')
+                    ->label('Nama Uraian')
+                    ->searchable()
+                    ->preload()
                     ->options(function () {
                         return AnggaranTerealisasi::with('uraian')
                             ->get()
-                            ->pluck('uraian.nama_uraian', 'id');
+                            ->mapWithKeys(function ($item) {
+                                return [
+                                    $item->id => $item->uraian->nama_uraian . ' (' . $item->uraian->tahun . ')',
+                                ];
+                            });
                     })
-                    ->label('Nama Uraian')
-                    ->required()
-                    ->searchable()
-                    ->preload()
+                    ->getSearchResultsUsing(function (string $query) {
+                        return AnggaranTerealisasi::with('uraian')
+                            ->whereHas('uraian', function ($q) use ($query) {
+                                $q->where('nama_uraian', 'like', "%{$query}%")
+                                    ->orWhere('tahun', 'like', "%{$query}%");
+                            })
+                            ->get()
+                            ->mapWithKeys(function ($item) {
+                                return [
+                                    $item->id => $item->uraian->nama_uraian . ' (' . $item->uraian->tahun . ')',
+                                ];
+                            });
+                    })
+                    ->getOptionLabelUsing(function ($value) {
+                        $item = AnggaranTerealisasi::with('uraian')->find($value);
+                        return $item
+                            ? $item->uraian->nama_uraian . ' (' . $item->uraian->tahun . ')'
+                            : null;
+                    })
                     ->reactive(),
                 TextInput::make('nama_rincian')
                     ->required()
-                    ->label('Nama Rincian Anggaran'),
+                    ->label('Nama Rincian Anggaran')
+                    ->rule(function (callable $get) {
+                        return function ($attribute, $value, $fail) use ($get) {
+                            $anggaranId = $get('anggaran_terealisasi_id');
+                            if (! $anggaranId) return;
+
+                            // Cek apakah sudah ada nama rincian yang sama dalam uraian itu
+                            $exists = RincianAnggaran::where('anggaran_terealisasi_id', $anggaranId)
+                                ->where('nama_rincian', $value)
+                                ->exists();
+
+                            if ($exists) {
+                                $fail("Nama rincian '$value' sudah ada pada uraian ini.");
+                            }
+                        };
+                    }),
                 TextInput::make('anggaran')
                     ->label('Nilai Anggaran')
                     ->prefix('Rp')
                     ->numeric()
-                    ->nullable()
+                    ->required()
                     ->reactive()
                     ->afterStateUpdated(function ($state, callable $set, callable $get) {
                         $anggaranId = $get('anggaran_terealisasi_id');
@@ -89,7 +126,7 @@ class RincianAnggaranResource extends Resource
                     ->label('Nilai Realisasi')
                     ->prefix('Rp')
                     ->numeric()
-                    ->nullable(),
+                    ->required(),
             ]);
     }
 
