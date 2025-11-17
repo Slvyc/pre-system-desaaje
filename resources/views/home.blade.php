@@ -7,7 +7,7 @@
         <div id="carousel" class="relative h-full">
             {{-- slide 1 --}}
             <div class="absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-                <img src="{{ asset('images/fotosama.jpg') }}" alt="Slide 1" loading="lazy"
+                <img src="{{ asset('images/Kantor Desa Aje.jpg') }}" alt="Slide 1" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-4">
                     <h1 class="text-3xl md:text-6xl font-bold text-white mb-4 leading-snug">
@@ -20,21 +20,21 @@
 
             {{-- slide 2 --}}
             <div class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1015/1600/900" alt="Slide 2" loading="lazy"
+                <img src="{{ asset('images/fotosama.jpg') }}" alt="Slide 2" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 leading-snug">
-                        layanan Desa</h1>
+                        Layanan Desa</h1>
                 </div>
             </div>
 
             {{-- slide 3 --}}
             <div class="absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="https://picsum.photos/id/1019/1600/900" alt="Slide 3" loading="lazy"
+                <img src="{{ asset('images/Banner 3.jpg') }}" alt="Slide 3" loading="lazy"
                     class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 leading-snug">
-                        layanan Desa</h1>
+                        Layanan Desa</h1>
                 </div>
             </div>
         </div>
@@ -156,7 +156,7 @@
             <div class="md:col-span-2 mt-7">
                 <h3 class="text-4xl font-extrabold text-custom leading-snug">Sambutan Kepala Desa Aje</h3>
                 <div class="justify-center text-left">
-                    <h3 class="text-xl font-bold text-black">Bapak Kepala Desa</h3>
+                    <h3 class="text-xl font-bold text-black">Bapak T.Darnis, S.H.</h3>
                     <p class="text-custom text-lg font-medium leading-9 mb-4">Kepala Desa Aje</p>
                 </div>
 
@@ -190,13 +190,35 @@
             </div>
 
             {{-- peta digitasi --}}
-            <div class="w-full h-80 bg-custom-2 sm:h-96 md:h-[500px] rounded-3xl overflow-hidden">
-                <iframe src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <div id="map" class="w-full h-80 bg-custom-2 sm:h-96 md:h-[500px] rounded-3xl z-40 overflow-hidden"></div>
         </div>
     </section>
+
+    {{-- Leaflet CSS --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    {{-- Leaflet JS --}}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Koordinat Desa Aje (sementara, bisa diganti kalau kamu punya yang akurat)
+        const desaLat = 5.513;
+        const desaLng = 95.347;
+
+        // Inisialisasi peta
+        const map = L.map('map').setView([desaLat, desaLng], 14);
+
+        // Tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Marker lokasi desa
+        L.marker([desaLat, desaLng])
+            .addTo(map)
+            .bindPopup('Lokasi Desa Aje')
+            .openPopup();
+    </script>
 
     {{-- END PETA DESA --}}
 
@@ -267,43 +289,13 @@
             </div>
 
             {{-- grid --}}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-white gap-4">
-
-                {{-- card 1 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Jumlah Penduduk</h3>
-                    <p class="text-4xl font-extrabold">3.257</p>
-                </div>
-
-                {{-- card 2 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Laki-Laki</h3>
-                    <p class="text-4xl font-extrabold">1.620</p>
-                </div>
-
-                {{-- card 3 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Perempuan</h3>
-                    <p class="text-4xl font-extrabold">1.637</p>
-                </div>
-
-                {{-- card 4 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Kepala Keluarga</h3>
-                    <p class="text-4xl font-extrabold">820</p>
-                </div>
-
-                {{-- card 5 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Usia Produktif</h3>
-                    <p class="text-4xl font-extrabold">1.890</p>
-                </div>
-
-                {{-- card 6 --}}
-                <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
-                    <h3 class="text-xl font-bold">Lansia</h3>
-                    <p class="text-4xl font-extrabold">420</p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 text-white gap-4">
+                @foreach ($umums as $umum)
+                    <div class="bg-custom p-6 flex justify-between items-center transition-colors rounded-xl duration-300">
+                        <h3 class="text-xl font-bold">{{ $umum->nama_statistik }}</h3>
+                        <p class="text-4xl font-extrabold">{{ $umum->nilai ?? 0 }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -316,13 +308,13 @@
         <div class="max-w-7xl mx-auto px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-extrabold text-custom-3 mb-4">
-                    APB DESA 2025
+                    APB DESA {{ $tahunTerbaru }}
                 </h2>
                 <p class="text-gray-700 mb-6 leading-relaxed">
-                    Ringkasan Anggaran Pendapatan dan Belanja Desa (APBDes) Tahun 2025 mencakup pendapatan,
+                    Ringkasan Anggaran Pendapatan dan Belanja Desa (APBDes) Tahun {{ $tahunTerbaru }} mencakup pendapatan,
                     belanja, serta pembiayaan yang dialokasikan untuk pembangunan desa dan pemberdayaan masyarakat.
                 </p>
-                <a href="#"
+                <a href="{{ url('/infografis/apbdes') }}"
                     class="inline-flex items-center gap-2 bg-custom-3 rounded-full text-white font-semibold py-2 px-4 transition-colors duration-300">
                     Lihat Selengkapnya
                     <span class="bg-white rounded-full p-1 flex items-center justify-center">
@@ -341,14 +333,16 @@
                 {{-- card pemdapatn --}}
                 <div class="bg-custom-2 p-6 rounded-xl">
                     <h3 class="text-xl font-bold text-custom-3 mb-2">Pendapatan Desa</h3>
-                    <p class="text-3xl font-extrabold text-custom-3">Rp 2,1 M</p>
+                    <p class="text-2xl font-extrabold text-custom-3">Rp. {{ number_format($totalPendapatan, 0, ',', '.') }}
+                    </p>
                     <p class="text-gray-600 mt-2 text-sm">Berasal dari Dana Desa, PADes, dan bantuan pemerintah.</p>
                 </div>
 
                 {{-- bellanja --}}
                 <div class="bg-custom-2 p-6 rounded-xl">
                     <h3 class="text-xl font-bold text-custom-3 mb-2">Belanja Desa</h3>
-                    <p class="text-3xl font-extrabold text-custom-3">Rp 1,8 M</p>
+                    <p class="text-2xl font-extrabold text-custom-3">Rp. {{ number_format($totalBelanja, 0, ',', '.') }}
+                    </p>
                     <p class="text-gray-600 mt-2 text-sm">Dialokasikan untuk pembangunan infrastruktur, kesehatan, dan
                         pendidikan.</p>
                 </div>
@@ -356,7 +350,8 @@
                 {{-- gatau tampilan aja --}}
                 <div class="bg-custom-2 p-6 rounded-xl sm:col-span-2">
                     <h3 class="text-xl font-bold text-custom-3 mb-2">Pembiayaan</h3>
-                    <p class="text-3xl font-extrabold text-custom-3">Rp 300 Jt</p>
+                    <p class="text-3xl font-extrabold text-custom-3">Rp. {{ number_format($totalPembiayaan, 0, ',', '.') }}
+                    </p>
                     <p class="text-gray-600 mt-2 text-sm">Digunakan untuk menutup defisit dan mendukung kegiatan prioritas.
                     </p>
                 </div>
@@ -498,30 +493,26 @@
                 <div class="grid grid-cols-2 gap-4">
 
                     {{-- image 1 --}}
-                    <a href="">
-                        <article class="relative rounded-3xl overflow-hidden shadow-md group">
-                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
-                                class="w-full h-56 object-cover group-hover:scale-105 transition">
-                            <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
-                                <h3 class="text-white font-bold text-lg">Pertanian</h3>
-                            </div>
-                        </article>
-                    </a>
+                    <article class="relative rounded-3xl overflow-hidden shadow-md group">
+                        <img src="{{ asset('images/Taman Gizi.jpg') }}" alt="desa" loading="lazy"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition">
+                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                            <h3 class="text-white font-bold text-lg">Pertanian</h3>
+                        </div>
+                    </article>
 
                     {{-- image 2 --}}
-                    <a href="">
-                        <article class="relative rounded-3xl overflow-hidden shadow-md group">
-                            <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
-                                class="w-full h-56 object-cover group-hover:scale-105 transition">
-                            <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
-                                <h3 class="text-white font-bold text-lg">Pariwisata</h3>
-                            </div>
-                        </article>
-                    </a>
+                    <article class="relative rounded-3xl overflow-hidden shadow-md group">
+                        <img src="{{ asset('images/Banner 3.jpg') }}" alt="desa" loading="lazy"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition">
+                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                            <h3 class="text-white font-bold text-lg">Pariwisata</h3>
+                        </div>
+                    </article>
 
                     {{-- image 3 --}}
                     <article class="relative rounded-3xl overflow-hidden shadow-md group col-span-2">
-                        <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
+                        <img src="{{ asset('images/UMKM.jpeg') }}" alt="desa" loading="lazy"
                             class="w-full h-64 object-cover group-hover:scale-105 transition">
                         <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">UMKM Lokal</h3>
@@ -531,7 +522,7 @@
 
                 {{-- image foto desa aja --}}
                 <div class="relative rounded-3xl overflow-hidden shadow-lg group">
-                    <img src="images/71d83261-1c05-4fe1-9403-04d7539bfa9d.jpeg" alt="desa" loading="lazy"
+                    <img src="{{ asset('images/Kantor Desa Aje.jpg') }}" alt="desa" loading="lazy"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                     <div class="absolute inset-0 bg-custom/70 flex flex-col p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">Desa Aje</h3>

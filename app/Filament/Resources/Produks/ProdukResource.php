@@ -89,6 +89,7 @@ class ProdukResource extends Resource
                         'Liter' => 'Liter',
                         'Box' => 'Box',
                         'Unit' => 'Unit',
+                        'm²' => 'm²',
                     ])
                     ->required()
             ]);

@@ -86,7 +86,7 @@
 
                 {{-- harga --}}
                 <p class="text-2xl font-bold text-gray-900">
-                    Rp {{ number_format($produk->harga, 0, ',', '.') }} / Pcs
+                    Rp {{ number_format($produk->harga, 0, ',', '.') }} / {{ $produk->satuan }}
                 </p>
 
                 <div class="flex space-x-2">

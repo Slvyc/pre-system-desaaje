@@ -49,46 +49,6 @@ class infografisController extends Controller
         ]);
     }
 
-    // public function indexStunting()
-    // {
-    //     // Ambil semua kategori stunting
-    //     $kategoris = Stunting::orderBy('id')->get();
-
-    //     if ($kategoris->isEmpty()) {
-    //         dd('❌ Tidak ada data kategori stunting! Jalankan seeder.');
-    //     }
-
-    //     // Ambil data stunting untuk tahun 2023 dan 2024
-    //     $dataStunting2023 = DataStunting::where('tahun', 2023)
-    //         ->with('kategoriStunting')
-    //         ->get()
-    //         ->keyBy('kategori_stunting_id');
-
-    //     $dataStunting2024 = DataStunting::where('tahun', 2024)
-    //         ->with('kategoriStunting')
-    //         ->get()
-    //         ->keyBy('kategori_stunting_id');
-
-    //     // Siapkan data untuk chart
-    //     $labels = [];
-    //     $data2023 = [];
-    //     $data2024 = [];
-
-    //     foreach ($kategoris as $kategori) {
-    //         $labels[] = $kategori->nama_kategori;
-    //         $data2023[] = isset($dataStunting2023[$kategori->id]) ? $dataStunting2023[$kategori->id]->jumlah : 0;
-    //         $data2024[] = isset($dataStunting2024[$kategori->id]) ? $dataStunting2024[$kategori->id]->jumlah : 0;
-    //     }
-
-    //     // Pastikan variabel ini dikirim ke view
-    //     return view('infografis.stunting', [
-    //         'labels' => $labels,
-    //         'data2023' => $data2023,
-    //         'data2024' => $data2024
-    //     ]);
-    // }
-
-
     public function indexStunting(Request $request)
     {
         // Ambil semua tahun yang tersedia
