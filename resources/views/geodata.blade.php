@@ -12,11 +12,33 @@
             </div>
 
             {{-- peta digitasi --}}
-            <div class="w-full h-80 bg-black sm:h-96 md:h-[500px] rounded-3xl overflow-hidden">
-                <iframe src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <div id="map" class="w-full h-80 bg-custom-2 sm:h-96 md:h-[500px] rounded-3xl z-40 overflow-hidden"></div>
+
+            {{-- Leaflet CSS --}}
+            <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+            {{-- Leaflet JS --}}
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+            <script>
+                // Koordinat Desa Aje (sementara, bisa diganti kalau kamu punya yang akurat)
+                const desaLat = 5.513;
+                const desaLng = 95.347;
+
+                // Inisialisasi peta
+                const map = L.map('map').setView([desaLat, desaLng], 14);
+
+                // Tile layer (OpenStreetMap)
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                }).addTo(map);
+
+                // Marker lokasi desa
+                L.marker([desaLat, desaLng])
+                    .addTo(map)
+                    .bindPopup('Lokasi Desa Aje')
+                    .openPopup();
+            </script>
             <a href="#"
                 class="mt-6 lg:mt-0 bg-custom self-start text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
                 Download Metadata

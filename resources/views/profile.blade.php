@@ -101,10 +101,10 @@
                         <article class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
                             <h3 class="text-xl font-bold text-black mb-4">Batas Desa</h3>
                             <ul class="grid grid-cols-2 gap-x-6 gap-y-2 text-black">
-                                <li><span class="font-semibold">Utara:</span> </li>
-                                <li><span class="font-semibold">Timur:</span> </li>
-                                <li><span class="font-semibold">Selatan:</span> </li>
-                                <li><span class="font-semibold">Barat:</span> </li>
+                                <li><span class="font-semibold">Utara: Desa Reuloh</span> </li>
+                                <li><span class="font-semibold">Timur: Pasar Induk Lambaro</span> </li>
+                                <li><span class="font-semibold">Selatan: JL. Soekarna Hatta</span> </li>
+                                <li><span class="font-semibold">Barat: Desa Batoh</span> </li>
                             </ul>
                         </article>
 
@@ -112,21 +112,22 @@
                         {{-- luas --}}
                         <article class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
                             <h3 class="text-xl font-bold text-black mb-2">Luas Desa</h3>
-                            <p class="text-black">± 1.250 Ha</p>
+                            <p class="text-black">0,88 km²</p>
                         </article>
 
                         {{-- jumlah --}}
                         <article class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
                             <h3 class="text-xl font-bold text-black mb-2">Jumlah Penduduk</h3>
-                            <p class="text-black">3.542 Jiwa (2025)</p>
+                            <p class="text-black"> 890 Jiwa (2025)</p>
                         </article>
                     </div>
 
                     {{-- peta --}}
                     <div class="w-full h-80 sm:h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                        <iframe src="...." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7942.711561220994!2d95.34841605!3d5.514097049999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304039b44b47b8eb%3A0x317205116d0c17e9!2sAjee%20Pagar%20Air%2C%20Ingin%20Jaya%2C%20Aceh%20Besar%20Regency%2C%20Aceh!5e0!3m2!1sen!2sid!4v1763374934279!5m2!1sen!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </section>
