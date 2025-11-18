@@ -63,7 +63,7 @@
     {{-- SHORTCUT --}}
 
     <section class="mt-165 relative bg-custom py-20">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 justify-center items-center">
+        <div class="max-w-7xl mx-auto px-6 justify-center items-center">
             {{-- Gric Card nya --}}
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 -mt-23 -translate-y-16">
 
@@ -144,7 +144,7 @@
     {{-- SAMBUTAN KADES --}}
 
     <section class="pb-10 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 grid md:grid-cols-3 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
 
             {{-- image kdes --}}
             <div class="flex items-center justify-center">
@@ -181,7 +181,7 @@
     {{-- PETA DESA --}}
 
     <section class="py-10 bg-white">
-        <div class="max-w-7xl mx-auto px-4 md:px-0 space-y-8">
+        <div class="max-w-7xl mx-auto px-6 space-y-8">
             <div class="text-start">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-custom-3">PETA DESA</h2>
                 <p class="mt-2 text-gray-700 text-base sm:text-lg">
@@ -225,7 +225,7 @@
     {{-- CARD SOTK --}}
 
     <section class="py-10 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-row items-center justify-between mb-10">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3">
                     SOTK
@@ -278,7 +278,7 @@
     {{-- ADMINISTRASI --}}
 
     <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-extrabold text-custom-3 mb-3">
                     ADMINISTRASI PENDUDUK
@@ -305,7 +305,7 @@
     {{-- APB DESA --}}
 
     <section class="pb-15 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-extrabold text-custom-3 mb-4">
                     APB DESA {{ $tahunTerbaru }}
@@ -365,7 +365,7 @@
     {{-- BERITA --}}
 
     <section class="py-10 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
                 <div class="text-start">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-custom-3">
@@ -459,7 +459,7 @@
     {{-- POTENSI DESA --}}
 
     <section class="py-15 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
             <header class="grid lg:grid-cols-2 gap-6 items-center">
                 <div>
                     <h2 class="text-4xl font-extrabold text-custom-3 mb-4">
@@ -496,7 +496,7 @@
                     <article class="relative rounded-3xl overflow-hidden shadow-md group">
                         <img src="{{ asset('images/Taman Gizi.jpg') }}" alt="desa" loading="lazy"
                             class="w-full h-56 object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                        <div class="absolute inset-0 bg-custom/60 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">Pertanian</h3>
                         </div>
                     </article>
@@ -505,7 +505,7 @@
                     <article class="relative rounded-3xl overflow-hidden shadow-md group">
                         <img src="{{ asset('images/Banner 3.jpg') }}" alt="desa" loading="lazy"
                             class="w-full h-56 object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                        <div class="absolute inset-0 bg-custom/60 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">Pariwisata</h3>
                         </div>
                     </article>
@@ -514,7 +514,7 @@
                     <article class="relative rounded-3xl overflow-hidden shadow-md group col-span-2">
                         <img src="{{ asset('images/UMKM.jpeg') }}" alt="desa" loading="lazy"
                             class="w-full h-64 object-cover group-hover:scale-105 transition">
-                        <div class="absolute inset-0 bg-custom/70 flex items-end p-3">
+                        <div class="absolute inset-0 bg-custom/60 flex items-end p-3">
                             <h3 class="text-white font-bold text-lg">UMKM Lokal</h3>
                         </div>
                     </article>
@@ -524,7 +524,7 @@
                 <div class="relative rounded-3xl overflow-hidden shadow-lg group">
                     <img src="{{ asset('images/Kantor Desa Aje.jpg') }}" alt="desa" loading="lazy"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-custom/70 flex flex-col p-6">
+                    <div class="absolute inset-0 bg-custom/60 flex flex-col p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">Desa Aje</h3>
                     </div>
                 </div>
@@ -537,7 +537,7 @@
     {{-- BELI DARI DESA --}}
 
     <section class="py-10 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
             <header class="flex flex-col lg:flex-row items-start lg:items-center justify-between mx-auto">
                 <h2 class="text-4xl font-extrabold text-custom-3 mb-2">
                     BELI DARI DESA
@@ -640,7 +640,7 @@
     {{-- END BELI DARI DESA --}}
     {{-- GALERI --}}
     <section class="py-10 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
+        <div class="max-w-7xl mx-auto px-6 mb-20">
             <div class="flex items-center justify-between mb-12">
                 <h2 class="text-4xl font-extrabold text-custom-3">
                     GALERI DESA

@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-20 bg-white pt-30">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-extrabold text-custom mb-10">
                 GALERI DESA
             </h2>

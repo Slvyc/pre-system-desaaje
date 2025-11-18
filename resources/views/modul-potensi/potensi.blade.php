@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-20 bg-custom-2 pt-30">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <header class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start py-5 border-b-5 border-custom mb-13">
                 <h2 class="text-4xl font-extrabold text-custom lg:col-span-1">
                     POTENSI DESA

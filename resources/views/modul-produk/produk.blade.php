@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-16 bg-white pt-35">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-12">
+        <div class="max-w-7xl mx-auto px-6 space-y-12">
             <div>
                 <h2 class="text-4xl font-extrabold text-custom mb-2">
                     PRODUK DESA

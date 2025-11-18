@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="py-20 pt-30">
-        <div class="max-w-7xl mx-auto px-6 md:px-0">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-start py-8">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-custom">
                     BERITA TERBARU DESA

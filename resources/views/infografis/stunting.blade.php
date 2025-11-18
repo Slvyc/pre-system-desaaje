@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="py-16 bg-custom-2 pt-20">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 space-y-16">
+        <div class="max-w-7xl mx-auto px-6 space-y-16">
             {{-- tabbar --}}
             @include('infografis.tabbar-infografis.tabbar')
 

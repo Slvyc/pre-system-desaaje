@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-16 bg-custom-2 pt-35">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 text-start">
+        <div class="max-w-7xl mx-auto px-6 text-start">
             <h2 class="text-4xl font-extrabold text-custom mb-2">SOTK</h2>
             <p class="text-lg text-gray-800 mb-8">
                 Struktur Organisasi dan Tata Kerja Desa Aje
@@ -20,7 +20,7 @@
     </section>
 
     <section class="py-16 bg-custom-2">
-        <div class="max-w-7xl mx-auto px-6 md:px-0 mb-20">
+        <div class="max-w-7xl mx-auto px-6 mb-20">
             <h2 class="text-3xl md:text-4xl font-extrabold text-custom py-12">PEJABAT PEMERINTAH DESA</h2>
 
             {{-- Grid Cards --}}

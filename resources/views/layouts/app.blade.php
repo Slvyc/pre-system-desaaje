@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-acehbesar.png') }}">
     <title>Desa Aje Pagar Air</title>
     <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -76,8 +77,8 @@
             class="fixed top-0 right-0 h-full w-4/5 max-w-sm z-[9999] hidden bg-white shadow-xl overflow-y-auto p-6 sm:ring-1 sm:ring-gray-900/10 lg:hidden transform translate-x-full transition-transform duration-300 ease-out">
             <div class="flex items-center justify-between border-b border-gray-200 pb-4">
                 <div class="flex items-center space-x-3">
-                    <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Kabupaten Aceh Besar" loading="lazy" width="40"
-                        height="40" class="h-10 w-auto" />
+                    <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Kabupaten Aceh Besar" loading="lazy"
+                        width="40" height="40" class="h-10 w-auto" />
                     <div class="flex flex-col leading-tight">
                         <span id="menuTitle" class="text-base font-bold text-gray-900">Desa Aje</span>
                         <span class="text-sm text-gray-600">Kabupaten Aceh Besar</span>
@@ -116,7 +117,7 @@
             </nav>
 
             <div class="mt-8 border-t border-gray-200 pt-6">
-                <a href="#"
+                <a href="{{ route('pengaduan') }}"
                     class="flex gap-2 justify-center text-sm font-semibold py-2 px-3 rounded-3xl text-white bg-custom hover:bg-green-700 transition">
                     <span>Buat Pengaduan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"
@@ -203,7 +204,8 @@
             </div>
         </div>
 
-        <div class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 
+        <div
+            class="absolute bottom-full right-0 mb-3 px-5 py-4 rounded-2xl bg-white/40 backdrop-blur-lg border border-white/30 shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-3 
         transition-all duration-300 ease-out pointer-events-none group-hover:pointer-events-auto w-auto min-w-max max-w-[90vw] sm:w-[260px] sm:min-w-[260px]">
             <h3 class="font-bold text-custom-3 text-lg mb-7">Statistik Kunjungan</h3>
             <div class="text-md text-black space-y-3">

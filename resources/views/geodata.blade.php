@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-16 bg-custom-2 pt-35">
-        <div class="max-w-7xl mx-auto px-4 md:px-0 space-y-8">
+        <div class="max-w-7xl mx-auto px-6 space-y-8">
             <div class="text-start">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-custom">PETA DESA</h2>
                 <p class="mt-2 text-gray-700 text-base sm:text-lg">

@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="py-16 bg-inherit pt-30">
-        <div class="max-w-7xl mx-auto px-6 py-8 text-start md:px-0">
+        <div class="max-w-7xl mx-auto px-6 py-8 text-start">
             <h2 class="text-3xl md:text-4xl uppercase font-extrabold text-custom mb-3">
                 Berita Desa Aje
             </h2>

@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="py-16 bg-custom-2 pt-32">
-        <div class="max-w-4xl mx-auto px-6 md:px-0">
+        <div class="max-w-4xl mx-auto px-6">
 
             {{-- HEADING --}}
             <header class="text-center mb-12">
