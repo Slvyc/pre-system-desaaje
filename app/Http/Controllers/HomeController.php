@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $aparats = AparatDesa::orderBy('created_at', 'desc')->paginate(6);
+        $aparats = AparatDesa::orderBy('created_at', 'desc')->paginate(4);
         $beritas = Berita::orderBy('created_at', 'desc')->paginate(6);
         $galeris = Galeri::orderBy('created_at', 'desc')->paginate(3);
         $produks = Produk::orderBy('created_at', 'desc')->paginate(3);
