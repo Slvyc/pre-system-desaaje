@@ -118,7 +118,7 @@
 
             <div class="mt-8 border-t border-gray-200 pt-6">
                 <a href="{{ route('pengaduan') }}"
-                    class="flex gap-2 justify-center text-sm font-semibold py-2 px-3 rounded-3xl text-white bg-custom hover:bg-green-700 transition">
+                    class="flex gap-2 justify-center text-sm font-semibold py-2 px-3 rounded-3xl text-white bg-custom hover:bg-custom/80 transition">
                     <span>Buat Pengaduan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5"
                         aria-hidden="true">
@@ -141,50 +141,84 @@
 
     {{-- CONTENT END --}}
 
-
-    {{-- FOOTER --}}
-
     <footer class="bg-custom text-white">
-        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-md">
+
+            {{-- Kolom 1 --}}
             <div>
                 <img src="{{ asset('images/logo-acehbesar.png') }}" alt="Logo Desa" loading="lazy" class="w-20 mb-4">
-                <h3 class="font-bold text-lg text-white mb-2">Pemerintah Desa Aje</h3>
-                <p class="text-sm leading-relaxed">
-                    Jl. jalan jalan <br>
+
+                <h3 class="font-bold text-xl mb-3">Pemerintah Desa Aje</h3>
+
+                <p class="text-md leading-relaxed opacity-90">
+                    Jl. jalan...<br>
                     Desa Aje, Kecamatan Pagar Air, Kabupaten Aceh Besar <br>
                     Provinsi Aceh
                 </p>
             </div>
+
+            {{-- Kolom 2 --}}
             <div>
-                <h3 class="font-bold text-lg text-white mb-3">Hubungi Kami</h3>
-                <ul class="space-y-2 text-sm">
+                <h3 class="font-bold text-xl mb-3">Hubungi Kami</h3>
+
+                <ul class="space-y-2 text-md opacity-90">
                     <li class="flex items-center gap-2">
-                        <span>📞</span> 081241111811
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-5">
+                                <path fill-rule="evenodd"
+                                    d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span> 081241111811
                     </li>
                     <li class="flex items-center gap-2">
-                        <span>✉️</span> desaaje@gmail.com
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="size-5">
+                                <path
+                                    d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                                <path
+                                    d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                            </svg>
+                        </span> desaaje@gmail.com
                     </li>
                 </ul>
             </div>
+
+            {{-- Kolom 3 --}}
             <div>
-                <h3 class="font-bold text-lg text-white mb-3">Nomor Telepon</h3>
+                <h3 class="font-bold text-xl mb-3">Nomor Telepon</h3>
+                <ul class="space-y-2 text-md opacity-90">
+                    <li>Polsek: </li>
+                    <li>Puskesmas: </li>
+                    <li>Kantor Camat: </li>
+                </ul>
             </div>
+
+            {{-- Kolom 4 --}}
             <div>
-                <h3 class="font-bold text-lg text-white mb-3">Jelajahi</h3>
+                <h3 class="font-bold text-xl mb-3">Jelajahi</h3>
+
+                <ul class="space-y-2 text-md opacity-90">
+                    <li><a href="{{ route('profile') }}" class="hover:text-custom-2 transition">Profil Desa</a></li>
+                    <li><a href="{{ route('infografis.apbdes') }}" class="hover:text-custom-2 transition">Infografis</a>
+                    </li>
+                    <li><a href="{{ route('geodata') }}" class="hover:text-custom-2 transition">Geodata</a></li>
+                    <li><a href="{{ route('berita') }}" class="hover:text-custom-2 transition">Berita</a></li>
+                </ul>
             </div>
         </div>
 
-        {{-- copyright --}}
-
-        <div class="border-t border-custom-2 mt-8">
-            <div class="max-w-7xl mx-auto px-6 py-4 items-center justify-center text-sm">
-                <p>Powered by <span class="text-custom-2 font-semibold">BEM Berdampak Universitas Abulyatama
-                        2025</span></p>
+        {{-- Copyright --}}
+        <div class="border-t border-custom-2 mt-12">
+            <div class="max-w-7xl mx-auto px-6 py-4 text-center text-sm">
+                <p class="opacity-90">
+                    Powered by
+                    <span class="font-semibold text-white">BEM Berdampak Universitas Abulyatama 2025</span>
+                </p>
             </div>
         </div>
     </footer>
 
-    {{-- END FOOTER --}}
 
     {{-- Statistik Kunjungan --}}
     <div class="fixed bottom-3 right-3 z-50 group">
